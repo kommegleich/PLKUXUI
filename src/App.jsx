@@ -199,71 +199,73 @@ function App() {
       </AnimatePresence>
 
       {/* Expertise Section */}
-      <section id="expertise" className="w-full min-h-screen flex flex-col justify-center bg-[#fff] pt-32 pb-64 text-[#121212]">
-        <div className="w-full px-4 md:px-8 mb-24 flex justify-center">
-          <h2 className="text-[clamp(4.5rem,12vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center">EXPERTISE.</h2>
-        </div>
-
-        <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col xl:flex-row items-center xl:items-start justify-between gap-16 xl:gap-8 mt-20">
-          {/* Figma Column */}
-          <div className="flex flex-col flex-1 max-w-sm">
-            <div className="mb-6">
-              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 border border-gray-200 px-2 py-1 rounded">Design Tool</span>
-            </div>
-            <div className="flex items-center gap-6">
-              <div className="w-20 h-20 bg-[#F2F2F2] rounded-2xl flex items-center justify-center p-5 shrink-0">
-                <svg viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[30px] h-full object-contain">
-                  <path d="M19 28.5C19 23.25 14.75 19 9.5 19C4.25 19 0 23.25 0 28.5C0 33.75 4.25 38 9.5 38C14.75 38 19 33.75 19 28.5Z" fill="#1ABCFE" />
-                  <path d="M0 9.5C0 4.25 4.25 0 9.5 0H19V19H9.5C4.25 19 0 14.75 0 9.5Z" fill="#F24E1E" />
-                  <path d="M19 0H28.5C33.75 0 38 4.25 38 9.5C38 14.75 33.75 19 28.5 19H19V0Z" fill="#FF7262" />
-                  <path d="M19 19H28.5C33.75 19 38 23.25 38 28.5C38 33.75 33.75 38 28.5 38H19V19Z" fill="#A259FF" />
-                  <path d="M0 47.5C0 42.25 4.25 38 9.5 38H19V47.5C19 52.75 14.75 57 9.5 57C4.25 57 0 52.75 0 47.5Z" fill="#0AC170" />
-                </svg>
-              </div>
-              <div className="flex flex-col flex-1 overflow-hidden h-[4rem] md:h-[5rem]">
-                <h3 className="text-4xl md:text-5xl font-black tracking-tight leading-none mb-2">Figma</h3>
-                <RollingSkills skills={["UI Design", "Prototyping", "Design System", "Collaboration"]} color="text-gray-400" />
-              </div>
-            </div>
+      <section id="expertise" className="relative w-full h-[200vh] bg-[#fff] text-[#121212]">
+        <div className="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden">
+          <div className="w-full px-4 md:px-8 mb-16 xl:mb-24 flex justify-center">
+            <h2 className="text-[clamp(4.5rem,12vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center">EXPERTISE.</h2>
           </div>
 
-          {/* Adobe Column */}
-          <div className="flex flex-col flex-1 max-w-sm">
-            <div className="mb-6">
-              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 border border-gray-200 px-2 py-1 rounded">Creative Cloud</span>
-            </div>
-            <div className="flex items-center gap-6">
-              <div className="w-20 h-20 bg-[#FF0000] rounded-2xl flex items-center justify-center p-5 shrink-0 shadow-lg shadow-red-100">
-                <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" className="w-[30px] h-full object-contain">
-                  <path d="M14.653 3H21v17.402l-6.347-17.402zm-5.306 0H3v17.402L9.347 3zM12 10.367l4.184 10.035h-3.265l-1.429-3.714H8.714L7.286 20.402H4L12 10.367z" />
-                </svg>
+          <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col xl:flex-row items-center xl:items-start justify-between gap-16 xl:gap-8 mt-10 xl:mt-20">
+            {/* Figma Column */}
+            <div className="flex flex-col flex-1 max-w-sm">
+              <div className="mb-6">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 border border-gray-200 px-2 py-1 rounded">Design Tool</span>
               </div>
-              <div className="flex flex-col flex-1 overflow-hidden h-[4rem] md:h-[5rem]">
-                <h3 className="text-4xl md:text-5xl font-black tracking-tight leading-none mb-2">Adobe</h3>
-                <RollingSkills skills={["Photoshop", "Illustrator", "After Effects", "Premiere Pro"]} color="text-gray-400" />
-              </div>
-            </div>
-          </div>
-
-          {/* Development Column */}
-          <div className="flex flex-col flex-1 max-w-sm">
-            <div className="mb-6">
-              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 border border-gray-200 px-2 py-1 rounded">Tech Stack</span>
-            </div>
-            <div className="flex items-center gap-6">
-              <div className="w-20 h-20 bg-[#2D2D2D] rounded-2xl flex items-center justify-center p-3.5 shrink-0">
-                <div className="flex gap-0.5 max-w-full justify-center">
-                  <svg viewBox="0 0 24 24" fill="#E34F26" xmlns="http://www.w3.org/2000/svg" className="w-[22px] h-[22px]">
-                    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
-                  </svg>
-                  <svg viewBox="0 0 24 24" fill="#1572B6" xmlns="http://www.w3.org/2000/svg" className="w-[22px] h-[22px]">
-                    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
+              <div className="flex items-center gap-6">
+                <div className="w-20 h-20 bg-[#F2F2F2] rounded-2xl flex items-center justify-center p-5 shrink-0">
+                  <svg viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[30px] h-full object-contain">
+                    <path d="M19 28.5C19 23.25 14.75 19 9.5 19C4.25 19 0 23.25 0 28.5C0 33.75 4.25 38 9.5 38C14.75 38 19 33.75 19 28.5Z" fill="#1ABCFE" />
+                    <path d="M0 9.5C0 4.25 4.25 0 9.5 0H19V19H9.5C4.25 19 0 14.75 0 9.5Z" fill="#F24E1E" />
+                    <path d="M19 0H28.5C33.75 0 38 4.25 38 9.5C38 14.75 33.75 19 28.5 19H19V0Z" fill="#FF7262" />
+                    <path d="M19 19H28.5C33.75 19 38 23.25 38 28.5C38 33.75 33.75 38 28.5 38H19V19Z" fill="#A259FF" />
+                    <path d="M0 47.5C0 42.25 4.25 38 9.5 38H19V47.5C19 52.75 14.75 57 9.5 57C4.25 57 0 52.75 0 47.5Z" fill="#0AC170" />
                   </svg>
                 </div>
+                <div className="flex flex-col flex-1 overflow-hidden h-[4rem] md:h-[5rem]">
+                  <h3 className="text-4xl md:text-5xl font-black tracking-tight leading-none mb-2">Figma</h3>
+                  <RollingSkills skills={["UI Design", "Prototyping", "Design System", "Collaboration"]} color="text-gray-400" />
+                </div>
               </div>
-              <div className="flex flex-col flex-1 overflow-hidden h-[4rem] md:h-[5rem]">
-                <h3 className="text-4xl md:text-5xl font-black tracking-tight leading-none mb-2">Dev</h3>
-                <RollingSkills skills={["HTML5", "CSS3 / Tailwind", "React.js", "JavaScript"]} color="text-gray-400" />
+            </div>
+
+            {/* Adobe Column */}
+            <div className="flex flex-col flex-1 max-w-sm">
+              <div className="mb-6">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 border border-gray-200 px-2 py-1 rounded">Creative Cloud</span>
+              </div>
+              <div className="flex items-center gap-6">
+                <div className="w-20 h-20 bg-[#FF0000] rounded-2xl flex items-center justify-center p-5 shrink-0 shadow-lg shadow-red-100">
+                  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" className="w-[30px] h-full object-contain">
+                    <path d="M14.653 3H21v17.402l-6.347-17.402zm-5.306 0H3v17.402L9.347 3zM12 10.367l4.184 10.035h-3.265l-1.429-3.714H8.714L7.286 20.402H4L12 10.367z" />
+                  </svg>
+                </div>
+                <div className="flex flex-col flex-1 overflow-hidden h-[4rem] md:h-[5rem]">
+                  <h3 className="text-4xl md:text-5xl font-black tracking-tight leading-none mb-2">Adobe</h3>
+                  <RollingSkills skills={["Photoshop", "Illustrator", "After Effects", "Premiere Pro"]} color="text-gray-400" />
+                </div>
+              </div>
+            </div>
+
+            {/* Development Column */}
+            <div className="flex flex-col flex-1 max-w-sm">
+              <div className="mb-6">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 border border-gray-200 px-2 py-1 rounded">Tech Stack</span>
+              </div>
+              <div className="flex items-center gap-6">
+                <div className="w-20 h-20 bg-[#2D2D2D] rounded-2xl flex items-center justify-center p-3.5 shrink-0">
+                  <div className="flex gap-0.5 max-w-full justify-center">
+                    <svg viewBox="0 0 24 24" fill="#E34F26" xmlns="http://www.w3.org/2000/svg" className="w-[22px] h-[22px]">
+                      <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
+                    </svg>
+                    <svg viewBox="0 0 24 24" fill="#1572B6" xmlns="http://www.w3.org/2000/svg" className="w-[22px] h-[22px]">
+                      <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="flex flex-col flex-1 overflow-hidden h-[4rem] md:h-[5rem]">
+                  <h3 className="text-4xl md:text-5xl font-black tracking-tight leading-none mb-2">Dev</h3>
+                  <RollingSkills skills={["HTML5", "CSS3 / Tailwind", "React.js", "JavaScript"]} color="text-gray-400" />
+                </div>
               </div>
             </div>
           </div>
