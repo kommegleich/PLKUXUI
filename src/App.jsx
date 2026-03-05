@@ -72,6 +72,7 @@ import Navbar from './components/Navbar'; function App() {
         <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-bold mb-24 text-black tracking-tighter text-center leading-none">Projects</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 lg:gap-x-8 gap-y-24 px-4 2xl:px-8 w-full mx-auto">
+          {/* Project 1 */}
           <div className="group cursor-pointer flex flex-col transition-transform duration-300">
             <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden relative bg-gray-200">
               <div className="absolute top-6 left-6 z-10 flex flex-wrap gap-2">
@@ -92,6 +93,7 @@ import Navbar from './components/Navbar'; function App() {
             </div>
           </div>
 
+          {/* Project 2 */}
           <div className="group cursor-pointer flex flex-col transition-transform duration-300">
             <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden relative bg-gray-200">
               <div className="absolute top-6 left-6 z-10 flex flex-wrap gap-2">
@@ -108,6 +110,7 @@ import Navbar from './components/Navbar'; function App() {
             </div>
           </div>
 
+          {/* Project 3 */}
           <div className="group cursor-pointer flex flex-col transition-transform duration-300">
             <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden relative bg-gray-200">
               <div className="absolute top-6 left-6 z-10 flex flex-wrap gap-2">
@@ -115,6 +118,57 @@ import Navbar from './components/Navbar'; function App() {
                 <span className="text-white outline-none rounded-full text-xs sm:text-sm px-4 sm:px-5 py-1.5 sm:py-2 font-bold bg-[#121212] tracking-wider uppercase">B2B</span>
               </div>
               <span className="text-gray-400 font-medium absolute inset-0 flex items-center justify-center transform transition-transform duration-1000 group-hover:scale-105">Image Placeholder 3</span>
+            </div>
+            <div className="pt-8 pb-2 bg-[#f8f8f8] flex flex-col justify-center items-center text-center">
+              <div className="text-xl sm:text-2xl lg:text-[1.75rem] leading-snug w-full mx-auto break-keep">
+                <h3 className="font-extrabold text-[#333333] tracking-tight inline transition-colors duration-300 group-hover:text-black uppercase">B2B SaaS Dashboard Pattern</h3>
+                <span className="text-gray-500 font-medium inline ml-2 md:ml-3">— 서브타이틀 영역</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Project 4 (Duplicate of 1) */}
+          <div className="group cursor-pointer flex flex-col transition-transform duration-300">
+            <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden relative bg-gray-200">
+              <div className="absolute top-6 left-6 z-10 flex flex-wrap gap-2">
+                <span className="text-white outline-none rounded-full text-xs sm:text-sm px-4 sm:px-5 py-1.5 sm:py-2 font-bold bg-[#121212] tracking-wider uppercase">UX Research</span>
+                <span className="text-white outline-none rounded-full text-xs sm:text-sm px-4 sm:px-5 py-1.5 sm:py-2 font-bold bg-[#121212] tracking-wider uppercase">UI/UX Design</span>
+              </div>
+              <span className="text-gray-400 font-medium absolute inset-0 flex items-center justify-center transform transition-transform duration-1000 group-hover:scale-105">Image Placeholder 4</span>
+            </div>
+            <div className="pt-8 pb-2 bg-[#f8f8f8] flex flex-col justify-center items-center text-center">
+              <div className="text-xl sm:text-2xl lg:text-[1.75rem] leading-snug w-full mx-auto break-keep">
+                <h3 className="font-extrabold text-[#333333] tracking-tight inline transition-colors duration-300 group-hover:text-black uppercase">골프장 통합 ERP시스템</h3>
+                <span className="text-gray-500 font-medium inline ml-2 md:ml-3">— 골프장 관리의 새로운 기준, 시작에서부터 끝의 모든 프로세스를 한번에!</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Project 5 (Duplicate of 2) */}
+          <div className="group cursor-pointer flex flex-col transition-transform duration-300">
+            <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden relative bg-gray-200">
+              <div className="absolute top-6 left-6 z-10 flex flex-wrap gap-2">
+                <span className="text-white outline-none rounded-full text-xs sm:text-sm px-4 sm:px-5 py-1.5 sm:py-2 font-bold bg-[#121212] tracking-wider uppercase">App Design</span>
+                <span className="text-white outline-none rounded-full text-xs sm:text-sm px-4 sm:px-5 py-1.5 sm:py-2 font-bold bg-[#121212] tracking-wider uppercase">Prototyping</span>
+              </div>
+              <span className="text-gray-400 font-medium absolute inset-0 flex items-center justify-center transform transition-transform duration-1000 group-hover:scale-105">Image Placeholder 5</span>
+            </div>
+            <div className="pt-8 pb-2 bg-[#f8f8f8] flex flex-col justify-center items-center text-center">
+              <div className="text-xl sm:text-2xl lg:text-[1.75rem] leading-snug w-full mx-auto break-keep">
+                <h3 className="font-extrabold text-[#333333] tracking-tight inline transition-colors duration-300 group-hover:text-black uppercase">E-Commerce App UX Improvement</h3>
+                <span className="text-gray-500 font-medium inline ml-2 md:ml-3">— 서브타이틀 영역</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Project 6 (Duplicate of 3) */}
+          <div className="group cursor-pointer flex flex-col transition-transform duration-300">
+            <div className="w-full aspect-[4/3] lg:aspect-[16/10] overflow-hidden relative bg-gray-200">
+              <div className="absolute top-6 left-6 z-10 flex flex-wrap gap-2">
+                <span className="text-white outline-none rounded-full text-xs sm:text-sm px-4 sm:px-5 py-1.5 sm:py-2 font-bold bg-[#121212] tracking-wider uppercase">Design System</span>
+                <span className="text-white outline-none rounded-full text-xs sm:text-sm px-4 sm:px-5 py-1.5 sm:py-2 font-bold bg-[#121212] tracking-wider uppercase">B2B</span>
+              </div>
+              <span className="text-gray-400 font-medium absolute inset-0 flex items-center justify-center transform transition-transform duration-1000 group-hover:scale-105">Image Placeholder 6</span>
             </div>
             <div className="pt-8 pb-2 bg-[#f8f8f8] flex flex-col justify-center items-center text-center">
               <div className="text-xl sm:text-2xl lg:text-[1.75rem] leading-snug w-full mx-auto break-keep">
