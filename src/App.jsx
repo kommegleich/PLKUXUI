@@ -377,12 +377,9 @@ function App() {
                   {/* Hover State */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 flex flex-col justify-end pb-2">
                     <a href="#projects" className="flex items-center gap-2 group/link cursor-pointer w-fit">
-                      <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none group-hover/link:underline underline-offset-[6px] decoration-1">
+                      <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none group-hover/link:underline underline-offset-[8px] decoration-4">
                         MORE WORKS
                       </h3>
-                      <svg className="w-8 h-8 md:w-10 md:h-10 text-white transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                      </svg>
                     </a>
                   </div>
                 </div>
@@ -431,20 +428,14 @@ function App() {
                   {/* Hover State */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 flex flex-col justify-end gap-2 pb-2">
                     <a href="mailto:arbeiterinpilita@gmail.com" className="flex items-center gap-2 group/link cursor-pointer w-fit">
-                      <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none group-hover/link:underline underline-offset-[6px] decoration-1">
-                        CONTACT
+                      <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none group-hover/link:underline underline-offset-[8px] decoration-4">
+                        GET IN TOUCH
                       </h3>
-                      <svg className="w-8 h-8 md:w-10 md:h-10 text-white transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                      </svg>
                     </a>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group/link2 cursor-pointer w-fit">
-                      <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none group-hover/link2:underline underline-offset-[6px] decoration-1">
+                      <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none group-hover/link2:underline underline-offset-[8px] decoration-4">
                         LINKEDIN
                       </h3>
-                      <svg className="w-8 h-8 md:w-10 md:h-10 text-white transform group-hover/link2:translate-x-1 group-hover/link2:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                      </svg>
                     </a>
                   </div>
                 </div>
