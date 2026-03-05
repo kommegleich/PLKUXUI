@@ -81,7 +81,7 @@ function App() {
       {/* Projects Section (Posterco Style) */}
       <section id="projects" className="w-full bg-[#0d0d0d] pt-64 pb-96 text-white">
         <div className="w-full px-4 md:px-8 mb-24 flex justify-center">
-          <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 hover:text-gray-300 transition-colors text-center">PROJECTS.</h2>
+          <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 text-center">PROJECTS.</h2>
         </div>
         <div className="flex flex-col w-full border-t border-gray-800">
           {[
@@ -201,7 +201,7 @@ function App() {
       {/* Expertise Section */}
       <section id="expertise" className="w-full min-h-screen flex flex-col justify-center bg-[#fff] pt-32 pb-64 text-[#121212]">
         <div className="w-full px-4 md:px-8 mb-24 flex justify-center">
-          <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 hover:text-gray-600 transition-colors text-center">EXPERTISE.</h2>
+          <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 text-center">EXPERTISE.</h2>
         </div>
 
         <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between gap-16 md:gap-8 mt-20">
@@ -276,7 +276,7 @@ function App() {
           <div className="mb-12">
             <span className="text-[30px] font-normal text-gray-400 border border-gray-700 px-10 py-5 rounded-[4rem] backdrop-blur-sm tracking-[-0.05em]">about</span>
           </div>
-          <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 hover:text-gray-300 transition-colors text-center uppercase">
+          <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 text-center uppercase">
             MY APPROACH.
           </h2>
         </div>
@@ -292,6 +292,7 @@ function App() {
                   alt="pulip kim"
                   className="w-full h-full object-cover scale-[1.02] border-none outline-none"
                 />
+                <div className="absolute inset-0 bg-black/20"></div>
               </div>
 
               <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
@@ -342,6 +343,7 @@ function App() {
                   alt="flow"
                   className="w-full h-full object-cover scale-[1.02] border-none outline-none"
                 />
+                <div className="absolute inset-0 bg-black/20"></div>
               </div>
 
               <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
@@ -391,6 +393,7 @@ function App() {
                   alt="context"
                   className="w-full h-full object-cover scale-[1.02] border-none outline-none"
                 />
+                <div className="absolute inset-0 bg-black/20"></div>
               </div>
 
               <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
