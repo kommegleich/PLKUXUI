@@ -336,11 +336,11 @@ function App() {
             </div>
 
             {/* Card 2 */}
-            <div className="group relative w-full aspect-[3/5] bg-[#d9331d] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.08] transition-transform duration-500 ease-out shadow-2xl">
+            <div className="group relative w-full aspect-[3/5] bg-[#d9331d] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.08] transition-transform duration-300 ease-out shadow-2xl">
               {/* Hover Image */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-0">
                 <img
-                  src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop"
+                  src="/pilikimsUXUI/assets/card2_hover.jpg"
                   alt="flow"
                   className="w-full h-full object-cover"
                 />
@@ -348,24 +348,24 @@ function App() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
               </div>
 
-              <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-500 ease-out group-hover:-translate-y-2">
+              <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
                 {/* Top: Number */}
                 <div className="flex-none">
-                  <span className="text-3xl md:text-4xl font-light tracking-tight text-white/90 group-hover:text-white transition-colors duration-500">
+                  <span className="text-3xl md:text-4xl font-light tracking-tight text-white/90 group-hover:text-white transition-colors duration-300">
                     (02)
                   </span>
                 </div>
 
                 {/* Middle: Title */}
                 <div className="flex-1 flex items-center">
-                  <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-extralight tracking-tighter text-white group-hover:text-white transition-all duration-500 leading-none normal-case" style={{ fontWeight: 200 }}>
+                  <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-extralight tracking-tighter text-white group-hover:text-white transition-all duration-300 leading-none normal-case" style={{ fontWeight: 200 }}>
                     Flow
                   </h3>
                 </div>
 
                 {/* Bottom: Description */}
                 <div className="flex-none h-32 md:h-40">
-                  <p className="text-lg md:text-xl text-white/70 group-hover:text-white transition-colors duration-500 font-medium break-keep leading-snug w-[95%]">
+                  <p className="text-lg md:text-xl text-white/70 group-hover:text-white transition-colors duration-300 font-medium break-keep leading-snug w-[95%]">
                     사용자의 목적과 제품의 구조가 일치하는 지점
                   </p>
                 </div>
@@ -373,11 +373,11 @@ function App() {
             </div>
 
             {/* Card 3 */}
-            <div className="group relative w-full aspect-[3/5] bg-[#1b1b1b] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.08] transition-transform duration-500 ease-out shadow-2xl">
+            <div className="group relative w-full aspect-[3/5] bg-[#1b1b1b] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.08] transition-transform duration-300 ease-out shadow-2xl">
               {/* Hover Image */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-0">
                 <img
-                  src="https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=1200&auto=format&fit=crop"
+                  src="/pilikimsUXUI/assets/card3_hover.jpg"
                   alt="context"
                   className="w-full h-full object-cover"
                 />
@@ -385,26 +385,43 @@ function App() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
               </div>
 
-              <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-500 ease-out group-hover:-translate-y-2">
+              <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
                 {/* Top: Number */}
                 <div className="flex-none">
-                  <span className="text-3xl md:text-4xl font-light tracking-tight text-white/80 group-hover:text-white transition-colors duration-500">
+                  <span className="text-3xl md:text-4xl font-light tracking-tight text-white/80 group-hover:text-white transition-colors duration-300">
                     (03)
                   </span>
                 </div>
 
-                {/* Middle: Title */}
-                <div className="flex-1 flex items-center">
-                  <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-extralight tracking-tighter text-white group-hover:text-white transition-all duration-500 leading-none normal-case" style={{ fontWeight: 200 }}>
-                    Context
-                  </h3>
+                {/* Middle: Title Area (Crossfade logic) */}
+                <div className="flex-1 flex items-center relative">
+                  {/* Default State */}
+                  <div className="absolute inset-0 flex items-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                    <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-extralight tracking-tighter text-white leading-none normal-case" style={{ fontWeight: 200 }}>
+                      Context
+                    </h3>
+                  </div>
                 </div>
 
-                {/* Bottom: Description */}
-                <div className="flex-none h-32 md:h-40">
-                  <p className="text-lg md:text-xl text-gray-400 group-hover:text-white transition-colors duration-500 font-medium break-keep leading-snug w-[95%]">
-                    화면이 아닌 제품 전체의 구조를 먼저 읽는 것
-                  </p>
+                {/* Bottom: Description Area (Crossfade logic) */}
+                <div className="flex-none relative h-32 md:h-40">
+                  {/* Default State */}
+                  <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                    <p className="text-lg md:text-xl text-gray-400 font-medium break-keep leading-snug w-[95%]">
+                      화면이 아닌 제품 전체의 구조를 먼저 읽는 것
+                    </p>
+                  </div>
+                  {/* Hover State */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 flex flex-col justify-end pb-2">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group/link cursor-pointer w-fit">
+                      <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none">
+                        LINKEDIN
+                      </h3>
+                      <svg className="w-8 h-8 md:w-10 md:h-10 text-white transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
