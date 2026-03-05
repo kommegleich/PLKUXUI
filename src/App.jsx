@@ -274,7 +274,7 @@ function App() {
       <section id="approach" className="w-full bg-[#121212] pt-32 pb-48 text-white relative">
         <div className="w-full px-4 md:px-8 mb-24 flex flex-col items-center">
           <div className="mb-12">
-            <span className="text-[30px] font-normal text-gray-400 border border-gray-700 px-10 py-5 rounded-[4rem] backdrop-blur-sm tracking-[-0.05em]">About</span>
+            <span className="text-[30px] font-normal text-gray-400 border border-gray-700 px-10 py-5 rounded-[4rem] backdrop-blur-sm tracking-[-0.05em]">about</span>
           </div>
           <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 hover:text-gray-300 transition-colors text-center uppercase">
             MY APPROACH.
@@ -284,12 +284,12 @@ function App() {
         <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="group relative w-full aspect-[4/5] bg-[#ffffff] rounded-[2.5rem] overflow-hidden cursor-pointer border border-black/5">
+            <div className="group relative w-full aspect-[4/5] bg-[#ffffff] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.03] transition-transform duration-500 ease-out">
               {/* Hover Image */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
                 <img
                   src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop"
-                  alt="Intuition"
+                  alt="intuition"
                   className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out"
                 />
                 <div className="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
@@ -307,7 +307,7 @@ function App() {
                 {/* Middle: Title */}
                 <div className="flex-1 flex items-center">
                   <h3 className="text-[4rem] md:text-[5rem] lg:text-[6rem] font-extralight tracking-tighter text-[#121212] group-hover:text-white transition-all duration-500 leading-none" style={{ fontWeight: 200 }}>
-                    Intuition
+                    intuition
                   </h3>
                 </div>
 
@@ -321,12 +321,12 @@ function App() {
             </div>
 
             {/* Card 2 */}
-            <div className="group relative w-full aspect-[4/5] bg-[#d9331d] rounded-[2.5rem] overflow-hidden cursor-pointer border border-white/5">
+            <div className="group relative w-full aspect-[4/5] bg-[#d9331d] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.03] transition-transform duration-500 ease-out">
               {/* Hover Image */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
                 <img
                   src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop"
-                  alt="Flow"
+                  alt="flow"
                   className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out"
                 />
                 <div className="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
@@ -344,7 +344,7 @@ function App() {
                 {/* Middle: Title */}
                 <div className="flex-1 flex items-center">
                   <h3 className="text-[4rem] md:text-[5rem] lg:text-[6rem] font-extralight tracking-tighter text-white group-hover:text-white transition-all duration-500 leading-none" style={{ fontWeight: 200 }}>
-                    Flow
+                    flow
                   </h3>
                 </div>
 
@@ -358,12 +358,12 @@ function App() {
             </div>
 
             {/* Card 3 */}
-            <div className="group relative w-full aspect-[4/5] bg-[#1b1b1b] rounded-[2.5rem] overflow-hidden cursor-pointer border border-white/5">
+            <div className="group relative w-full aspect-[4/5] bg-[#1b1b1b] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.03] transition-transform duration-500 ease-out">
               {/* Hover Image */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
                 <img
                   src="https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=1200&auto=format&fit=crop"
-                  alt="Context"
+                  alt="context"
                   className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out"
                 />
                 <div className="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
@@ -381,7 +381,7 @@ function App() {
                 {/* Middle: Title */}
                 <div className="flex-1 flex items-center">
                   <h3 className="text-[4rem] md:text-[5rem] lg:text-[6rem] font-extralight tracking-tighter text-white group-hover:text-white transition-all duration-500 leading-none" style={{ fontWeight: 200 }}>
-                    Context
+                    context
                   </h3>
                 </div>
 
