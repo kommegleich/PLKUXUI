@@ -312,16 +312,10 @@ function App() {
                       intuition
                     </h3>
                   </div>
-                  {/* Hover State */}
-                  <div className="absolute inset-0 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white leading-none normal-case">
-                      Pulip Kim
-                    </h3>
-                  </div>
                 </div>
 
                 {/* Bottom: Description Area (Crossfade logic) */}
-                <div className="flex-none relative h-20">
+                <div className="flex-none relative h-32 md:h-40">
                   {/* Default State */}
                   <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-500">
                     <p className="text-lg md:text-xl text-gray-500 font-medium break-keep leading-snug w-[95%]">
@@ -329,15 +323,13 @@ function App() {
                     </p>
                   </div>
                   {/* Hover State */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex items-end pb-2">
-                    <div className="flex flex-row flex-wrap items-baseline gap-3 w-full">
-                      <span className="text-2xl md:text-3xl font-normal text-white uppercase tracking-tight">
-                        PULIP KIM
-                      </span>
-                      <span className="text-sm md:text-base text-gray-200 font-normal uppercase">
-                        ARBEITERINPILITA@GMAIL.COM
-                      </span>
-                    </div>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex flex-col justify-end pb-2">
+                    <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none mb-2">
+                      PULIP KIM
+                    </h3>
+                    <p className="text-sm md:text-base text-gray-200 font-normal uppercase">
+                      ARBEITERINPILITA@GMAIL.COM
+                    </p>
                   </div>
                 </div>
               </div>
