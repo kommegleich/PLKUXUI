@@ -79,8 +79,8 @@ import Navbar from './components/Navbar'; function App() {
             <div className="w-full aspect-[4/3] relative">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 p-8 md:p-12 translate-y-8 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 z-10 w-full">
-                <h3 className="text-[8rem] md:text-[16rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">골프장 통합 관리시스템</h3>
-                <p className="text-gray-300 font-normal tracking-wide text-base md:text-lg md:whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-sm">골프장 관리의 새로운 기준, 골프장 모든 프로세스를 한번에!</p>
+                <h3 className="text-[5.5rem] md:text-[10.5rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">골프장 통합 관리시스템</h3>
+                <p className="text-gray-300 font-normal tracking-wide text-base md:text-lg md:whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-sm">골퍼가 입장해서 결제하고 나갈 때까지의 모든 서비스를 관리 제공하는 솔루션서비스와, 이를 지원하는 회원·매출·코스 관리 등 방대한 운영 업무(B2B)를 하나로 통합한 솔루션</p>
               </div>
             </div>
           </a>
@@ -90,8 +90,8 @@ import Navbar from './components/Navbar'; function App() {
             <div className="w-full aspect-[4/3] relative">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 p-8 md:p-12 translate-y-8 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 z-10 w-full">
-                <h3 className="text-[8rem] md:text-[16rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">App Design</h3>
-                <p className="text-gray-300 font-normal tracking-wide text-base md:text-lg md:whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-sm">E-COMMERCE APP UX IMPROVEMENT</p>
+                <h3 className="text-[5.5rem] md:text-[10.5rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">ASmartscore Armature Golf League</h3>
+                <p className="text-gray-300 font-normal tracking-wide text-base md:text-lg md:whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-sm">스마트스코어 앱에서 참가 가능한 아마추어 골프리그</p>
               </div>
             </div>
           </a>
@@ -101,7 +101,7 @@ import Navbar from './components/Navbar'; function App() {
             <div className="w-full aspect-[4/3] relative">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 p-8 md:p-12 translate-y-8 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 z-10 w-full">
-                <h3 className="text-[8rem] md:text-[16rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">Design System</h3>
+                <h3 className="text-[5.5rem] md:text-[10.5rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">Design System</h3>
                 <p className="text-gray-300 font-normal tracking-wide text-base md:text-lg md:whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-sm">B2B SAAS DASHBOARD PATTERN</p>
               </div>
             </div>
@@ -112,7 +112,7 @@ import Navbar from './components/Navbar'; function App() {
             <div className="w-full aspect-[4/3] relative">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 p-8 md:p-12 translate-y-8 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 z-10 w-full">
-                <h3 className="text-[8rem] md:text-[16rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">UX Research & Design</h3>
+                <h3 className="text-[5.5rem] md:text-[10.5rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">UX Research & Design</h3>
                 <p className="text-gray-300 font-normal tracking-wide text-base md:text-lg md:whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-sm">골프장 통합 ERP시스템</p>
               </div>
             </div>
@@ -123,7 +123,7 @@ import Navbar from './components/Navbar'; function App() {
             <div className="w-full aspect-[4/3] relative">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 p-8 md:p-12 translate-y-8 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 z-10 w-full">
-                <h3 className="text-[8rem] md:text-[16rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">App Design</h3>
+                <h3 className="text-[5.5rem] md:text-[10.5rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">App Design</h3>
                 <p className="text-gray-300 font-normal tracking-wide text-base md:text-lg md:whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-sm">E-COMMERCE APP UX IMPROVEMENT</p>
               </div>
             </div>
@@ -134,7 +134,7 @@ import Navbar from './components/Navbar'; function App() {
             <div className="w-full aspect-[4/3] relative">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 p-8 md:p-12 translate-y-8 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 z-10 w-full">
-                <h3 className="text-[8rem] md:text-[16rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">Design System</h3>
+                <h3 className="text-[5.5rem] md:text-[10.5rem] leading-none font-black font-helvetica tracking-tighter mb-4 uppercase text-white drop-shadow-md">Design System</h3>
                 <p className="text-gray-300 font-normal tracking-wide text-base md:text-lg md:whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-sm">B2B SAAS DASHBOARD PATTERN</p>
               </div>
             </div>
