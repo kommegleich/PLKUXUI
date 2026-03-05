@@ -270,39 +270,110 @@ function App() {
         </div>
       </section>
 
-      {/* Profile Section (Inspired by andreebel.de "Jetzt starten") */}
-      <section id="profile" className="w-full bg-[#121212] flex justify-center py-32 md:py-48 px-4 md:px-8 text-white relative">
-        <div className="w-full max-w-[1400px] flex flex-col md:flex-row gap-16 md:gap-32 items-start justify-between">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex-1"
-          >
-            <h2 className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter mb-8 md:mb-0">
-              PROFILE.
-            </h2>
-          </motion.div>
+      {/* My Approach Section */}
+      <section id="approach" className="w-full bg-[#121212] pt-32 pb-48 text-white relative">
+        <div className="w-full px-4 md:px-8 mb-24 flex flex-col items-center">
+          <div className="mb-6">
+            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 border border-gray-700 px-4 py-2 rounded-full backdrop-blur-sm">ABOUT</span>
+          </div>
+          <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 hover:text-gray-300 transition-colors text-center uppercase">
+            MY APPROACH.
+          </h2>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="flex-1 flex flex-col gap-12"
-          >
-            <p className="text-xl md:text-3xl text-gray-300 font-medium leading-[1.6] tracking-tight">
-              아이디어가 현실이 되기까지 모든 과정에 깊게 관여하며, 유연한 소통을 기반으로 창의적인 솔루션을 만들어갑니다. 단순한 디자인을 넘어 사용자의 삶에 맞닿는 경험을 제공하기 위해 고민합니다. 준비가 되셨다면, 언제든 이야기 나눠보고 싶습니다.
-            </p>
-
-            <div className="pt-4">
-              <a href="#contact" className="inline-flex items-center justify-between gap-6 px-8 py-5 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300 group w-full md:w-auto min-w-[280px]">
-                <span className="text-xl font-bold tracking-tight">Get in Touch</span>
-                <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
-              </a>
+        <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <div className="group relative w-full aspect-[4/5] bg-[#1a1a1a] rounded-3xl overflow-hidden cursor-pointer border border-white/5">
+              {/* Hover Image */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
+                <img 
+                  src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" 
+                  alt="김풀잎" 
+                  className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out" 
+                />
+                <div className="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
+              </div>
+              
+              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10 transition-transform duration-500 ease-out group-hover:translate-y-[-10px]">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-white transition-all duration-500">
+                    김풀잎
+                  </h3>
+                  <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                    <ArrowRight size={18} />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-lg md:text-xl text-gray-400 group-hover:text-white transition-colors duration-500 font-medium break-keep">
+                    첫 진입부터 다음 행동이 보이는 구조
+                  </p>
+                </div>
+              </div>
             </div>
-          </motion.div>
+
+            {/* Card 2 */}
+            <div className="group relative w-full aspect-[4/5] bg-[#1a1a1a] rounded-3xl overflow-hidden cursor-pointer border border-white/5">
+              {/* Hover Image */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
+                <img 
+                  src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop" 
+                  alt="흐름" 
+                  className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out" 
+                />
+                <div className="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
+              </div>
+              
+              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10 transition-transform duration-500 ease-out group-hover:translate-y-[-10px]">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-white transition-all duration-500">
+                    흐름
+                  </h3>
+                  <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                    <ArrowRight size={18} />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-lg md:text-xl text-gray-400 group-hover:text-white transition-colors duration-500 font-medium break-keep">
+                    사용자의 목적과 제품의 구조가 일치하는 지점
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="group relative w-full aspect-[4/5] bg-[#1a1a1a] rounded-3xl overflow-hidden cursor-pointer border border-white/5">
+              {/* Hover Image */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
+                <img 
+                  src="https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=1200&auto=format&fit=crop" 
+                  alt="맥락" 
+                  className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out" 
+                />
+                <div className="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
+              </div>
+              
+              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10 transition-transform duration-500 ease-out group-hover:translate-y-[-10px]">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-white transition-all duration-500">
+                    맥락
+                  </h3>
+                  <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                    <ArrowRight size={18} />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-lg md:text-xl text-gray-400 group-hover:text-white transition-colors duration-500 font-medium break-keep">
+                    화면이 아닌 제품 전체의 구조를 먼저 읽는 것
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
