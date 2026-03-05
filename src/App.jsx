@@ -290,7 +290,7 @@ function App() {
                 <img
                   src="/pilikimsUXUI/assets/profile.jpg"
                   alt="pulip kim"
-                  className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
@@ -342,7 +342,7 @@ function App() {
                 <img
                   src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop"
                   alt="flow"
-                  className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
@@ -379,7 +379,7 @@ function App() {
                 <img
                   src="https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=1200&auto=format&fit=crop"
                   alt="context"
-                  className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
@@ -401,7 +401,7 @@ function App() {
                 </div>
 
                 {/* Bottom: Description */}
-                <div className="flex-none">
+                <div className="flex-none h-32 md:h-40">
                   <p className="text-lg md:text-xl text-gray-400 group-hover:text-white transition-colors duration-500 font-medium break-keep leading-snug w-[95%]">
                     화면이 아닌 제품 전체의 구조를 먼저 읽는 것
                   </p>
