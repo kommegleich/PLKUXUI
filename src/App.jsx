@@ -288,7 +288,7 @@ function App() {
               {/* Hover Image */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
                 <img
-                  src="/Users/pilikim/.gemini/antigravity/brain/812a755b-86d9-4e91-8892-58e06dbece53/media/1741198934449887103/image_0.png"
+                  src="/assets/profile.jpg"
                   alt="Pulip Kim"
                   className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out"
                 />
