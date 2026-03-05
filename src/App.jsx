@@ -32,7 +32,7 @@ function App() {
         >
           {/* Centered Text */}
           <motion.div
-            className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter cursor-default text-[#121212] mb-8 leading-none"
+            className="text-[clamp(5rem,15vw,14rem)] font-black tracking-tighter cursor-default text-[#121212] mb-8 leading-none"
             initial={{ opacity: 0, y: 15 }}
             animate={{
               opacity: 1,
@@ -81,7 +81,7 @@ function App() {
       {/* Projects Section (Posterco Style) */}
       <section id="projects" className="w-full bg-[#0d0d0d] pt-64 pb-96 text-white">
         <div className="w-full px-4 md:px-8 mb-24 flex justify-center">
-          <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 text-center">PROJECTS.</h2>
+          <h2 className="text-[clamp(4.5rem,12vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center">PROJECTS.</h2>
         </div>
         <div className="flex flex-col w-full border-t border-gray-800">
           {[
@@ -201,10 +201,10 @@ function App() {
       {/* Expertise Section */}
       <section id="expertise" className="w-full min-h-screen flex flex-col justify-center bg-[#fff] pt-32 pb-64 text-[#121212]">
         <div className="w-full px-4 md:px-8 mb-24 flex justify-center">
-          <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 text-center">EXPERTISE.</h2>
+          <h2 className="text-[clamp(4.5rem,12vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center">EXPERTISE.</h2>
         </div>
 
-        <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between gap-16 md:gap-8 mt-20">
+        <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col xl:flex-row items-center xl:items-start justify-between gap-16 xl:gap-8 mt-20">
           {/* Figma Column */}
           <div className="flex flex-col flex-1 max-w-sm">
             <div className="mb-6">
@@ -274,15 +274,15 @@ function App() {
       <section id="approach" className="w-full bg-[#121212] pt-32 pb-48 text-white relative">
         <div className="w-full px-4 md:px-8 mb-24 flex flex-col items-center">
           <div className="mb-12">
-            <span className="text-[30px] font-normal text-gray-400 border border-gray-700 px-10 py-5 rounded-[4rem] backdrop-blur-sm tracking-[-0.05em]">about</span>
+            <span className="text-[20px] md:text-[30px] font-normal text-gray-400 border border-gray-700 px-6 py-3 md:px-10 md:py-5 rounded-[4rem] backdrop-blur-sm tracking-[-0.05em]">about</span>
           </div>
-          <h2 className="text-8xl md:text-[10rem] lg:text-[14rem] font-black tracking-tighter leading-tight px-2 text-center uppercase">
+          <h2 className="text-[clamp(4rem,10vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center uppercase">
             MY APPROACH.
           </h2>
         </div>
 
         <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 transform scale-90 md:scale-[0.8] origin-center">
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-12 xl:gap-16 transform scale-95 md:scale-90 xl:scale-[0.8] origin-center max-w-lg md:max-w-2xl xl:max-w-none mx-auto">
             {/* Card 1 */}
             <div className="group relative w-full aspect-[3.5/5] bg-[#ffffff] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.08] transition-transform duration-300 ease-out shadow-2xl">
               {/* Hover Image */}
@@ -296,9 +296,8 @@ function App() {
               </div>
 
               <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
-                {/* Top: Number */}
                 <div className="flex-none">
-                  <span className="text-3xl md:text-4xl font-light tracking-tight text-[#121212] group-hover:text-white transition-colors duration-300">
+                  <span className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-[#121212] group-hover:text-white transition-colors duration-300">
                     (01)
                   </span>
                 </div>
@@ -307,7 +306,7 @@ function App() {
                 <div className="flex-1 flex items-center relative">
                   {/* Default State */}
                   <div className="absolute inset-0 flex items-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-black tracking-tighter text-[#121212] uppercase leading-none" style={{ fontWeight: 900 }}>
+                    <h3 className="text-[clamp(2.5rem,6vw,4rem)] font-black tracking-tighter text-[#121212] uppercase leading-none" style={{ fontWeight: 900 }}>
                       INTUITION
                     </h3>
                   </div>
@@ -318,18 +317,18 @@ function App() {
                   {/* Default State */}
                   <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-300 flex flex-col justify-end pb-2">
                     <div className="flex flex-col gap-1 w-full">
-                      <span className="text-2xl md:text-3xl text-[#121212] font-normal tracking-tighter">직관</span>
-                      <p className="text-2xl md:text-3xl text-[#121212] font-normal tracking-tighter break-keep leading-snug">
+                      <span className="text-xl md:text-2xl lg:text-3xl text-[#121212] font-normal tracking-tighter">직관</span>
+                      <p className="text-xl md:text-2xl lg:text-3xl text-[#121212] font-normal tracking-tighter break-keep leading-snug">
                         첫 진입부터 다음 행동이 보이는 구조
                       </p>
                     </div>
                   </div>
                   {/* Hover State */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 flex flex-col justify-end pb-2">
-                    <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none mb-2">
+                    <h3 className="text-[clamp(2rem,6vw,4rem)] font-normal tracking-tighter text-white uppercase leading-none mb-2">
                       PULIP KIM
                     </h3>
-                    <p className="text-sm md:text-base text-gray-200 font-normal uppercase">
+                    <p className="text-xs md:text-sm lg:text-base text-gray-200 font-normal uppercase">
                       ARBEITERINPILITA@GMAIL.COM
                     </p>
                   </div>
@@ -350,9 +349,8 @@ function App() {
               </div>
 
               <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
-                {/* Top: Number */}
                 <div className="flex-none">
-                  <span className="text-3xl md:text-4xl font-light tracking-tight text-white/90 group-hover:text-white transition-colors duration-300">
+                  <span className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-white/90 group-hover:text-white transition-colors duration-300">
                     (02)
                   </span>
                 </div>
@@ -361,7 +359,7 @@ function App() {
                 <div className="flex-1 flex items-center relative">
                   {/* Default State */}
                   <div className="absolute inset-0 flex items-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-black tracking-tighter text-white uppercase leading-none" style={{ fontWeight: 900 }}>
+                    <h3 className="text-[clamp(2.5rem,6vw,4rem)] font-black tracking-tighter text-white uppercase leading-none" style={{ fontWeight: 900 }}>
                       FLOW
                     </h3>
                   </div>
@@ -372,8 +370,8 @@ function App() {
                   {/* Default State */}
                   <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-300 flex flex-col justify-end pb-2">
                     <div className="flex flex-col gap-1 w-full">
-                      <span className="text-2xl md:text-3xl text-white font-normal tracking-tighter">흐름</span>
-                      <p className="text-2xl md:text-3xl text-white font-normal tracking-tighter break-keep leading-snug">
+                      <span className="text-xl md:text-2xl lg:text-3xl text-white font-normal tracking-tighter">흐름</span>
+                      <p className="text-xl md:text-2xl lg:text-3xl text-white font-normal tracking-tighter break-keep leading-snug">
                         사용자의 목적과 제품의 구조가 일치하는 지점
                       </p>
                     </div>
@@ -381,7 +379,7 @@ function App() {
                   {/* Hover State */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 flex flex-col justify-end pb-2">
                     <a href="#projects" className="flex items-center gap-2 group/link cursor-pointer w-fit">
-                      <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none group-hover/link:underline underline-offset-[8px] decoration-4">
+                      <h3 className="text-[clamp(2rem,6vw,4rem)] font-normal tracking-tighter text-white uppercase leading-none group-hover/link:underline underline-offset-[8px] decoration-4">
                         MORE WORKS
                       </h3>
                     </a>
@@ -403,9 +401,8 @@ function App() {
               </div>
 
               <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
-                {/* Top: Number */}
                 <div className="flex-none">
-                  <span className="text-3xl md:text-4xl font-light tracking-tight text-white/80 group-hover:text-white transition-colors duration-300">
+                  <span className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-white/80 group-hover:text-white transition-colors duration-300">
                     (03)
                   </span>
                 </div>
@@ -414,7 +411,7 @@ function App() {
                 <div className="flex-1 flex items-center relative">
                   {/* Default State */}
                   <div className="absolute inset-0 flex items-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-black tracking-tighter text-white uppercase leading-none" style={{ fontWeight: 900 }}>
+                    <h3 className="text-[clamp(2.5rem,6vw,4rem)] font-black tracking-tighter text-white uppercase leading-none" style={{ fontWeight: 900 }}>
                       CONTEXT
                     </h3>
                   </div>
@@ -425,8 +422,8 @@ function App() {
                   {/* Default State */}
                   <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-300 flex flex-col justify-end pb-2">
                     <div className="flex flex-col gap-1 w-full">
-                      <span className="text-2xl md:text-3xl text-white font-normal tracking-tighter">맥락</span>
-                      <p className="text-2xl md:text-3xl text-white font-normal tracking-tighter break-keep leading-snug">
+                      <span className="text-xl md:text-2xl lg:text-3xl text-white font-normal tracking-tighter">맥락</span>
+                      <p className="text-xl md:text-2xl lg:text-3xl text-white font-normal tracking-tighter break-keep leading-snug">
                         화면이 아닌 제품 전체의 구조를 먼저 읽는 것
                       </p>
                     </div>
@@ -434,12 +431,12 @@ function App() {
                   {/* Hover State */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 flex flex-col justify-end gap-2 pb-2">
                     <a href="mailto:arbeiterinpilita@gmail.com" className="flex items-center gap-2 group/link cursor-pointer w-fit">
-                      <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none group-hover/link:underline underline-offset-[8px] decoration-4">
+                      <h3 className="text-[clamp(2rem,6vw,4rem)] font-normal tracking-tighter text-white uppercase leading-none group-hover/link:underline underline-offset-[8px] decoration-4">
                         GET IN TOUCH
                       </h3>
                     </a>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group/link2 cursor-pointer w-fit">
-                      <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none group-hover/link2:underline underline-offset-[8px] decoration-4">
+                      <h3 className="text-[clamp(2rem,6vw,4rem)] font-normal tracking-tighter text-white uppercase leading-none group-hover/link2:underline underline-offset-[8px] decoration-4">
                         LINKEDIN
                       </h3>
                     </a>
