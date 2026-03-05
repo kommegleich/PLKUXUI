@@ -68,17 +68,17 @@ import Navbar from './components/Navbar'; function App() {
 
       {/* Projects Section (Vertical List) */}
       {/* Projects Section (3-Column Grid) */}
-      <section id="projects" className="w-full bg-[#f8f8f8] pt-24 pb-0">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-black tracking-tight px-6 lg:px-8">Projects</h2>
+      <section id="projects" className="w-full bg-[#f8f8f8] pt-32 pb-16">
+        <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-bold mb-24 text-black tracking-tighter text-center leading-none">Projects</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 lg:px-8 w-full max-w-[1920px] mx-auto">
           {/* Project 1 */}
-          <div className="group cursor-pointer flex flex-col border border-gray-200/60 transition-transform duration-300">
+          <div className="group cursor-pointer flex flex-col transition-transform duration-300">
             <div className="w-full aspect-[4/4] lg:aspect-[3/4] overflow-hidden relative bg-gray-200">
               <div className="absolute top-6 left-6 z-10 flex flex-wrap gap-2 transition-opacity duration-300 opacity-100 group-hover:opacity-0">
-                <span className="border border-black/10 text-black outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-white/80 backdrop-blur-md shadow-sm">UX Research</span>
-                <span className="border border-black/10 text-black outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-white/80 backdrop-blur-md shadow-sm">UI/UX Design</span>
-                <span className="border border-black/10 text-black outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-white/80 backdrop-blur-md shadow-sm">2023.03 ~ 2024.05</span>
+                <span className="text-white outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-[#121212]">UX Research</span>
+                <span className="text-white outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-[#121212]">UI/UX Design</span>
+                <span className="text-white outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-[#121212]">2023.03 ~ 2024.05</span>
               </div>
               <img
                 src={`${import.meta.env.BASE_URL}project1_v3.png`}
@@ -86,45 +86,45 @@ import Navbar from './components/Navbar'; function App() {
                 className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
               />
             </div>
-            <div className="py-6 px-6 lg:px-8 bg-white h-full flex flex-col justify-start">
+            <div className="pt-6 pb-2 bg-[#f8f8f8] flex flex-col justify-start">
               <div className="text-xl md:text-2xl leading-snug">
-                <h3 className="font-bold text-black inline transition-colors duration-300">골프장 통합 ERP시스템</h3>
+                <h3 className="font-bold text-black inline transition-colors duration-300 group-hover:text-gray-600">골프장 통합 ERP시스템</h3>
                 <span className="text-gray-500 font-normal inline ml-2">— 골프장 관리의 새로운 기준, 골프장 시작에서부터 끝의 모든 프로세스를 한번에!</span>
               </div>
             </div>
           </div>
 
           {/* Project 2 */}
-          <div className="group cursor-pointer flex flex-col border border-gray-200/60 transition-transform duration-300">
+          <div className="group cursor-pointer flex flex-col transition-transform duration-300">
             <div className="w-full aspect-[4/4] lg:aspect-[3/4] overflow-hidden relative bg-gray-200">
               <div className="absolute top-6 left-6 z-10 flex flex-wrap gap-2 transition-opacity duration-300 opacity-100 group-hover:opacity-0">
-                <span className="border border-black/10 text-black outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-white/80 backdrop-blur-md shadow-sm">App Design</span>
-                <span className="border border-black/10 text-black outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-white/80 backdrop-blur-md shadow-sm">Prototyping</span>
-                <span className="border border-black/10 text-black outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-white/80 backdrop-blur-md shadow-sm">2023. 08. 22</span>
+                <span className="text-white outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-[#121212]">App Design</span>
+                <span className="text-white outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-[#121212]">Prototyping</span>
+                <span className="text-white outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-[#121212]">2023. 08. 22</span>
               </div>
               <span className="text-gray-400 font-medium absolute inset-0 flex items-center justify-center transform transition-transform duration-1000 group-hover:scale-105">Image Placeholder 2</span>
             </div>
-            <div className="py-6 px-6 lg:px-8 bg-white h-full flex flex-col justify-start">
+            <div className="pt-6 pb-2 bg-[#f8f8f8] flex flex-col justify-start">
               <div className="text-xl md:text-2xl leading-snug">
-                <h3 className="font-bold text-black inline transition-colors duration-300">E-Commerce App UX Improvement</h3>
+                <h3 className="font-bold text-black inline transition-colors duration-300 group-hover:text-gray-600">E-Commerce App UX Improvement</h3>
                 <span className="text-gray-500 font-normal inline ml-2">— 서브타이틀 영역</span>
               </div>
             </div>
           </div>
 
           {/* Project 3 */}
-          <div className="group cursor-pointer flex flex-col border border-gray-200/60 transition-transform duration-300">
+          <div className="group cursor-pointer flex flex-col transition-transform duration-300">
             <div className="w-full aspect-[4/4] lg:aspect-[3/4] overflow-hidden relative bg-gray-200">
               <div className="absolute top-6 left-6 z-10 flex flex-wrap gap-2 transition-opacity duration-300 opacity-100 group-hover:opacity-0">
-                <span className="border border-black/10 text-black outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-white/80 backdrop-blur-md shadow-sm">Design System</span>
-                <span className="border border-black/10 text-black outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-white/80 backdrop-blur-md shadow-sm">B2B</span>
-                <span className="border border-black/10 text-black outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-white/80 backdrop-blur-md shadow-sm">2023. 04. 05</span>
+                <span className="text-white outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-[#121212]">Design System</span>
+                <span className="text-white outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-[#121212]">B2B</span>
+                <span className="text-white outline-none rounded-full text-xs px-4 py-1.5 font-bold bg-[#121212]">2023. 04. 05</span>
               </div>
               <span className="text-gray-400 font-medium absolute inset-0 flex items-center justify-center transform transition-transform duration-1000 group-hover:scale-105">Image Placeholder 3</span>
             </div>
-            <div className="py-6 px-6 lg:px-8 bg-white h-full flex flex-col justify-start">
+            <div className="pt-6 pb-2 bg-[#f8f8f8] flex flex-col justify-start">
               <div className="text-xl md:text-2xl leading-snug">
-                <h3 className="font-bold text-black inline transition-colors duration-300">B2B SaaS Dashboard Pattern</h3>
+                <h3 className="font-bold text-black inline transition-colors duration-300 group-hover:text-gray-600">B2B SaaS Dashboard Pattern</h3>
                 <span className="text-gray-500 font-normal inline ml-2">— 서브타이틀 영역</span>
               </div>
             </div>
