@@ -284,9 +284,9 @@ function App() {
         <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 transform scale-90 md:scale-[0.8] origin-center">
             {/* Card 1 */}
-            <div className="group relative w-full aspect-[3/5] bg-[#ffffff] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.08] transition-transform duration-500 ease-out shadow-2xl">
+            <div className="group relative w-full aspect-[3/5] bg-[#ffffff] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.08] transition-transform duration-300 ease-out shadow-2xl">
               {/* Hover Image */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-0">
                 <img
                   src="/pilikimsUXUI/assets/profile.jpg"
                   alt="pulip kim"
@@ -296,10 +296,10 @@ function App() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
               </div>
 
-              <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-500 ease-out group-hover:-translate-y-2">
+              <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
                 {/* Top: Number */}
                 <div className="flex-none">
-                  <span className="text-3xl md:text-4xl font-light tracking-tight text-[#121212] group-hover:text-white transition-colors duration-500">
+                  <span className="text-3xl md:text-4xl font-light tracking-tight text-[#121212] group-hover:text-white transition-colors duration-300">
                     (01)
                   </span>
                 </div>
@@ -307,7 +307,7 @@ function App() {
                 {/* Middle: Title Area (Crossfade logic) */}
                 <div className="flex-1 flex items-center relative">
                   {/* Default State */}
-                  <div className="absolute inset-0 flex items-center opacity-100 group-hover:opacity-0 transition-opacity duration-500">
+                  <div className="absolute inset-0 flex items-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                     <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-extralight tracking-tighter text-[#121212] leading-none normal-case" style={{ fontWeight: 200 }}>
                       intuition
                     </h3>
@@ -317,13 +317,13 @@ function App() {
                 {/* Bottom: Description Area (Crossfade logic) */}
                 <div className="flex-none relative h-32 md:h-40">
                   {/* Default State */}
-                  <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-500">
+                  <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                     <p className="text-lg md:text-xl text-gray-500 font-medium break-keep leading-snug w-[95%]">
                       첫 진입부터 다음 행동이 보이는 구조
                     </p>
                   </div>
                   {/* Hover State */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex flex-col justify-end pb-2">
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 flex flex-col justify-end pb-2">
                     <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-normal tracking-tighter text-white uppercase leading-none mb-2">
                       PULIP KIM
                     </h3>
