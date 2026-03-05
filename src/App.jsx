@@ -72,7 +72,7 @@ import Navbar from './components/Navbar'; function App() {
         <div className="w-full px-4 md:px-8 mb-12">
           <h2 className="text-4xl md:text-6xl lg:text-8xl font-azeret font-black tracking-tighter px-2 hover:text-gray-300 transition-colors">PROJECTS.</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-4 md:gap-8 px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-0">
 
           {/* Project 1 */}
           <a href="#" className="group block cursor-pointer relative overflow-hidden rounded-[2.5rem] bg-[#121212]">
