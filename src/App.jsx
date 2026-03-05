@@ -288,8 +288,8 @@ function App() {
               {/* Hover Image */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out z-0">
                 <img
-                  src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop"
-                  alt="ntuition"
+                  src="/Users/pilikim/.gemini/antigravity/brain/812a755b-86d9-4e91-8892-58e06dbece53/media/1741198934449887103/image_0.png"
+                  alt="Pulip Kim"
                   className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out"
                 />
                 <div className="absolute inset-0 bg-black/40 mix-blend-multiply"></div>
@@ -304,18 +304,36 @@ function App() {
                   </span>
                 </div>
 
-                {/* Middle: Title */}
-                <div className="flex-1 flex items-center">
-                  <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-extralight tracking-tighter text-[#121212] group-hover:text-white transition-all duration-500 leading-none normal-case" style={{ fontWeight: 200 }}>
-                    Intuition
-                  </h3>
+                {/* Middle: Title Area (Crossfade logic) */}
+                <div className="flex-1 flex items-center relative">
+                  {/* Default State */}
+                  <div className="absolute inset-0 flex items-center opacity-100 group-hover:opacity-0 transition-opacity duration-500">
+                    <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-extralight tracking-tighter text-[#121212] leading-none normal-case" style={{ fontWeight: 200 }}>
+                      intuition
+                    </h3>
+                  </div>
+                  {/* Hover State */}
+                  <div className="absolute inset-0 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <h3 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-bold tracking-tighter text-white leading-none normal-case">
+                      Pulip Kim
+                    </h3>
+                  </div>
                 </div>
 
-                {/* Bottom: Description */}
-                <div className="flex-none">
-                  <p className="text-lg md:text-xl text-gray-500 group-hover:text-white transition-colors duration-500 font-medium break-keep leading-snug w-[95%]">
-                    첫 진입부터 다음 행동이 보이는 구조
-                  </p>
+                {/* Bottom: Description Area (Crossfade logic) */}
+                <div className="flex-none relative h-20">
+                  {/* Default State */}
+                  <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-500">
+                    <p className="text-lg md:text-xl text-gray-500 font-medium break-keep leading-snug w-[95%]">
+                      첫 진입부터 다음 행동이 보이는 구조
+                    </p>
+                  </div>
+                  {/* Hover State */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex items-end pb-2">
+                    <p className="text-lg md:text-xl text-gray-200 font-medium break-keep leading-snug w-[95%]">
+                      arbeiterinpilita@gmail.com
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
