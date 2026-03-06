@@ -295,7 +295,7 @@ function Home() {
               {/* Hover Image */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-0">
                 <img
-                  src="/pilikimsUXUI/assets/profile.jpg"
+                  src={`${import.meta.env.BASE_URL}assets/profile.jpg`}
                   alt="pulip kim"
                   className="w-full h-full object-cover scale-[1.02] border-none outline-none"
                 />
@@ -348,7 +348,7 @@ function Home() {
               {/* Hover Image */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-0">
                 <img
-                  src="/pilikimsUXUI/assets/card2_hover_new.jpg"
+                  src={`${import.meta.env.BASE_URL}assets/card2_hover_new.jpg`}
                   alt="flow"
                   className="w-full h-full object-cover scale-[1.02] border-none outline-none"
                 />
@@ -400,7 +400,7 @@ function Home() {
               {/* Hover Image */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-0">
                 <img
-                  src="/pilikimsUXUI/assets/card3_hover_new.jpg"
+                  src={`${import.meta.env.BASE_URL}assets/card3_hover_new.jpg`}
                   alt="context"
                   className="w-full h-full object-cover scale-[1.02] border-none outline-none"
                 />
