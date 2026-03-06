@@ -70,8 +70,8 @@ function Home() {
               ease: "easeOut"
             }}
           >
-            <p>기획, 설계, 마케팅, 운영까지 전체 흐름을 이해하고 움직이는 UX UI 디자이너입니다.</p>
-            <p>사용자 경험은 물론, 기획부터 운영까지의 흐름을 이해하며, <span className="font-extrabold">제품의 <span className="text-[#121212]">맥락</span></span>을 중심에 두고 설계합니다.</p>
+            <p className="tracking-tight">기획, 설계, 마케팅, 운영까지 전체 흐름을 이해하고 움직이는 UXUI디자이너입니다.</p>
+            <p className="tracking-tight">사용자 경험은 물론, 기획부터 운영까지의 흐름을 이해하며, <span className="font-extrabold">제품의 <span className="text-[#121212]">맥락</span></span>을 중심에 두고 설계합니다.</p>
           </motion.div>
         </div>
       </section>
