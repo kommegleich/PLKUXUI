@@ -272,7 +272,7 @@ function Home() {
       </section>
 
       {/* My Approach Section */}
-      <section id="approach" className="w-full bg-[#121212] pt-32 pb-48 text-white relative">
+      <section id="approach" className="w-full bg-[#0d0d0d] pt-32 pb-48 text-white relative">
         <div className="w-full px-4 md:px-8 mb-24 flex flex-col items-center">
           <div className="mb-12">
             <span className="text-[20px] md:text-[30px] font-normal text-gray-400 border border-gray-700 px-6 py-3 md:px-10 md:py-5 rounded-[4rem] backdrop-blur-sm tracking-[-0.05em]">about</span>
