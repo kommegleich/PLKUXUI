@@ -82,19 +82,6 @@ function Project01() {
                 ]}
             />
 
-            <section className="w-full flex items-center justify-center bg-white py-16 md:py-24">
-                <div className="w-full max-w-[1200px] px-4 md:px-8 flex flex-col items-center gap-16 md:gap-24">
-                    {interImages.map((img, idx) => (
-                        <img
-                            key={idx}
-                            src={img}
-                            alt={`Interaction Screen ${idx + 1}`}
-                            className="w-full h-auto object-contain mx-auto"
-                        />
-                    ))}
-                </div>
-            </section>
-
             <ProjectFullMediaWithTitle
                 chip="System"
                 title="통합 디자인 시스템"
