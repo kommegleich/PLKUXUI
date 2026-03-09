@@ -229,9 +229,9 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, src, isVideo 
     const y = useTransform(scrollYProgress, [0, 1], ["-33%", "10%"]);
 
     return (
-        <section className={`w-full py-24 md:py-32 px-4 md:px-8 lg:px-16 flex flex-col items-center overflow-hidden ${bgColor}`}>
+        <section className={`w-full py-24 md:py-32 flex flex-col items-center overflow-hidden ${bgColor}`}>
             {/* Header: Chip, Title, Subtitle */}
-            <div className="w-full max-w-[1400px] mb-12 flex flex-col gap-6 items-center md:items-start text-center md:text-left select-none">
+            <div className="w-full max-w-[1400px] px-4 md:px-8 lg:px-16 mb-12 flex flex-col gap-6 items-center md:items-start text-center md:text-left select-none">
                 {chip && (
                     <div className="px-5 py-1.5 border border-black/20 text-[#121212] text-[11px] md:text-sm font-bold uppercase tracking-widest rounded-full mix-blend-multiply">
                         {chip}
@@ -252,7 +252,7 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, src, isVideo 
             </div>
 
             {/* Media Container with Parallax Window */}
-            <div ref={ref} className="w-full max-w-[1400px] mx-auto overflow-hidden relative flex justify-center h-[60vh] md:h-[80vh] md:mt-8">
+            <div ref={ref} className="w-full overflow-hidden relative flex justify-center h-[60vh] md:h-[80vh] md:mt-8">
                 {isVideo ? (
                     <video src={src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
                 ) : (
@@ -260,7 +260,7 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, src, isVideo 
                         style={{ y }}
                         src={src}
                         alt="Section Media"
-                        className="w-[95%] md:w-[85%] max-w-[1200px] h-auto object-contain origin-top"
+                        className="w-full h-auto object-cover origin-top"
                     />
                 )}
             </div>
