@@ -220,8 +220,16 @@ export function ProjectTreeChart({ chip, title, rootNode, branches }) {
 
 // 9. Full Media with Title & Chip
 export function ProjectFullMediaWithTitle({ chip, title, subtitle, src, isVideo = false, bgColor = "bg-white" }) {
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"]
+    });
+    // 스크롤 시 위(-33%)에서 아래(10%)로 이동하는 패럴랙스 (위에서 3분의 1 배치 후 내려감)
+    const y = useTransform(scrollYProgress, [0, 1], ["-33%", "10%"]);
+
     return (
-        <section className={`w-full py-24 md:py-32 px-4 md:px-8 lg:px-16 flex flex-col items-center ${bgColor}`}>
+        <section className={`w-full py-24 md:py-32 px-4 md:px-8 lg:px-16 flex flex-col items-center overflow-hidden ${bgColor}`}>
             {/* Header: Chip, Title, Subtitle */}
             <div className="w-full max-w-[1400px] mb-12 flex flex-col gap-6 items-center md:items-start text-center md:text-left select-none">
                 {chip && (
@@ -243,12 +251,17 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, src, isVideo 
                 </div>
             </div>
 
-            {/* Media Container */}
-            <div className="w-full max-w-[1800px] mx-auto bg-gray-100">
+            {/* Media Container with Parallax Window */}
+            <div ref={ref} className="w-full max-w-[1400px] mx-auto overflow-hidden relative flex justify-center bg-[#F4F5F7] h-[60vh] md:h-[80vh] rounded-[24px] md:rounded-[32px] md:mt-8 shadow-inner border border-black/5">
                 {isVideo ? (
-                    <video src={src} autoPlay loop muted playsInline className="w-full h-auto object-cover" />
+                    <video src={src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
                 ) : (
-                    <img src={src} alt="Section Media" className="w-full h-auto object-cover" />
+                    <motion.img
+                        style={{ y }}
+                        src={src}
+                        alt="Section Media"
+                        className="w-[95%] md:w-[85%] max-w-[1200px] h-auto object-contain shadow-2xl rounded-[16px] origin-top"
+                    />
                 )}
             </div>
         </section>
