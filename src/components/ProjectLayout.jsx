@@ -154,7 +154,7 @@ export function ProjectFullMedia({ src, isVideo = false }) {
 }
 
 // 8. Custom Responsive ERP Tree Chart (Reference Design Match)
-export function ProjectTreeChart({ chip, title, rootNode, branches }) {
+export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) {
     const [isClicked, setIsClicked] = React.useState(false);
 
     return (
@@ -170,6 +170,11 @@ export function ProjectTreeChart({ chip, title, rootNode, branches }) {
                     <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-medium text-white tracking-[-0.04em] text-center md:text-left">
                         {title}
                     </h2>
+                )}
+                {subtitle && (
+                    <p className="text-base md:text-lg text-[#9A9BA5] font-normal md:font-medium leading-[1.6] max-w-3xl text-center md:text-left mt-2">
+                        {subtitle}
+                    </p>
                 )}
             </div>
 
@@ -243,7 +248,7 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, src, images, 
             {/* Header: Chip, Title, Subtitle */}
             <div className="w-full max-w-[1400px] px-4 md:px-8 lg:px-16 mb-12 flex flex-col gap-6 items-center md:items-start text-center md:text-left select-none">
                 {chip && (
-                    <div className="px-5 py-1.5 border border-[#111622] text-white text-[11px] md:text-sm font-bold uppercase tracking-widest bg-[#111622] rounded-none">
+                    <div className="px-5 py-1.5 border border-[rgb(17,22,34)] text-white text-[11px] md:text-sm font-bold uppercase tracking-widest bg-[rgb(17,22,34)] rounded-[4px]">
                         {chip}
                     </div>
                 )}
