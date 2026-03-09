@@ -1,20 +1,27 @@
 import React from 'react';
-import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight, ProjectTreeChart, ProjectFullMediaWithTitle } from '../components/ProjectLayout';
+import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight, ProjectTreeChart, ProjectFullMediaWithTitle, ProjectImageMarquee, ProjectGrid3Col, ProjectPosterWithText } from '../components/ProjectLayout';
 
 import imgM01 from '../images/project1-m01.webp';
 import imgM02 from '../images/project1-m02.webp';
-import inter01 from '../images/project1-inter01.png';
-import inter02 from '../images/project1-inter02.png';
-import inter03 from '../images/project1-inter03.png';
-import inter04 from '../images/project1-inter04.png';
-import inter05 from '../images/project1-inter05.png';
-import inter06 from '../images/project1-inter06.png';
-import inter07 from '../images/project1-inter07.png';
-import inter08 from '../images/project1-inter08.png';
-import inter09 from '../images/project1-inter09.png';
-import inter10 from '../images/project1-inter10.png';
+import inter01 from '../images/project1-inter01.webp';
+import inter02 from '../images/project1-inter02.webp';
+import inter03 from '../images/project1-inter03.webp';
+import inter04 from '../images/project1-inter04.webp';
+import inter05 from '../images/project1-inter05.webp';
+import inter06 from '../images/project1-inter06.webp';
+import inter07 from '../images/project1-inter07.webp';
+import inter08 from '../images/project1-inter08.webp';
+import inter09 from '../images/project1-inter09.webp';
+import inter10 from '../images/project1-inter10.webp';
+import pages01 from '../images/project1-pages01.webp';
+import pages02 from '../images/project1-pages02.webp';
+import pages03 from '../images/project1-pages03.webp';
+import pages04 from '../images/project1-pages04.webp';
+import pages05 from '../images/project1-pages05.webp';
+import pos01 from '../images/project1-pos01.webp';
 
 const interImages = [inter01, inter02, inter03, inter04, inter05, inter06, inter07, inter08, inter09, inter10];
+const pagesImages = [pages01, pages02, pages03, pages04, pages05];
 
 function Project01() {
     return (
@@ -64,11 +71,12 @@ function Project01() {
 
             <ProjectTreeChart
                 chip="Flowchart"
-                title="복잡한 도메인 지식을 관통하는 단일화된 설계 기준 수립"
+                title="골프장 업무관리에 대한 세분화 및 2Depth 기능분류"
                 subtitle={
                     <>
-                        서비스 내 모든 사용자 시나리오를 정밀하게 분석하여 분기 조건과 예외 케이스를 포함한 <strong>전략적 플로우차트(Flowchart)</strong>를 구축했습니다. 20여 개의 방대한 업무 기능을 직관적인 <strong>2-Depth 계층 구조(Hierarchy)</strong>로 재배치하여 정보 구조(IA)의 가독성과 업무 효율을 극대화했습니다.
-                        <br /><br />
+                        서비스 내 모든 사용자 시나리오를 정밀하게 분석하여 분기 조건과 예외 케이스를 포함한 전략적 플로우차트(Flowchart)를 구축했습니다.
+                        <br />14여 개의 방대한 업무 기능을 직관적인 2-Depth 계층 구조(Hierarchy)로 재배치하여 정보 구조(IA)의 가독성과 업무 효율을 극대화했습니다.
+                        <br />
                         특히 전 직군이 동일한 기준으로 제품의 논리를 해석할 수 있는 협업 가이드라인을 제시함으로써, 신규 기능 확장 시에도 일관된 사용자 경험을 유지하고 커뮤니케이션 비용을 획기적으로 낮추는 시스템적 기반을 마련했습니다.
                     </>
                 }
@@ -102,6 +110,38 @@ function Project01() {
                 images={interImages}
                 bgColor="bg-gray-50"
                 layout="split"
+            />
+
+            <ProjectImageMarquee
+                images={pagesImages}
+                bgColor="bg-[#10182B]"
+                speed={20}
+            />
+
+            <ProjectGrid3Col
+                chip="UX CASE STUDY"
+                bgColor="bg-[#10182B]"
+                items={[
+                    {
+                        title: "기획적 설계 주안점",
+                        description: "다양한 시간대와 각기 다른 직군(프런트, 경기과, 매출 관리 등)에서 발생하는 방대한 양의 데이터가 실시간으로 상호작용해야 하는 서비스의 특성을 고려하여, 시스템 전반의 유기적인 데이터 흐름을 설계하는 데 집중했습니다."
+                    },
+                    {
+                        title: "사용자 중심의 정보 구조화",
+                        description: "정보가 출력되는 위치와 조약 버튼 등 핵심 UI 요소들을 정교하게 모듈화함으로써, 서로 다른 업무 환경의 담당자들이 방대한 데이터 속에서도 혼란 없이 목표 과업을 가장 빠르게 완수할 수 있는 인터페이스를 구현했습니다."
+                    },
+                    {
+                        title: "디자인을 통한 업무 효율 최적화",
+                        description: "모든 화면에 일관된 디자인 시스템을 적용하여 신규 서비스 도입 시 발생할 수 있는 운영진의 학습 부담을 최소화하고, 실무 현장에서 즉각적인 대응이 가능한 직관적인 UX를 완성했습니다."
+                    }
+                ]}
+            />
+
+            <ProjectPosterWithText
+                image={pos01}
+                chip="MULTIPLE DEVICES UXUI"
+                title={"다양한 디바이스와\n기능을 담은 UXUI"}
+                subtitle={"직군 간의 업무 연결성을 최우선으로 고려하여\n파트 간 전환이 매끄러운 사용자 여정을 설계하는 데 집중했습니다."}
             />
 
         </ProjectLayout>

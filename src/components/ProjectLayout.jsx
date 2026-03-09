@@ -138,15 +138,15 @@ export function ProjectGrid({ images }) {
 }
 
 // 7. Huge Video/Image - NO BORDER RADIUS, FULL WIDTH 100vw
-export function ProjectFullMedia({ src, isVideo = false }) {
+export function ProjectFullMedia({ src, image, isVideo = false }) {
+    const mediaSrc = src || image;
     return (
         <section className="w-full mt-0">
             <div className="w-full mx-auto bg-gray-100 relative">
-                {/* Notice: removed rounded classes */}
                 {isVideo ? (
-                    <video src={src} autoPlay loop muted playsInline className="w-full h-auto object-cover" />
+                    <video src={mediaSrc} autoPlay loop muted playsInline className="w-full h-auto object-cover" />
                 ) : (
-                    <img src={src} alt="Full Media" className="w-full h-auto object-cover" />
+                    <img src={mediaSrc} alt="Full Media" className="w-full h-auto object-cover" />
                 )}
             </div>
         </section>
@@ -160,22 +160,24 @@ export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) 
     return (
         <section className="w-full py-24 px-4 md:px-8 lg:px-16 flex flex-col items-center bg-[#111622] overflow-hidden">
             {/* Header: Chip and Title */}
-            <div className="w-full max-w-[1400px] mb-16 flex flex-col gap-4 items-center md:items-start select-none">
+            <div className="w-full max-w-[1400px] mb-16 flex flex-col gap-6 items-center md:items-start select-none">
                 {chip && (
                     <div className="px-5 py-1.5 border border-white text-[#111622] text-[11px] md:text-sm font-bold uppercase tracking-widest bg-white rounded-[4px]">
                         {chip}
                     </div>
                 )}
-                {title && (
-                    <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-medium text-white tracking-[-0.04em] text-center md:text-left">
-                        {title}
-                    </h2>
-                )}
-                {subtitle && (
-                    <p className="text-[15px] md:text-base text-[#9A9BA5] font-normal leading-[1.7] max-w-3xl text-center md:text-left mt-4 opacity-90">
-                        {subtitle}
-                    </p>
-                )}
+                <div className="flex flex-col gap-4">
+                    {title && (
+                        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-medium text-white tracking-[-0.04em] text-center md:text-left">
+                            {title}
+                        </h2>
+                    )}
+                    {subtitle && (
+                        <p className="text-[15px] md:text-base text-[#9A9BA5] font-normal leading-[1.7] text-center md:text-left opacity-90">
+                            {subtitle}
+                        </p>
+                    )}
+                </div>
             </div>
 
             {/* Chart Container */}
@@ -310,3 +312,126 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, src, images, 
         </section>
     );
 }
+
+// 10. Infinite Image Marquee (Auto-Scroll)
+export function ProjectImageMarquee({ images, speed = 40, bgColor = "bg-[#10182B]" }) {
+    if (!images || images.length === 0) return null;
+
+    return (
+        <section className={`w-full pt-48 pb-12 overflow-hidden ${bgColor}`}>
+            <div className="relative flex overflow-hidden">
+                <motion.div
+                    className="flex whitespace-nowrap"
+                    animate={{
+                        x: ["0%", "-50%"],
+                    }}
+                    transition={{
+                        x: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 50, // slightly slower for better visibility
+                            ease: "linear",
+                        },
+                    }}
+                >
+                    {/* Render images twice for seamless looping */}
+                    <div className="flex gap-6 px-3 flex-shrink-0">
+                        {images.map((img, idx) => (
+                            <img
+                                key={`marquee-1-${idx}`}
+                                src={img}
+                                alt={`Marquee ${idx}`}
+                                className="h-[250px] md:h-[450px] w-[350px] md:w-[700px] object-contain rounded-md block bg-[#10182B]"
+                            />
+                        ))}
+                    </div>
+                    <div className="flex gap-6 px-3 flex-shrink-0">
+                        {images.map((img, idx) => (
+                            <img
+                                key={`marquee-2-${idx}`}
+                                src={img}
+                                alt={`Marquee-loop ${idx}`}
+                                className="h-[250px] md:h-[450px] w-[350px] md:w-[700px] object-contain rounded-md block bg-[#10182B]"
+                            />
+                        ))}
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+}
+
+// 11. 3-Column Feature Grid (UX Case Study style)
+export function ProjectGrid3Col({ chip, items, bgColor = "bg-[#111622]" }) {
+    return (
+        <section className={`w-full pt-20 pb-48 px-4 md:px-8 lg:px-16 flex flex-col items-center ${bgColor}`}>
+            <div className="w-full max-w-[1400px]">
+                {chip && (
+                    <div className="inline-block px-4 py-1.5 bg-[#3B82F6] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-[4px] mb-16">
+                        {chip}
+                    </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-24">
+                    {items.map((item, idx) => (
+                        <div key={idx} className="flex flex-col gap-8 text-center md:text-left">
+                            <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                                {item.title}
+                            </h3>
+                            <p className="text-[15px] md:text-base text-[#9A9BA5] leading-[1.8] font-normal opacity-90">
+                                {item.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+// 12. Poster with Text Overlay (Side-by-side style)
+export function ProjectPosterWithText({ image, chip, title, subtitle, bgColor = "bg-[#F4F7FA]" }) {
+    return (
+        <section className={`w-full py-24 md:py-40 px-6 md:px-12 lg:px-16 flex justify-center relative ${bgColor}`}>
+            {/* Background Split for visual transition */}
+            <div className="absolute top-0 left-0 w-full h-1/3 bg-[#10182B] z-0" />
+
+            <div className="w-full max-w-[1700px] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
+
+                {/* Left: Image Area */}
+                <motion.div
+                    className="w-full relative flex justify-center items-center"
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <img src={image} alt="Project Poster" className="w-full h-auto object-contain max-h-[85vh]" />
+                </motion.div>
+
+                {/* Right: Text Area */}
+                <motion.div
+                    className="flex flex-col gap-6 text-left"
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    {chip && (
+                        <div className="w-fit px-4 py-1.5 bg-[#457FF3] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-[2px] mb-2">
+                            {chip}
+                        </div>
+                    )}
+                    <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-[#121212] tracking-[-0.04em] leading-[1.2] whitespace-pre-line">
+                        {title}
+                    </h2>
+                    <p className="text-[15px] md:text-[17px] text-[#9A9BA5] font-normal leading-[1.8] opacity-90 whitespace-pre-line max-w-xl">
+                        {subtitle}
+                    </p>
+                </motion.div>
+
+            </div>
+        </section>
+    );
+}
+
