@@ -189,7 +189,7 @@ export function ProjectTreeChart({ chip, title, rootNode, branches }) {
                             <div key={idx} className="flex flex-col lg:flex-row items-center lg:items-start gap-3 relative group w-full lg:w-auto lg:pl-[50px]">
 
                                 {/* Branch Parent (Title) */}
-                                <div className="flex-shrink-0 w-[140px] h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-[#111622] text-[#6B89AC] text-[13px] font-medium transition-colors cursor-default relative z-10">
+                                <div className="flex-shrink-0 w-[140px] h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-[#111622] text-white text-[13px] font-medium transition-colors cursor-default relative z-10">
                                     {branch.title}
                                 </div>
 
