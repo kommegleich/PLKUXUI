@@ -162,7 +162,7 @@ export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) 
             {/* Header: Chip and Title */}
             <div className="w-full max-w-[1400px] mb-16 flex flex-col gap-4 items-center md:items-start select-none">
                 {chip && (
-                    <div className="px-5 py-1.5 border border-white text-[#111622] text-[11px] md:text-sm font-bold uppercase tracking-widest bg-white">
+                    <div className="px-5 py-1.5 border border-white text-[#111622] text-[11px] md:text-sm font-bold uppercase tracking-widest bg-white rounded-[4px]">
                         {chip}
                     </div>
                 )}
@@ -224,7 +224,7 @@ export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) 
 }
 
 // 9. Full Media with Title & Chip
-export function ProjectFullMediaWithTitle({ chip, title, subtitle, src, images, isVideo = false, bgColor = "bg-white" }) {
+export function ProjectFullMediaWithTitle({ chip, title, subtitle, src, images, isVideo = false, bgColor = "bg-white", layout = "full" }) {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -243,57 +243,70 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, src, images, 
         return () => clearInterval(interval);
     }, [images]);
 
+    const renderHeader = () => (
+        <div className={`w-full flex flex-col gap-6 items-center md:items-start text-center md:text-left select-none ${layout === 'split' ? '' : 'max-w-[1400px] px-4 md:px-8 lg:px-16 mb-12'}`}>
+            {chip && (
+                <div className="px-5 py-1.5 border border-[rgb(17,22,34)] text-white text-[11px] md:text-sm font-bold uppercase tracking-widest bg-[rgb(17,22,34)] rounded-[4px] w-fit">
+                    {chip}
+                </div>
+            )}
+            <div className="flex flex-col gap-4">
+                {title && (
+                    <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-medium text-[#121212] tracking-[-0.04em] leading-[1.2]">
+                        {title}
+                    </h2>
+                )}
+                {subtitle && (
+                    <p className="text-base md:text-lg text-gray-500 font-normal md:font-medium leading-[1.6] max-w-3xl">
+                        {subtitle}
+                    </p>
+                )}
+            </div>
+        </div>
+    );
+
+    const renderMedia = () => (
+        <div ref={ref} className={`w-full relative flex justify-center md:mt-8 ${layout === 'split' ? 'h-[40vh] md:h-[60vh]' : 'h-[50vh] md:h-[65vh]'}`}>
+            {images && images.length > 0 ? (
+                <div className={`w-full relative flex justify-center items-center h-full ${layout === 'split' ? 'w-full' : 'max-w-[1400px] px-4 md:px-8'}`}>
+                    <AnimatePresence mode="popLayout">
+                        <motion.img
+                            key={currentIndex}
+                            src={images[currentIndex]}
+                            alt={`Sequence ${currentIndex}`}
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -50 }}
+                            transition={{ duration: 0.8, ease: "easeInOut" }}
+                            className="w-full h-full object-contain absolute mx-auto"
+                        />
+                    </AnimatePresence>
+                </div>
+            ) : isVideo ? (
+                <video src={src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+            ) : (
+                <motion.img
+                    style={{ y }}
+                    src={src}
+                    alt="Section Media"
+                    className="w-full h-full object-contain mx-auto"
+                />
+            )}
+        </div>
+    );
     return (
         <section className={`w-full py-24 md:py-32 flex flex-col items-center overflow-hidden ${bgColor}`}>
-            {/* Header: Chip, Title, Subtitle */}
-            <div className="w-full max-w-[1400px] px-4 md:px-8 lg:px-16 mb-12 flex flex-col gap-6 items-center md:items-start text-center md:text-left select-none">
-                {chip && (
-                    <div className="px-5 py-1.5 border border-[rgb(17,22,34)] text-white text-[11px] md:text-sm font-bold uppercase tracking-widest bg-[rgb(17,22,34)] rounded-[4px]">
-                        {chip}
-                    </div>
-                )}
-                <div className="flex flex-col gap-4">
-                    {title && (
-                        <h2 className="text-[clamp(2rem,4vw,3rem)] font-medium text-[#121212] tracking-[-0.04em] leading-[1.2]">
-                            {title}
-                        </h2>
-                    )}
-                    {subtitle && (
-                        <p className="text-base md:text-lg text-gray-500 font-normal md:font-medium leading-[1.6] max-w-3xl">
-                            {subtitle}
-                        </p>
-                    )}
+            {layout === 'split' ? (
+                <div className="w-full max-w-[1600px] px-4 md:px-8 lg:px-16 flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                    {renderHeader()}
+                    {renderMedia()}
                 </div>
-            </div>
-
-            {/* Media Container without Parallax Window */}
-            <div ref={ref} className="w-full relative flex justify-center h-[50vh] md:h-[65vh] md:mt-8">
-                {images && images.length > 0 ? (
-                    <div className="w-full relative max-w-[1400px] flex justify-center items-center h-full px-4 md:px-8">
-                        <AnimatePresence mode="popLayout">
-                            <motion.img
-                                key={currentIndex}
-                                src={images[currentIndex]}
-                                alt={`Sequence ${currentIndex}`}
-                                initial={{ opacity: 0, y: 50 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -50 }}
-                                transition={{ duration: 0.8, ease: "easeInOut" }}
-                                className="w-full md:w-[90%] max-w-[1400px] h-full object-contain absolute mx-auto"
-                            />
-                        </AnimatePresence>
-                    </div>
-                ) : isVideo ? (
-                    <video src={src} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-                ) : (
-                    <motion.img
-                        style={{ y }}
-                        src={src}
-                        alt="Section Media"
-                        className="w-[95%] md:w-[80%] max-w-[1200px] h-auto object-contain origin-top mx-auto"
-                    />
-                )}
-            </div>
+            ) : (
+                <div className="w-full flex flex-col items-center">
+                    {renderHeader()}
+                    {renderMedia()}
+                </div>
+            )}
         </section>
     );
 }

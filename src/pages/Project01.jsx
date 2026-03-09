@@ -95,6 +95,7 @@ function Project01() {
                 }
                 images={interImages}
                 bgColor="bg-gray-50"
+                layout="split"
             />
 
         </ProjectLayout>
