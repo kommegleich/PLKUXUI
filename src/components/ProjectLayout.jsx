@@ -153,58 +153,71 @@ export function ProjectFullMedia({ src, isVideo = false }) {
     );
 }
 
-// 8. Custom Responsive ERP Tree Chart
-export function ProjectTreeChart({ chip = "Flowchart", title, rootNode, branches }) {
+// 8. Custom Responsive ERP Tree Chart (Reference Design Match)
+export function ProjectTreeChart({ rootNode, branches }) {
     return (
-        <section className="w-full py-20 px-4 md:px-8 lg:px-16 flex flex-col items-center bg-[#151a24] text-[#457FF3]">
-            {/* Header: Chip and Title */}
-            <div className="w-full max-w-[1400px] mb-12 flex flex-col gap-4 items-start select-none">
-                {chip && (
-                    <div className="px-4 py-1.5 border border-[#2d4a82] bg-[#192233] text-[#718ebf] text-[11px] md:text-xs font-bold rounded-full uppercase tracking-widest">
-                        {chip}
-                    </div>
-                )}
-                {title && (
-                    <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-medium text-white tracking-[-0.04em]">
-                        {title}
-                    </h2>
-                )}
-            </div>
+        <section className="w-full py-24 px-4 md:px-8 lg:px-16 flex flex-col items-center min-h-[80vh] bg-[#111622]">
+            {/* Chart Container */}
+            <div className="w-full max-w-[1600px] overflow-x-auto pb-8 custom-scrollbar">
+                <div className="min-w-[1200px] flex items-center justify-center relative select-none">
 
-            <div className="w-full max-w-[1400px] flex flex-col lg:flex-row items-center lg:items-start justify-start relative select-none">
-
-                {/* Root Node (ERP) */}
-                <div className="flex-shrink-0 flex items-center justify-center relative z-10 w-full lg:w-auto mb-8 lg:mb-0 lg:pr-12 lg:pt-2">
-                    <div className="w-[140px] h-[48px] border border-[#2d4a82] rounded-[24px] flex items-center justify-center bg-[#151a24] text-sm md:text-sm font-semibold tracking-wide">
-                        {rootNode}
-                    </div>
-                </div>
-
-                {/* Branches Container */}
-                <div className="w-full flex flex-col gap-8 md:gap-12 relative lg:pl-4 lg:py-0">
-
-                    {branches.map((branch, idx) => (
-                        <div key={idx} className="flex flex-col items-center lg:items-start gap-3 md:gap-4 relative w-full">
-
-                            {/* Branch Parent (Title) - Now centered above or acting as a clear header */}
-                            <div className="flex-shrink-0 w-[140px] md:w-[160px] px-2 h-[44px] border-2 border-[#457FF3] flex items-center justify-center bg-[#192233] text-[13px] md:text-[14px] font-bold text-white shadow-lg mx-auto lg:mx-0">
-                                {branch.title}
-                            </div>
-
-                            {/* Sub Nodes Row */}
-                            {branch.children && branch.children.length > 0 && (
-                                <div className="flex flex-wrap justify-center lg:justify-start gap-2 md:gap-3 w-full pl-0 lg:pl-8">
-                                    {branch.children.map((child, cIdx) => (
-                                        <div key={cIdx} className="flex-shrink-0 w-[120px] md:w-[130px] px-2 h-[36px] border border-[#232d3f] flex items-center justify-center bg-[#1b2536] text-[#718ebf] text-[11px] md:text-[12px] whitespace-nowrap overflow-hidden text-ellipsis hover:bg-[#232d3f] transition-colors">
-                                            {child}
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
+                    {/* Root Node (ERP) */}
+                    <div className="flex-shrink-0 flex items-center justify-center relative w-[140px] mr-12 lg:mr-[100px] z-10">
+                        <div className="w-[140px] h-[48px] border-[1px] border-[#3E4C69] rounded-[24px] flex items-center justify-center bg-transparent text-[#6B89AC] text-[14px] font-medium tracking-wide">
+                            {rootNode}
                         </div>
-                    ))}
+                        {/* Connecting Line from Root to Branches */}
+                        <div className="hidden lg:block absolute right-[-100px] top-1/2 w-[100px] h-[1px] bg-[#3E4C69] -z-10"></div>
+                    </div>
+
+                    {/* Branches Container */}
+                    <div className="flex flex-col gap-4 relative z-10">
+                        {/* Vertical Connecting Line (Spine) */}
+                        <div className="hidden lg:block absolute left-[-50px] top-[24px] bottom-[24px] w-[1px] bg-[#3E4C69] -z-10"></div>
+
+                        {branches.map((branch, idx) => (
+                            <div key={idx} className="flex flex-row items-center gap-3 relative group">
+                                {/* Horizontal Line from Spine to Branch Parent */}
+                                <div className="hidden lg:block absolute left-[-50px] top-1/2 w-[50px] h-[1px] bg-[#3E4C69] -z-10 transition-colors"></div>
+
+                                {/* Branch Parent (Title) */}
+                                <div className="flex-shrink-0 w-[140px] h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-transparent text-[#6B89AC] text-[13px] font-medium transition-colors cursor-default">
+                                    {branch.title}
+                                </div>
+
+                                {/* Sub Nodes Row */}
+                                {branch.children && branch.children.length > 0 && (
+                                    <div className="flex flex-row gap-3">
+                                        {branch.children.map((child, cIdx) => (
+                                            <div key={cIdx} className="flex-shrink-0 w-[140px] h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-transparent text-[#6B89AC] text-[12px] font-normal transition-colors cursor-default px-2 whitespace-nowrap overflow-hidden text-ellipsis">
+                                                {child}
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
             </div>
+
+            {/* Custom Scrollbar CSS (optional injection or rely on global) */}
+            <style jsx="true">{`
+                .custom-scrollbar::-webkit-scrollbar {
+                    height: 8px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb {
+                    background-color: #1e293b;
+                    border-radius: 4px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                    background-color: #334155;
+                }
+            `}</style>
         </section>
     );
 }
