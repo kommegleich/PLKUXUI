@@ -15,7 +15,19 @@ import sys09 from '../images/project1_system09.png';
 import sys10 from '../images/project1_system010.png';
 import sys11 from '../images/project1_system011.png';
 
+import inter01 from '../images/project1-inter01.png';
+import inter02 from '../images/project1-inter02.png';
+import inter03 from '../images/project1-inter03.png';
+import inter04 from '../images/project1-inter04.png';
+import inter05 from '../images/project1-inter05.png';
+import inter06 from '../images/project1-inter06.png';
+import inter07 from '../images/project1-inter07.png';
+import inter08 from '../images/project1-inter08.png';
+import inter09 from '../images/project1-inter09.png';
+import inter10 from '../images/project1-inter10.png';
+
 const systemImages = [sys01, sys02, sys03, sys04, sys05, sys06, sys07, sys08, sys09, sys10, sys11];
+const interImages = [inter01, inter02, inter03, inter04, inter05, inter06, inter07, inter08, inter09, inter10];
 
 function Project01() {
     return (
@@ -82,6 +94,19 @@ function Project01() {
                     { title: "관리자", children: ["기본설정", "권한설정", "시스템 모니터링", "원격지원", "시스템 문의"] }
                 ]}
             />
+
+            <section className="w-full flex items-center justify-center bg-white py-16 md:py-24">
+                <div className="w-full max-w-[1200px] px-4 md:px-8 flex flex-col items-center gap-16 md:gap-24">
+                    {interImages.map((img, idx) => (
+                        <img
+                            key={idx}
+                            src={img}
+                            alt={`Interaction Screen ${idx + 1}`}
+                            className="w-full h-auto object-contain mx-auto"
+                        />
+                    ))}
+                </div>
+            </section>
 
             <ProjectFullMediaWithTitle
                 chip="System"
