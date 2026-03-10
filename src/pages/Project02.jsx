@@ -93,8 +93,8 @@ function Project02() {
                     imgM02
                 ]}
                 fits={[
-                    'object-cover',
-                    'object-cover'
+                    'object-contain',
+                    'object-contain'
                 ]}
                 aspect="aspect-square"
                 rounded="rounded-[40px]"
