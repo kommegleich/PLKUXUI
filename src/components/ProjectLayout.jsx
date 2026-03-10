@@ -155,8 +155,6 @@ export function ProjectFullMedia({ src, image, isVideo = false }) {
 
 // 8. Custom Responsive ERP Tree Chart (Reference Design Match)
 export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) {
-    const [isClicked, setIsClicked] = React.useState(false);
-
     return (
         <section className="w-full py-24 px-4 md:px-8 lg:px-16 flex flex-col items-center bg-[#111622] overflow-hidden">
             {/* Header: Chip and Title */}
@@ -199,8 +197,7 @@ export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) 
 
                                 {/* Branch Parent (Title) */}
                                 <div
-                                    onClick={() => setIsClicked(!isClicked)}
-                                    className={`flex-shrink-0 w-[140px] h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center text-white text-[13px] font-medium transition-colors cursor-pointer relative z-10 ${isClicked ? 'bg-[#11101C]' : 'bg-[#111622]'}`}
+                                    className="flex-shrink-0 w-[140px] h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-[#111622] text-white text-[13px] font-medium tracking-wide transition-all duration-300 cursor-default relative z-10 hover:z-20 group-hover:bg-[#457FF3] group-hover:border-[#457FF3] group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(69,127,243,0.3)] hover:!scale-110"
                                 >
                                     {branch.title}
                                 </div>
@@ -209,7 +206,8 @@ export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) 
                                 {branch.children && branch.children.length > 0 && (
                                     <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-2 lg:gap-3 w-full lg:w-auto px-4 lg:px-0 relative z-10">
                                         {branch.children.map((child, cIdx) => (
-                                            <div key={cIdx} className="flex-shrink-0 px-3 lg:w-[140px] h-[36px] lg:h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-[#111622] text-[#6B89AC] text-[11px] lg:text-[12px] font-normal transition-colors cursor-default whitespace-nowrap lg:whitespace-normal text-center leading-tight">
+                                            <div key={cIdx} className="flex-shrink-0 px-3 lg:w-[140px] h-[36px] lg:h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-[#111622] text-[#6B89AC] text-[11px] lg:text-[12px] font-normal tracking-wide transition-all duration-300 cursor-default whitespace-nowrap lg:whitespace-normal text-center leading-tight hover:z-20 group-hover:border-[#457FF3]/40 group-hover:text-white/90 group-hover:bg-[#457FF3]/5 hover:!scale-110 hover:!bg-[#457FF3]/20 hover:!border-[#457FF3] hover:!text-white"
+                                            >
                                                 {child}
                                             </div>
                                         ))}
@@ -365,9 +363,9 @@ export function ProjectImageMarquee({ images, speed = 40, bgColor = "bg-[#10182B
 export function ProjectGrid3Col({ chip, items, bgColor = "bg-[#111622]" }) {
     return (
         <section className={`w-full pt-20 pb-48 px-4 md:px-8 lg:px-16 flex flex-col items-center ${bgColor}`}>
-            <div className="w-full max-w-[1400px]">
+            <div className="w-full max-w-[1400px] flex flex-col items-center md:items-start">
                 {chip && (
-                    <div className="inline-block px-4 py-1.5 bg-[#3B82F6] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-[4px] mb-16">
+                    <div className="px-4 py-1.5 bg-[#3B82F6] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-[4px] mb-16 w-fit">
                         {chip}
                     </div>
                 )}
@@ -411,7 +409,7 @@ export function ProjectPosterWithText({ image, chip, title, subtitle, bgColor = 
 
                 {/* Right: Text Area */}
                 <motion.div
-                    className="flex flex-col gap-6 text-left"
+                    className="flex flex-col gap-6 items-center lg:items-start text-center lg:text-left"
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -430,6 +428,46 @@ export function ProjectPosterWithText({ image, chip, title, subtitle, bgColor = 
                     </p>
                 </motion.div>
 
+            </div>
+        </section>
+    );
+}
+
+// 13. Two-Column Media Section (Full width split)
+export function ProjectTwoColumnMedia({ chip, title, image, bgColor = "bg-white", textColor = "text-white" }) {
+    return (
+        <section className={`w-full flex flex-col lg:flex-row min-h-[60vh] ${bgColor}`}>
+            {/* Left: Text Area */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start px-6 md:px-12 lg:px-24 py-20 md:py-32">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="flex flex-col gap-6 items-center lg:items-start"
+                >
+                    {chip && (
+                        <div className="px-5 py-1.5 border border-white text-[rgb(69,127,243)] text-[11px] md:text-sm font-bold uppercase tracking-widest bg-white rounded-[4px] w-fit">
+                            {chip}
+                        </div>
+                    )}
+                    <h2 className={`text-[clamp(1.5rem,3vw,2.5rem)] font-medium tracking-[-0.04em] leading-[1.2] whitespace-pre-line text-center lg:text-left ${textColor}`}>
+                        {title}
+                    </h2>
+                </motion.div>
+            </div>
+
+            {/* Right: Image Area */}
+            <div className="w-full lg:w-1/2 relative overflow-hidden bg-black/5">
+                <motion.img
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                    src={image}
+                    alt={title}
+                    className="w-full h-full object-cover"
+                />
             </div>
         </section>
     );

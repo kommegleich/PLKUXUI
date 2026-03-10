@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight, ProjectTreeChart, ProjectFullMediaWithTitle, ProjectImageMarquee, ProjectGrid3Col, ProjectPosterWithText } from '../components/ProjectLayout';
+import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight, ProjectTreeChart, ProjectFullMediaWithTitle, ProjectImageMarquee, ProjectGrid3Col, ProjectPosterWithText, ProjectTwoColumnMedia } from '../components/ProjectLayout';
 
 import imgM01 from '../images/project1-m01.webp';
 import imgM02 from '../images/project1-m02.webp';
@@ -142,6 +142,13 @@ function Project01() {
                 chip="MULTIPLE DEVICES UXUI"
                 title={"다양한 디바이스와\n기능을 담은 UXUI"}
                 subtitle={"직군 간의 업무 연결성을 최우선으로 고려하여\n파트 간 전환이 매끄러운 사용자 여정을 설계하는 데 집중했습니다."}
+            />
+
+            <ProjectTwoColumnMedia
+                chip="erp app"
+                title={"내 손안의 컨트롤,\n웹과 앱의 연동으로 사용성 강화"}
+                image={imgM02}
+                bgColor="bg-[#457FF3]"
             />
 
         </ProjectLayout>
