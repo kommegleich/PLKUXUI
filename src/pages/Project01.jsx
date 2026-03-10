@@ -25,7 +25,7 @@ const pagesImages = [pages01, pages02, pages03, pages04, pages05];
 
 function Project01() {
     return (
-        <ProjectLayout nextProjectLink="/project/2" nextProjectTitle="SAGL" nextProjectBg="bg-[#1D112A]">
+        <ProjectLayout nextProjectLink="/project/2" nextProjectTitle="SAGL" nextProjectBg="bg-gradient-to-r from-[#2D343A] to-[#09122A]">
 
             <ProjectHeroExact
                 title="골프장 통합 ERP 솔루션"
