@@ -31,11 +31,11 @@ function Project03() {
             />
 
             {/* 02 - Overlapping phones image area */}
-            <section className="w-full relative z-20 flex justify-center -mt-32 md:-mt-[25vh] px-6 md:px-12 lg:px-16 pb-24 mx-auto max-w-[1400px]">
+            <section className="w-full relative z-20 flex justify-center -mt-48 md:-mt-[35vh] px-6 md:px-12 lg:px-16 pb-24 mx-auto max-w-[2000px]">
                 <motion.img
                     src={imgM01}
                     alt="Phones mockups"
-                    className="w-full max-w-[900px] h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                    className="w-full max-w-[1800px] h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
