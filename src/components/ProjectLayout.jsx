@@ -24,8 +24,8 @@ export function ProjectLayout({ children, nextProjectLink, nextProjectTitle, nex
                             {nextProjectTitle}
                         </h2>
                         {nextProjectDesc && (
-                            <p className="max-w-2xl text-center text-sm md:text-lg font-medium leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out delay-100 break-keep transform translate-y-2 group-hover:translate-y-0 mt-6 px-4 text-white/90">
-                                {nextProjectDesc}
+                            <p className="max-w-2xl text-center text-sm md:text-lg font-medium leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out delay-100 break-keep transform translate-y-2 group-hover:translate-y-0 mt-6 px-4 text-white/90 whitespace-pre-line">
+                                {nextProjectDesc.replace(/\\n/g, '\n')}
                             </p>
                         )}
                     </Link>
@@ -433,7 +433,7 @@ export function ProjectPosterWithText({ image, chip, title, subtitle, bgColor = 
                             {chip}
                         </div>
                     )}
-                    <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-[#121212] tracking-[-0.04em] leading-[1.2] whitespace-pre-line">
+                    <h2 className="text-[clamp(2rem,4vw,3rem)] font-medium text-[#121212] tracking-[-0.04em] leading-[1.2] whitespace-pre-line">
                         {title}
                     </h2>
                     <p className="text-[15px] md:text-[17px] text-[#9A9BA5] font-normal leading-[1.8] opacity-90 whitespace-pre-line max-w-xl">
