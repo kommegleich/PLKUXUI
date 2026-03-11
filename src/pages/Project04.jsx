@@ -276,21 +276,21 @@ function Project04() {
                 </div>
             </section>
 
-            {/* 10 - 예상효과 영역 (Background image + Overlapping m08) */}
-            <section className="w-full relative flex flex-col items-center">
-                {/* Full Width Image (m08) */}
-                <div className="w-full relative z-30 px-0">
+            {/* 10 & 11 - Overlapping m08 Image & Results */}
+            <section className="w-full relative flex flex-col items-center border-none outline-none">
+                {/* Image Area - z-30 so it sits on top */}
+                <div className="w-full flex justify-center relative z-30 px-0 border-none outline-none">
                     <img 
                         src={imgM08} 
                         alt="Project 4 Tablet Mockup" 
-                        className="w-full h-auto object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.3)]"
+                        className="w-full h-auto block object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.3)] border-none outline-none"
                     />
                 </div>
 
-                {/* Background Section with Text */}
-                <div className="w-full relative py-32 md:py-48 lg:py-64 flex flex-col items-center bg-[#030303] overflow-hidden">
+                {/* Background Section - z-10 so it goes behind the image using negative margin */}
+                <div className="w-full relative bg-[#030303] overflow-hidden flex flex-col items-center -mt-[25%] md:-mt-[20%] pt-[35%] md:pt-[30%] pb-32 md:pb-48 lg:pb-64 z-10 border-none outline-none">
                     {/* Content Container */}
-                    <div className="w-full max-w-[1240px] px-6 md:px-12 relative z-10 flex flex-col items-center">
+                    <div className="w-full max-w-[1240px] px-6 md:px-12 relative z-20 flex flex-col items-center -mt-8 md:mt-0 lg:mt-12">
                         <h4 className="text-[#6563A4] text-lg md:text-xl font-bold mb-4">
                             예상효과
                         </h4>
