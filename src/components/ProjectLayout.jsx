@@ -132,13 +132,20 @@ export function ProjectGrid({ images, bgColor = "bg-transparent", rounded = "rou
         <section className={`w-full ${bgColor} pb-6 flex justify-center transition-colors duration-500`}>
             <div className={`w-full grid grid-cols-1 md:grid-cols-2 ${gap} px-0 md:px-6`}>
                 {images.map((img, idx) => (
-                    <div key={idx} className={`w-full ${itemBg} overflow-hidden ${rounded}`}>
+                    <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.8, delay: idx * 0.15, ease: "easeOut" }}
+                        className={`w-full ${itemBg} overflow-hidden ${rounded}`}
+                    >
                         <img
                             src={img}
                             alt={`Grid ${idx}`}
                             className={`w-full h-full ${fits[idx] || 'object-cover'} ${aspect || 'aspect-[4/3] md:aspect-[4/5]'}`}
                         />
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </section>
@@ -150,13 +157,19 @@ export function ProjectFullMedia({ src, image, isVideo = false }) {
     const mediaSrc = src || image;
     return (
         <section className="w-full mt-0">
-            <div className="w-full mx-auto bg-gray-100 relative">
+            <motion.div
+                className="w-full mx-auto bg-gray-100 relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
                 {isVideo ? (
                     <video src={mediaSrc} autoPlay loop muted playsInline className="w-full h-auto object-cover" />
                 ) : (
                     <img src={mediaSrc} alt="Full Media" className="w-full h-auto object-cover" />
                 )}
-            </div>
+            </motion.div>
         </section>
     );
 }
@@ -300,6 +313,10 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, label, src, i
             ) : (
                 <motion.img
                     style={parallax ? { y } : {}}
+                    initial={{ opacity: 0, y: parallax ? 0 : 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                     src={src}
                     alt="Section Media"
                     className={`w-full h-full ${objectFit} mx-auto`}
