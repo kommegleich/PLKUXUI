@@ -1,6 +1,8 @@
 import React from 'react';
 import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight } from '../components/ProjectLayout';
 
+import imgHero from '../images/project3_backef.png';
+
 function Project03() {
     return (
         <ProjectLayout
@@ -8,7 +10,7 @@ function Project03() {
             nextProjectTitle="골프와 선물하기 연계서비스"
             nextProjectBg="bg-gradient-to-r from-[#F43DE5] to-[#9F2152]"
             nextProjectDesc="관계 기반의 리마인드 알림과 맞춤형 큐레이션을 통해 유저 간 소셜 네트워킹을 활성화하고, \n구매 프로세스를 단축해 전환율을 극대화한 골프 앱 내 커머스(선물하기) UX 전략 및 설계"
-            bgColor="bg-black"
+            bgColor="bg-[#010101]"
             textColor="text-white"
         >
             {/* 01 - 메인 제목과 오버뷰 내용이 적혀있음 (OVERVIEW, SCOPE) */}
@@ -19,13 +21,14 @@ function Project03() {
                     { label: "OVERVIEW", value: "단순한 점수 기록을 넘어 방대한 스코어 데이터를 기반으로 유저의 플레이 패턴을 분석하고 감성적인 스토리로 풀어낸, 초개인화 리포트 서비스입니다." },
                     { label: "SCOPE", value: ["UX 설계", "UI 화면설계", "약 2개월"] }
                 ]}
+                bgImage={imgHero}
+                textColor="text-white"
+                subtitleColor="text-white/80"
+                labelColor="text-white/50"
             />
 
-            {/* 02 - 전체 화면을 채우는 풀사이즈 메인 이미지 영역 */}
-            <ProjectFullMedia src="https://images.unsplash.com/photo-1541336032412-2048a678540d?q=80&w=2574&auto=format&fit=crop" />
-
             {/* 03 - 화면 전체 너비로 배색된 큰 텍스트 강조(Highlight) 영역 */}
-            <ProjectHighlight text="Data driven golf experience." bgColor="bg-[#10182B]" />
+            <ProjectHighlight text="Data driven golf experience." bgColor="bg-[#010101]" textColor="text-white" />
         </ProjectLayout>
     );
 }
