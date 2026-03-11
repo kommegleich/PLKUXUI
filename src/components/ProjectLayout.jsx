@@ -651,40 +651,26 @@ const MarqueeContent = ({ items }) => (
     </div>
 );
 
-export function ProjectPhoneWithMarquee({ phoneImage, title, keywordsRow1, keywordsRow2, bgColor = "bg-[#010101]" }) {
+export function ProjectPhoneWithMarquee({ phoneImage, title, keywords, bgColor = "bg-[#010101]" }) {
     // Generate a repeating array for seamless marquee
-    const REPEAT_COUNT = 8;
-    const row1Repeated = Array(REPEAT_COUNT).fill(keywordsRow1).flat();
-    const row2Repeated = Array(REPEAT_COUNT).fill(keywordsRow2).flat();
+    const REPEAT_COUNT = 15;
+    const rowRepeated = Array(REPEAT_COUNT).fill(keywords).flat();
 
     return (
         <section className={`w-full relative py-32 md:py-48 overflow-hidden flex justify-center items-center min-h-[60vh] md:min-h-[80vh] ${bgColor}`}>
             {/* Background Marquee Area (Absolute) */}
-            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col gap-4 md:gap-5 z-0 w-full pointer-events-none opacity-80">
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col z-0 w-full pointer-events-none opacity-80">
 
-                {/* Marquee Row 1 (Right to Left) */}
+                {/* Marquee Single Row (Right to Left) */}
                 <div className="flex overflow-hidden w-full">
                     <motion.div
                         className="flex whitespace-nowrap flex-shrink-0"
                         animate={{ x: ["0%", "-50%"] }}
-                        transition={{ ease: "linear", duration: 60, repeat: Infinity }}
+                        transition={{ ease: "linear", duration: 80, repeat: Infinity }}
                     >
                         {/* Render twice for seamless loop - 50% translation shifts exactly one content block */}
-                        <MarqueeContent items={row1Repeated} />
-                        <MarqueeContent items={row1Repeated} />
-                    </motion.div>
-                </div>
-
-                {/* Marquee Row 2 (Left to Right) */}
-                <div className="flex overflow-hidden w-full justify-end">
-                    <motion.div
-                        className="flex whitespace-nowrap flex-shrink-0"
-                        animate={{ x: ["-50%", "0%"] }}
-                        transition={{ ease: "linear", duration: 65, repeat: Infinity }}
-                    >
-                        {/* Render twice for seamless loop */}
-                        <MarqueeContent items={row2Repeated} />
-                        <MarqueeContent items={row2Repeated} />
+                        <MarqueeContent items={rowRepeated} />
+                        <MarqueeContent items={rowRepeated} />
                     </motion.div>
                 </div>
             </div>
@@ -705,7 +691,7 @@ export function ProjectPhoneWithMarquee({ phoneImage, title, keywordsRow1, keywo
 
                 {/* Right: Text */}
                 <motion.div
-                    className="flex flex-col justify-center text-center md:text-left md:pl-8 lg:pl-16"
+                    className="flex flex-col justify-center text-center md:text-left md:pl-8 lg:pl-16 -mt-10 md:-mt-20"
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
