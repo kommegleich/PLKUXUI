@@ -20,7 +20,7 @@ export function ProjectLayout({ children, nextProjectLink, nextProjectTitle, nex
                         >
                             Next Project
                         </motion.p>
-                        <h2 className="text-[clamp(4rem,12vw,15rem)] font-black tracking-[-0.09em] leading-none transition-transform duration-700 ease-out text-center group-hover:scale-105 mb-8">
+                        <h2 className="text-[clamp(2rem,6vw,7.5rem)] font-black tracking-[-0.02em] leading-none transition-transform duration-700 ease-out text-center group-hover:scale-105 mb-8">
                             {nextProjectTitle}
                         </h2>
                         {nextProjectDesc && (
@@ -133,10 +133,10 @@ export function ProjectGrid({ images, bgColor = "bg-transparent", rounded = "rou
             <div className={`w-full grid grid-cols-1 md:grid-cols-2 ${gap} px-0 md:px-6`}>
                 {images.map((img, idx) => (
                     <div key={idx} className={`w-full ${itemBg} overflow-hidden ${rounded}`}>
-                        <img 
-                            src={img} 
-                            alt={`Grid ${idx}`} 
-                            className={`w-full h-full ${fits[idx] || 'object-cover'} ${aspect || 'aspect-[4/3] md:aspect-[4/5]'}`} 
+                        <img
+                            src={img}
+                            alt={`Grid ${idx}`}
+                            className={`w-full h-full ${fits[idx] || 'object-cover'} ${aspect || 'aspect-[4/3] md:aspect-[4/5]'}`}
                         />
                     </div>
                 ))}
@@ -340,7 +340,7 @@ export function ProjectImageMarquee({ images, speed = 40, bgColor = "bg-[#10182B
                         x: {
                             repeat: Infinity,
                             repeatType: "loop",
-                            duration: 50, // slightly slower for better visibility
+                            duration: speed, // use speed prop
                             ease: "linear",
                         },
                     }}
@@ -491,8 +491,8 @@ export function ProjectSectionText({ title, text, bgColor = "bg-white", textColo
     return (
         <section className={`w-full ${bgColor} py-24 md:py-32 px-6 md:px-12 lg:px-16 flex justify-center transition-colors duration-500`}>
             <div className="w-full max-w-[1800px] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-                <motion.div 
-                    className="lg:col-span-4" 
+                <motion.div
+                    className="lg:col-span-4"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -502,7 +502,7 @@ export function ProjectSectionText({ title, text, bgColor = "bg-white", textColo
                         {title}
                     </h2>
                 </motion.div>
-                <motion.div 
+                <motion.div
                     className="lg:col-span-8 flex flex-col gap-6"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}

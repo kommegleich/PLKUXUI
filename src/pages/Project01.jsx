@@ -18,18 +18,20 @@ import pages02 from '../images/project1-pages02.webp';
 import pages03 from '../images/project1-pages03.webp';
 import pages04 from '../images/project1-pages04.webp';
 import pages05 from '../images/project1-pages05.webp';
+import pages06 from '../images/project1-pages06.webp';
+import pages07 from '../images/project1-pages07.webp';
 import pos01 from '../images/project1-pos01.webp';
 
 const interImages = [inter01, inter02, inter03, inter04, inter05, inter06, inter07, inter08, inter09, inter10];
-const pagesImages = [pages01, pages02, pages03, pages04, pages05];
+const pagesImages = [pages01, pages02, pages03, pages04, pages05, pages06, pages07];
 
 function Project01() {
     return (
-        <ProjectLayout 
-            nextProjectLink="/project/2" 
-            nextProjectTitle="ARMATURE GOLF LEAGUE (SAGL)" 
+        <ProjectLayout
+            nextProjectLink="/project/2"
+            nextProjectTitle="ARMATURE GOLF LEAGUE (SAGL)"
             nextProjectBg="bg-gradient-to-r from-[#2D343A] to-[#09122A]"
-            nextProjectDesc="스마트스코어 앱 내에서 누구나 손쉽게 대회에 참여할 수 있도록, 복잡한 참가 신청의 진입 장벽을 낮추고 직관적인 흐름으로 개선한 아마추어 골프 리그 선수 등록 UX/UI 고도화 프로젝트"
+            nextProjectDesc="스마트스코어 앱 내에서 누구나 손쉽게 대회에 참여할 수 있도록, \n복잡한 참가 신청의 진입 장벽을 낮추고 직관적인 흐름으로 개선한 아마추어 골프 리그 선수 등록 UX/UI 고도화 프로젝트"
         >
 
             <ProjectHeroExact
