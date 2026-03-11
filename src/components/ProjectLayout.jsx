@@ -584,14 +584,14 @@ export function ProjectCenteredHighlightBlock({ label, title, text, bgColor = "b
                 transition={{ duration: 0.8 }}
             >
                 {label && (
-                    <p className={`text-[13px] md:text-[14px] font-bold mb-6 ${labelColor}`}>
+                    <p className={`text-[15px] md:text-[17px] font-bold mb-6 ${labelColor}`}>
                         {label}
                     </p>
                 )}
-                <h2 className={`text-[clamp(1.5rem,2.5vw,2.2rem)] font-medium tracking-tight mb-8 whitespace-pre-line ${titleColor}`}>
+                <h2 className={`text-[clamp(1.8rem,3vw,2.8rem)] font-medium tracking-tight mb-8 whitespace-pre-line ${titleColor}`}>
                     {title}
                 </h2>
-                <div className={`text-[14px] md:text-[15px] leading-[1.8] font-normal ${descColor} whitespace-pre-line break-keep`}>
+                <div className={`text-[16px] md:text-[18px] leading-[1.8] font-normal ${descColor} whitespace-pre-line break-keep`}>
                     {text}
                 </div>
             </motion.div>
@@ -606,7 +606,7 @@ export function ProjectThreeColTextBlocks({ label, columns, bgColor = "bg-transp
             <div className="w-full max-w-[1600px] flex flex-col items-center">
                 {label && (
                     <motion.p
-                        className={`text-[13px] md:text-[14px] font-bold mb-6 ${labelColor}`}
+                        className={`text-[15px] md:text-[17px] font-bold mb-6 ${labelColor}`}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -626,10 +626,10 @@ export function ProjectThreeColTextBlocks({ label, columns, bgColor = "bg-transp
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: idx * 0.15 }}
                         >
-                            <h3 className={`text-[20px] md:text-[24px] font-medium leading-[1.4] whitespace-pre-line ${col.titleColor || 'text-white'}`}>
+                            <h3 className={`text-[24px] md:text-[28px] font-medium leading-[1.4] whitespace-pre-line ${col.titleColor || 'text-white'}`}>
                                 {col.title}
                             </h3>
-                            <div className={`text-[13px] md:text-[14px] leading-[1.8] font-normal whitespace-pre-line break-keep flex flex-col gap-4 items-center ${col.descColor || 'text-[#9A9BA5]'}`}>
+                            <div className={`text-[15px] md:text-[17px] leading-[1.8] font-normal whitespace-pre-line break-keep flex flex-col gap-4 items-center ${col.descColor || 'text-[#9A9BA5]'}`}>
                                 {col.text}
                             </div>
                         </motion.div>
