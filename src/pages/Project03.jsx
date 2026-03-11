@@ -30,7 +30,7 @@ function Project03() {
         <ProjectLayout
             nextProjectLink="/project/4"
             nextProjectTitle="골프와 선물하기 연계서비스"
-            nextProjectBg="bg-gradient-to-r from-[#F43DE5] to-[#9F2152]"
+            nextProjectBg="bg-gradient-to-r from-[#716CA6] to-[#5A4ED7]"
             nextProjectDesc="관계 기반의 리마인드 알림과 맞춤형 큐레이션을 통해 유저 간 소셜 네트워킹을 활성화하고, \n구매 프로세스를 단축해 전환율을 극대화한 골프 앱 내 커머스(선물하기) UX 전략 및 설계"
             bgColor="bg-[#010101]"
             textColor="text-white"

@@ -107,7 +107,7 @@ function Home() {
               title: "골프와 선물하기 연계서비스",
               desc: "관계 기반의 리마인드 알림과 맞춤형 큐레이션을 통해 유저 간 소셜 네트워킹을 활성화하고, \n구매 프로세스를 단축해 전환율을 극대화한 골프 앱 내 커머스(선물하기) UX 전략 및 설계",
               tags: ["UX 설계", "UI 화면설계", "약 4개월"],
-              bgClass: "hover:bg-gradient-to-r hover:from-[#F43DE5] hover:to-[#9F2152]"
+              bgClass: "hover:bg-gradient-to-r hover:from-[#716CA6] hover:to-[#5A4ED7]"
             },
             {
               title: "충전결제 서비스 PAYIS",
