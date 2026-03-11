@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight } from '../components/ProjectLayout';
 
 import imgHero from '../images/project3_backef.png';
-import imgM01 from '../images/project3-m01.png';
+import imgM01 from '../images/project3-m01.webp';
 
 function Project03() {
     return (
