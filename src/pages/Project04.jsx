@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight, ProjectCenteredIntro } from '../components/ProjectLayout';
 import imgHero from '../images/project4-m01.png';
 import imgM02 from '../images/project4-m02.png';
@@ -16,6 +17,19 @@ import imgM07 from '../images/project4-m07.png';
 import imgM08 from '../images/project4-m08.png';
 
 const effectImages = [imgEf01, imgEf02, imgEf03, imgEf04, imgEf05, imgEf06];
+
+const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-100px" },
+    transition: { duration: 1.2, ease: "easeOut" }
+};
+
+const staggerContainer = {
+    initial: {},
+    whileInView: { transition: { staggerChildren: 0.3 } },
+    viewport: { once: true, margin: "-100px" }
+};
 
 function Project04() {
     return (
@@ -73,16 +87,22 @@ function Project04() {
             {/* 04 - 기획배경 배경 (Overlapping image and gradient background) */}
             <section className="w-full relative z-20 flex flex-col items-center pb-32 bg-gradient-to-br from-[#101010] to-[#021525]">
                 {/* Overlapping Image Container */}
-                <div className="w-full max-w-[1240px] px-6 md:px-12 lg:px-16 -mt-32 md:-mt-56 mb-20 md:mb-32 z-30">
+                <motion.div
+                    className="w-full max-w-[1240px] px-6 md:px-12 lg:px-16 -mt-32 md:-mt-56 mb-20 md:mb-32 z-30"
+                    {...fadeInUp}
+                >
                     <img
                         src={imgM02}
                         alt="Project 4 Device Mockups"
                         className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                     />
-                </div>
+                </motion.div>
 
                 {/* Text Content Area */}
-                <div className="w-full max-w-[1000px] px-6 md:px-12 text-center text-white flex flex-col items-center animate-fade-in-up">
+                <motion.div
+                    className="w-full max-w-[1000px] px-6 md:px-12 text-center text-white flex flex-col items-center"
+                    {...fadeInUp}
+                >
                     <h3 className="text-2xl md:text-3xl font-bold mb-10 tracking-tight">기획배경</h3>
 
                     <p className="text-[#A0A0A0] text-sm md:text-base leading-[2] mb-12 tracking-tight break-keep whitespace-pre-line">
@@ -101,12 +121,15 @@ function Project04() {
                         alt="Project 4 Planning Flow"
                         className="w-full max-w-[1000px] h-auto object-contain mt-8"
                     />
-                </div>
+                </motion.div>
             </section>
 
             {/* 05 - 핵심개선 01 영역 (White background) */}
             <section className="w-full relative z-20 flex flex-col items-center py-24 md:py-32 px-6 md:px-12 bg-white text-[#222]">
-                <div className="w-full max-w-[800px] text-center flex flex-col items-center">
+                <motion.div
+                    className="w-full max-w-[800px] text-center flex flex-col items-center"
+                    {...fadeInUp}
+                >
                     <h4 className="text-[#6563A4] text-lg md:text-xl font-bold mb-4">
                         핵심개선 01
                     </h4>
@@ -132,7 +155,7 @@ function Project04() {
                             함께한 라운드 사진·기록과 연동되어 '추억 회상 + 선물 제안'으로 이어지는 감정적 흐름을 설계
                         </p>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             {/* 06 - 개선 성과 영역 (Marquee + m04 Images) */}
@@ -156,18 +179,27 @@ function Project04() {
                 </div>
 
                 {/* Foreground Image */}
-                <div className="w-full max-w-[1240px] px-6 md:px-12 relative z-20 flex justify-center mt-12 md:mt-16">
-                    <img 
-                        src={imgM04} 
-                        alt="Project 4 Results Phones" 
+                <motion.div
+                    className="w-full max-w-[1240px] px-6 md:px-12 relative z-20 flex justify-center mt-12 md:mt-16"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                >
+                    <img
+                        src={imgM04}
+                        alt="Project 4 Results Phones"
                         className="w-[90%] md:w-full max-w-[840px] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.12)]"
                     />
-                </div>
+                </motion.div>
             </section>
 
             {/* 07 - 핵심개선 02 영역 (#F2F9FF background) */}
             <section className="w-full relative z-20 flex flex-col items-center py-24 md:py-32 px-6 md:px-12 bg-[#F2F9FF] text-[#222]">
-                <div className="w-full max-w-[800px] text-center flex flex-col items-center">
+                <motion.div
+                    className="w-full max-w-[800px] text-center flex flex-col items-center"
+                    {...fadeInUp}
+                >
                     <h4 className="text-[#6563A4] text-lg md:text-xl font-bold mb-4">
                         핵심개선 02
                     </h4>
@@ -191,63 +223,69 @@ function Project04() {
                             자주 선물한 아이템을 기반으로 한 '빠른 선물(원클릭)' 기능은 진입 장벽을 줄이고 반복 구매를 유도
                         </p>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Grouped 3-Column Area (Text + Image) */}
-                <div className="w-full max-w-[1400px] mt-24 md:mt-32 px-6 md:px-12 relative z-10">
+                <motion.div
+                    className="w-full max-w-[1400px] mt-24 md:mt-32 px-6 md:px-12 relative z-10"
+                    variants={staggerContainer}
+                    initial="initial"
+                    whileInView="whileInView"
+                    viewport={{ once: true, margin: "-100px" }}
+                >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-start">
                         {/* Column 1 */}
-                        <div className="flex flex-col items-center">
+                        <motion.div className="flex flex-col items-center" variants={fadeInUp}>
                             <div className="text-center mb-12 h-32 flex flex-col justify-center">
                                 <p className="text-[#888] text-[15px] md:text-lg leading-[1.6] mb-4 break-keep">
-                                    선물 동선의<br/>자연스러운 진입 유도
+                                    선물 동선의<br />자연스러운 진입 유도
                                 </p>
                                 <h4 className="text-[#222] text-xl md:text-2xl font-semibold leading-[1.4] break-keep">
-                                    활동 기반 알림에<br/>선물 CTA를 직접 연결
+                                    활동 기반 알림에<br />선물 CTA를 직접 연결
                                 </h4>
                             </div>
-                            <img 
-                                src={imgM05} 
-                                alt="Project 4 Device 05" 
+                            <img
+                                src={imgM05}
+                                alt="Project 4 Device 05"
                                 className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
                             />
-                        </div>
+                        </motion.div>
 
                         {/* Column 2 */}
-                        <div className="flex flex-col items-center">
+                        <motion.div className="flex flex-col items-center" variants={fadeInUp}>
                             <div className="text-center mb-12 h-32 flex flex-col justify-center">
                                 <p className="text-[#888] text-[15px] md:text-lg leading-[1.6] mb-4 break-keep">
-                                    탐색 없이<br/>바로 선택 가능
+                                    탐색 없이<br />바로 선택 가능
                                 </p>
                                 <h4 className="text-[#222] text-xl md:text-2xl font-semibold leading-[1.4] break-keep">
-                                    관계 기반 큐레이션으로<br/>개인화된 선물 제안
+                                    관계 기반 큐레이션으로<br />개인화된 선물 제안
                                 </h4>
                             </div>
-                            <img 
-                                src={imgM06} 
-                                alt="Project 4 Device 06" 
+                            <img
+                                src={imgM06}
+                                alt="Project 4 Device 06"
                                 className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
                             />
-                        </div>
+                        </motion.div>
 
                         {/* Column 3 */}
-                        <div className="flex flex-col items-center">
+                        <motion.div className="flex flex-col items-center" variants={fadeInUp}>
                             <div className="text-center mb-12 h-32 flex flex-col justify-center">
                                 <p className="text-[#888] text-[15px] md:text-lg leading-[1.6] mb-4 break-keep">
-                                    구매 완료까지<br/>이탈률 감소
+                                    구매 완료까지<br />이탈률 감소
                                 </p>
                                 <h4 className="text-[#222] text-xl md:text-2xl font-semibold leading-[1.4] break-keep">
-                                    메시지 선택 후 바로 결제,<br/>전환율 최적화
+                                    메시지 선택 후 바로 결제,<br />전환율 최적화
                                 </h4>
                             </div>
-                            <img 
-                                src={imgM07} 
-                                alt="Project 4 Device 07" 
+                            <img
+                                src={imgM07}
+                                alt="Project 4 Device 07"
                                 className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
                             />
-                        </div>
+                        </motion.div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* White Background Overlap Container (Bottom half) */}
                 <div className="absolute bottom-0 left-0 w-full h-[300px] md:h-[450px] bg-white z-0"></div>
@@ -255,7 +293,10 @@ function Project04() {
 
             {/* 09 - 핵심개선 03 영역 (White background) */}
             <section className="w-full relative z-20 flex flex-col items-center py-24 md:py-32 px-6 md:px-12 bg-white text-[#222]">
-                <div className="w-full max-w-[800px] text-center flex flex-col items-center">
+                <motion.div
+                    className="w-full max-w-[800px] text-center flex flex-col items-center"
+                    {...fadeInUp}
+                >
                     <h4 className="text-[#6563A4] text-lg md:text-xl font-bold mb-4">
                         핵심개선 03
                     </h4>
@@ -273,17 +314,21 @@ function Project04() {
                             현장감 있는 인터랙션으로 감정적 몰입 강화 시켰으며, 즉시성 기반 구매 전환 유도
                         </p>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             {/* 10 & 11 - Overlapping m08 Image & Results */}
             <section className="w-full relative flex flex-col items-center border-none outline-none">
                 {/* Image Area - z-30 so it sits on top */}
                 <div className="w-full flex justify-center relative z-30 px-0 border-none outline-none">
-                    <img 
-                        src={imgM08} 
-                        alt="Project 4 Tablet Mockup" 
+                    <motion.img
+                        src={imgM08}
+                        alt="Project 4 Tablet Mockup"
                         className="w-full h-auto block object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.3)] border-none outline-none"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                     />
                 </div>
 
@@ -291,48 +336,59 @@ function Project04() {
                 <div className="w-full relative bg-[#030303] overflow-hidden flex flex-col items-center -mt-[25%] md:-mt-[20%] pt-[35%] md:pt-[30%] pb-32 md:pb-48 lg:pb-64 z-10 border-none outline-none">
                     {/* Content Container */}
                     <div className="w-full max-w-[1240px] px-6 md:px-12 relative z-20 flex flex-col items-center -mt-8 md:mt-0 lg:mt-12">
-                        <h4 className="text-[#6563A4] text-lg md:text-xl font-bold mb-4">
-                            예상효과
-                        </h4>
-                        <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-24 md:mb-32 text-center text-white leading-[1.3] break-keep">
-                            서비스 연동을 통한 사용자 흐름 최적화와 매출 전환 가속
-                        </h3>
+                        <motion.div
+                            className="w-full flex flex-col items-center"
+                            {...fadeInUp}
+                        >
+                            <h4 className="text-[#6563A4] text-lg md:text-xl font-bold mb-4">
+                                예상효과
+                            </h4>
+                            <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-24 md:mb-32 text-center text-white leading-[1.3] break-keep">
+                                서비스 연동을 통한 사용자 흐름 최적화와 매출 전환 가속
+                            </h3>
+                        </motion.div>
 
                         {/* Three Column Results */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 lg:gap-12 w-full">
+                        <motion.div
+                            className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 lg:gap-12 w-full"
+                            variants={staggerContainer}
+                            initial="initial"
+                            whileInView="whileInView"
+                            viewport={{ once: true, margin: "-100px" }}
+                        >
                             {/* Column 1 */}
-                            <div className="flex flex-col items-center text-center">
+                            <motion.div className="flex flex-col items-center text-center" variants={fadeInUp}>
                                 <h5 className="text-white text-xl md:text-2xl font-bold mb-8 break-keep">
-                                    마켓 상품 노출률 및<br/>구매 전환율 증가
+                                    마켓 상품 노출률 및<br />구매 전환율 증가
                                 </h5>
                                 <div className="text-[#A0A0A0] text-[15px] md:text-base leading-[1.8] flex flex-col gap-4 break-keep">
-                                    <p>선물하기 CTA 확대로 마켓 유입 경로가 다각화되며, 상품 노출 빈도가 높아짐</p>
+                                    <p>선물하기 CTA 확대로 마켓 유입 경로가 다각화되며,<br />상품 노출 빈도가 높아짐</p>
                                     <p>오픈 전 6개월 대비 평균 매출 약 24% 증가 기록</p>
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* Column 2 */}
-                            <div className="flex flex-col items-center text-center">
+                            <motion.div className="flex flex-col items-center text-center" variants={fadeInUp}>
                                 <h5 className="text-white text-xl md:text-2xl font-bold mb-8 break-keep">
-                                    골친 기반 체류 시간 및<br/>상호작용 증가
+                                    골친 기반 체류 시간 및<br />상호작용 증가
                                 </h5>
                                 <div className="text-[#A0A0A0] text-[15px] md:text-base leading-[1.8] flex flex-col gap-4 break-keep">
-                                    <p>활동 기반 알림과 축하 기능 도입으로 골친 탭 평균 체류 시간이 15% 이상 향상</p>
+                                    <p>활동 기반 알림과 축하 기능 도입으로<br />골친 탭 평균 체류 시간이 15% 이상 향상</p>
                                     <p>자연스러운 감정 교류가 이어지며 서비스 재방문율 증가</p>
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* Column 3 */}
-                            <div className="flex flex-col items-center text-center">
+                            <motion.div className="flex flex-col items-center text-center" variants={fadeInUp}>
                                 <h5 className="text-white text-xl md:text-2xl font-bold mb-8 break-keep">
-                                    마켓 콘텐츠 및<br/>유입 구조 확장
+                                    마켓 콘텐츠 및<br />유입 구조 확장
                                 </h5>
                                 <div className="text-[#A0A0A0] text-[15px] md:text-base leading-[1.8] flex flex-col gap-4 break-keep">
-                                    <p>선물 수요 증가에 따라 마켓 입점 상품 수가 확대되며 콘텐츠 다양성이 향상</p>
+                                    <p>선물 수요 증가에 따라 마켓 입점 상품 수가 확대되며<br />콘텐츠 다양성이 향상</p>
                                     <p>사용자 진입 경로가 늘어나며 마켓 전체 트래픽과 구매 전환율이 함께 상승</p>
                                 </div>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
