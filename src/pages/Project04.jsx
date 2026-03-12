@@ -25,6 +25,13 @@ const fadeInUp = {
     transition: { duration: 1.2, ease: "easeOut" }
 };
 
+const fadeInSubtle = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-100px" },
+    transition: { duration: 1.8, ease: [0.22, 1, 0.36, 1] }
+};
+
 const staggerContainer = {
     initial: {},
     whileInView: { transition: { staggerChildren: 0.3 } },
@@ -89,7 +96,7 @@ function Project04() {
                 {/* Overlapping Image Container */}
                 <motion.div
                     className="w-full max-w-[1240px] px-6 md:px-12 lg:px-16 -mt-32 md:-mt-56 mb-20 md:mb-32 z-30"
-                    {...fadeInUp}
+                    {...fadeInSubtle}
                 >
                     <img
                         src={imgM02}
@@ -181,10 +188,7 @@ function Project04() {
                 {/* Foreground Image */}
                 <motion.div
                     className="w-full max-w-[1240px] px-6 md:px-12 relative z-20 flex justify-center mt-12 md:mt-16"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 1, ease: "easeOut" }}
+                    {...fadeInSubtle}
                 >
                     <img
                         src={imgM04}
@@ -235,7 +239,7 @@ function Project04() {
                 >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-start">
                         {/* Column 1 */}
-                        <motion.div className="flex flex-col items-center" variants={fadeInUp}>
+                        <motion.div className="flex flex-col items-center" variants={fadeInSubtle}>
                             <div className="text-center mb-12 h-32 flex flex-col justify-center">
                                 <p className="text-[#888] text-[15px] md:text-lg leading-[1.6] mb-4 break-keep">
                                     선물 동선의<br />자연스러운 진입 유도
@@ -252,7 +256,7 @@ function Project04() {
                         </motion.div>
 
                         {/* Column 2 */}
-                        <motion.div className="flex flex-col items-center" variants={fadeInUp}>
+                        <motion.div className="flex flex-col items-center" variants={fadeInSubtle}>
                             <div className="text-center mb-12 h-32 flex flex-col justify-center">
                                 <p className="text-[#888] text-[15px] md:text-lg leading-[1.6] mb-4 break-keep">
                                     탐색 없이<br />바로 선택 가능
@@ -269,7 +273,7 @@ function Project04() {
                         </motion.div>
 
                         {/* Column 3 */}
-                        <motion.div className="flex flex-col items-center" variants={fadeInUp}>
+                        <motion.div className="flex flex-col items-center" variants={fadeInSubtle}>
                             <div className="text-center mb-12 h-32 flex flex-col justify-center">
                                 <p className="text-[#888] text-[15px] md:text-lg leading-[1.6] mb-4 break-keep">
                                     구매 완료까지<br />이탈률 감소
@@ -325,10 +329,7 @@ function Project04() {
                         src={imgM08}
                         alt="Project 4 Tablet Mockup"
                         className="w-full h-auto block object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.3)] border-none outline-none"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                        {...fadeInSubtle}
                     />
                 </div>
 
