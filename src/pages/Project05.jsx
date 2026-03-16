@@ -228,7 +228,7 @@ function Project05() {
                                 <img
                                     src={img}
                                     alt={`payis screen ${(idx % 8) + 1}`}
-                                    className="h-[65vh] md:h-[75vh] w-auto object-contain rounded-[18px] md:rounded-[32px] shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
+                                    className="h-[220px] md:h-[460px] w-auto object-contain rounded-[18px] md:rounded-[32px] shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
                                 />
                             </div>
                         ))}
