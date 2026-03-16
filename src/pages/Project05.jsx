@@ -59,7 +59,7 @@ function Project05() {
             {/* 01 - HERO */}
             <section className="snap-start w-full min-h-[100svh] bg-[#0066FF] flex flex-col justify-between overflow-hidden">
                 {/* TOP: title + OVERVIEW + SCOPE (like other project pages) */}
-                <div className="w-full px-5 md:px-12 lg:px-16 pt-28 md:pt-40 flex justify-center">
+                <div className="w-full px-6 md:px-12 lg:px-16 pt-28 md:pt-40 flex justify-center">
                     <motion.div
                         className="w-full max-w-[1400px] flex flex-col md:flex-row md:items-start gap-8 md:gap-0"
                         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}
@@ -101,11 +101,11 @@ function Project05() {
                     className="flex flex-col items-center justify-end flex-1 pt-10"
                     initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.0, delay: 0.2 }}
                 >
-                    <img src={imgLogo} alt="payis" className="w-[100px] md:w-[140px] h-auto object-contain mb-6" />
+                    <img src={imgLogo} alt="payis" className="w-[120px] md:w-[140px] h-auto object-contain mb-6" />
                     <img
                         src={imgCharacter}
                         alt="payis character"
-                        className="w-[240px] md:w-[340px] lg:w-[420px] h-auto object-contain block"
+                        className="w-[280px] md:w-[340px] lg:w-[420px] h-auto object-contain block"
                     />
                 </motion.div>
             </section>
@@ -119,7 +119,7 @@ function Project05() {
             </section>
 
             {/* 03 - INFORMATION ARCHITECTURE */}
-            <section className="snap-start w-full min-h-[100svh] bg-white flex flex-col items-center justify-center py-24 md:py-40 px-4 md:px-8 lg:px-12 overflow-x-auto">
+            <section className="snap-start w-full min-h-[100svh] bg-white flex flex-col items-center justify-center py-24 md:py-40 px-5 md:px-8 lg:px-12 overflow-x-auto">
                 <motion.div className="w-full max-w-[1300px]" {...fadeInUp}>
                     <h3 className="text-[#9AAAC8] text-xl md:text-3xl font-semibold text-center mb-10 md:mb-16 tracking-wide">
                         Information Architecture
@@ -230,11 +230,11 @@ function Project05() {
                         transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 35, ease: 'linear' } }}
                     >
                         {[...phoneImages, ...phoneImages].map((img, idx) => (
-                            <div key={idx} className="flex-shrink-0 mx-2 md:mx-4">
+                            <div key={idx} className="flex-shrink-0 mx-3 md:mx-4">
                                 <img
                                     src={img}
                                     alt={`payis screen ${(idx % 8) + 1}`}
-                                    className="h-[220px] md:h-[460px] w-auto object-contain rounded-[18px] md:rounded-[32px] shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
+                                    className="h-[260px] md:h-[460px] w-auto object-contain rounded-[18px] md:rounded-[32px] shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
                                 />
                             </div>
                         ))}

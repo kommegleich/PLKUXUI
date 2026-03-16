@@ -38,7 +38,7 @@ export function ProjectLayout({ children, nextProjectLink, nextProjectTitle, nex
 // 2. Exact Match Hero + Meta Section
 export function ProjectHeroExact({ title, subtitle, metaItems, bgColor = "bg-transparent", textColor = "text-[#121212]", subtitleColor = "text-gray-400", labelColor = "text-gray-500", bgImage, isFullHeight = false }) {
     return (
-        <section className={`w-full ${bgColor} pt-28 md:pt-56 pb-16 md:pb-40 px-5 md:px-12 lg:px-16 flex justify-center ${isFullHeight ? 'min-h-[100svh] items-center' : ''} transition-colors duration-500 relative overflow-hidden`}>
+        <section className={`w-full ${bgColor} pt-28 md:pt-56 pb-16 md:pb-40 px-6 md:px-12 lg:px-16 flex justify-center ${isFullHeight ? 'min-h-[100svh] items-center' : ''} transition-colors duration-500 relative overflow-hidden`}>
             {bgImage && (
                 <div className="absolute inset-0 w-full h-full z-0">
                     <img src={bgImage} alt="Hero Background" className="w-full h-full object-cover" />
@@ -137,7 +137,7 @@ export function ProjectHighlight({ text, bgColor = "bg-[#4338ca]", textColor = "
 export function ProjectGrid({ images, bgColor = "bg-transparent", rounded = "rounded-none", gap = "gap-6", itemBg = "bg-gray-200", fits = [], aspect = "" }) {
     return (
         <section className={`w-full ${bgColor} pb-4 md:pb-6 flex justify-center transition-colors duration-500`}>
-            <div className={`w-full grid grid-cols-1 md:grid-cols-2 ${gap} px-3 md:px-6`}>
+            <div className={`w-full grid grid-cols-1 md:grid-cols-2 ${gap} px-5 md:px-6`}>
                 {images.map((img, idx) => (
                     <motion.div
                         key={idx}
@@ -184,7 +184,7 @@ export function ProjectFullMedia({ src, image, isVideo = false }) {
 // 8. Custom Responsive ERP Tree Chart (Reference Design Match)
 export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) {
     return (
-        <section className="w-full py-16 md:py-24 px-4 md:px-8 lg:px-16 flex flex-col items-center bg-[#111622] overflow-hidden">
+        <section className="w-full py-16 md:py-24 px-5 md:px-8 lg:px-16 flex flex-col items-center bg-[#111622]">
             {/* Header: Chip and Title */}
             <div className="w-full max-w-[1400px] mb-10 md:mb-16 flex flex-col gap-6 items-center md:items-start select-none">
                 {chip && (
@@ -206,70 +206,32 @@ export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) 
                 </div>
             </div>
 
-            {/* ── MOBILE LAYOUT (< lg): vertical card stack ── */}
-            <div className="w-full max-w-[1400px] flex flex-col gap-3 select-none lg:hidden">
-
-                {/* Root Node */}
-                <div className="flex items-center justify-center mb-2">
-                    <div className="px-6 h-[44px] border border-[#3E4C69] rounded-full flex items-center justify-center bg-[#111622] text-[#6B89AC] text-[13px] font-medium tracking-wide">
-                        {rootNode}
-                    </div>
-                </div>
-
-                {/* Branch Cards */}
-                {branches.map((branch, idx) => (
-                    <div key={idx} className="w-full rounded-[12px] border border-[#2A3550] bg-[#0D1320] overflow-hidden">
-                        {/* Branch Title Row */}
-                        <div className="px-4 py-3 border-b border-[#2A3550] flex items-center">
-                            <span className="text-white text-[13px] font-semibold tracking-wide">{branch.title}</span>
-                        </div>
-                        {/* Children Tags */}
-                        {branch.children && branch.children.length > 0 ? (
-                            <div className="px-4 py-3 flex flex-row flex-wrap gap-2">
-                                {branch.children.map((child, cIdx) => (
-                                    <span
-                                        key={cIdx}
-                                        className="px-3 h-[30px] inline-flex items-center border border-[#3E4C69] rounded-[6px] bg-[#111622] text-[#6B89AC] text-[11px] font-normal tracking-wide whitespace-nowrap"
-                                    >
-                                        {child}
-                                    </span>
-                                ))}
-                            </div>
-                        ) : (
-                            <div className="px-4 py-3">
-                                <span className="text-[#6B89AC] text-[11px]">—</span>
-                            </div>
-                        )}
-                    </div>
-                ))}
-            </div>
-
-            {/* ── DESKTOP LAYOUT (≥ lg): original horizontal tree ── */}
-            <div className="w-full max-w-[1400px] pb-8 hidden lg:block">
+            {/* ── TREE LAYOUT: horizontal tree, responsive sizing ── */}
+            <div className="w-full max-w-[1400px] pb-8">
                 <div className="flex flex-row items-start justify-start relative select-none">
 
                     {/* Root Node */}
-                    <div className="flex-shrink-0 flex items-center justify-center relative w-[140px] mr-[100px] z-10 mt-[24px]">
-                        <div className="w-[140px] h-[48px] border-[1px] border-[#3E4C69] rounded-[24px] flex items-center justify-center bg-[#111622] text-[#6B89AC] text-[14px] font-medium tracking-wide">
+                    <div className="flex-shrink-0 flex items-center justify-center relative w-[72px] lg:w-[140px] mr-[28px] lg:mr-[100px] z-10 mt-[16px] lg:mt-[24px]">
+                        <div className="w-[72px] lg:w-[140px] h-[34px] lg:h-[48px] border-[1px] border-[#3E4C69] rounded-[24px] flex items-center justify-center bg-[#111622] text-[#6B89AC] text-[9px] lg:text-[14px] font-medium tracking-wide text-center leading-tight px-1">
                             {rootNode}
                         </div>
                     </div>
 
                     {/* Branches Container */}
-                    <div className="flex flex-col gap-4 relative z-10 w-auto items-start">
+                    <div className="flex flex-col gap-2 lg:gap-4 relative z-10 w-auto items-start">
                         {branches.map((branch, idx) => (
-                            <div key={idx} className="flex flex-row items-start gap-3 relative group w-auto pl-[50px]">
+                            <div key={idx} className="flex flex-row items-start gap-1.5 lg:gap-3 relative group w-auto pl-[16px] lg:pl-[50px]">
 
                                 {/* Branch Parent */}
-                                <div className="flex-shrink-0 w-[140px] h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-[#111622] text-white text-[13px] font-medium tracking-wide transition-all duration-300 cursor-default relative z-10 hover:z-20 group-hover:bg-[#457FF3] group-hover:border-[#457FF3] group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(69,127,243,0.3)] hover:!scale-110">
+                                <div className="flex-shrink-0 w-[72px] lg:w-[140px] h-[32px] lg:h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-[#111622] text-white text-[9px] lg:text-[13px] font-medium tracking-wide transition-all duration-300 cursor-default relative z-10 hover:z-20 group-hover:bg-[#457FF3] group-hover:border-[#457FF3] group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(69,127,243,0.3)] hover:!scale-110 text-center leading-tight px-1">
                                     {branch.title}
                                 </div>
 
                                 {/* Sub Nodes */}
                                 {branch.children && branch.children.length > 0 && (
-                                    <div className="flex flex-row flex-wrap justify-start gap-3 w-auto relative z-10">
+                                    <div className="flex flex-row flex-wrap justify-start gap-1.5 lg:gap-3 w-auto relative z-10">
                                         {branch.children.map((child, cIdx) => (
-                                            <div key={cIdx} className="flex-shrink-0 w-[140px] h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-[#111622] text-[#6B89AC] text-[12px] font-normal tracking-wide transition-all duration-300 cursor-default text-center leading-tight hover:z-20 group-hover:border-[#457FF3]/40 group-hover:text-white/90 group-hover:bg-[#457FF3]/5 hover:!scale-110 hover:!bg-[#457FF3]/20 hover:!border-[#457FF3] hover:!text-white">
+                                            <div key={cIdx} className="flex-shrink-0 w-[72px] lg:w-[140px] h-[32px] lg:h-[40px] border-[1px] border-[#3E4C69] flex items-center justify-center bg-[#111622] text-[#6B89AC] text-[8px] lg:text-[12px] font-normal tracking-wide transition-all duration-300 cursor-default text-center leading-tight hover:z-20 group-hover:border-[#457FF3]/40 group-hover:text-white/90 group-hover:bg-[#457FF3]/5 hover:!scale-110 hover:!bg-[#457FF3]/20 hover:!border-[#457FF3] hover:!text-white px-1">
                                                 {child}
                                             </div>
                                         ))}
@@ -306,7 +268,7 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, label, src, i
     }, [images]);
 
     const renderHeader = () => (
-        <div className={`w-full flex flex-col gap-2 ${centered ? 'items-center text-center' : 'items-center md:items-start text-center md:text-left'} select-none ${layout === 'split' ? '' : 'max-w-[1400px] px-4 md:px-8 lg:px-16 mb-12'}`}>
+        <div className={`w-full flex flex-col gap-6 ${centered ? 'items-center text-center' : 'items-center md:items-start text-center md:text-left'} select-none ${layout === 'split' ? '' : 'max-w-[1400px] px-5 md:px-8 lg:px-16 mb-12'}`}>
             {label && (
                 <p className={`text-xs md:text-sm font-bold tracking-[0.3em] uppercase opacity-60 mb-8 ${textColor}`}>
                     {label}
@@ -335,7 +297,7 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, label, src, i
     const renderMedia = () => (
         <div ref={ref} className={`w-full relative flex justify-center md:mt-8 ${layout === 'split' ? 'h-[50vh] md:h-[60vh]' : 'h-[45vh] md:h-[65vh]'}`}>
             {images && images.length > 0 ? (
-                <div className={`w-full relative flex justify-center items-center h-full ${layout === 'split' ? 'w-full' : 'max-w-[1400px] px-4 md:px-8'}`}>
+                <div className={`w-full relative flex justify-center items-center h-full ${layout === 'split' ? 'w-full' : 'max-w-[1400px] px-5 md:px-8'}`}>
                     <AnimatePresence mode="popLayout">
                         <motion.img
                             key={currentIndex}
@@ -368,7 +330,7 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, label, src, i
     return (
         <section className={`w-full py-24 md:py-32 flex flex-col items-center overflow-hidden ${bgColor}`}>
             {layout === 'split' ? (
-                <div className="w-full max-w-[1800px] px-4 md:px-8 lg:px-16 flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div className="w-full max-w-[1800px] px-5 md:px-8 lg:px-16 flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                     {renderHeader()}
                     {renderMedia()}
                 </div>
@@ -410,7 +372,7 @@ export function ProjectImageMarquee({ images, speed = 40, bgColor = "bg-[#10182B
                                 key={`marquee-1-${idx}`}
                                 src={img}
                                 alt={`Marquee ${idx}`}
-                                className="h-[160px] md:h-[450px] w-[220px] md:w-[700px] object-contain rounded-md block bg-[#10182B]"
+                                className="h-[260px] md:h-[450px] w-[360px] md:w-[700px] object-contain rounded-md block bg-[#10182B]"
                             />
                         ))}
                     </div>
@@ -420,7 +382,7 @@ export function ProjectImageMarquee({ images, speed = 40, bgColor = "bg-[#10182B
                                 key={`marquee-2-${idx}`}
                                 src={img}
                                 alt={`Marquee-loop ${idx}`}
-                                className="h-[160px] md:h-[450px] w-[220px] md:w-[700px] object-contain rounded-md block bg-[#10182B]"
+                                className="h-[260px] md:h-[450px] w-[360px] md:w-[700px] object-contain rounded-md block bg-[#10182B]"
                             />
                         ))}
                     </div>
@@ -433,7 +395,7 @@ export function ProjectImageMarquee({ images, speed = 40, bgColor = "bg-[#10182B
 // 11. 3-Column Feature Grid (UX Case Study style)
 export function ProjectGrid3Col({ chip, items, bgColor = "bg-[#111622]" }) {
     return (
-        <section className={`w-full pt-16 md:pt-20 pb-24 md:pb-48 px-4 md:px-8 lg:px-16 flex flex-col items-center ${bgColor}`}>
+        <section className={`w-full pt-16 md:pt-20 pb-24 md:pb-48 px-5 md:px-8 lg:px-16 flex flex-col items-center ${bgColor}`}>
             <div className="w-full max-w-[1400px] flex flex-col items-center md:items-start">
                 {chip && (
                     <div className="px-4 py-1.5 bg-[#3B82F6] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-[4px] mb-10 md:mb-16 w-fit">
@@ -461,7 +423,7 @@ export function ProjectGrid3Col({ chip, items, bgColor = "bg-[#111622]" }) {
 // 12. Poster with Text Overlay (Side-by-side style)
 export function ProjectPosterWithText({ image, chip, title, subtitle, bgColor = "bg-[#F4F7FA]" }) {
     return (
-        <section className={`w-full py-16 md:py-40 px-5 md:px-12 lg:px-16 flex justify-center relative ${bgColor}`}>
+        <section className={`w-full py-16 md:py-40 px-6 md:px-12 lg:px-16 flex justify-center relative ${bgColor}`}>
             {/* Background Split for visual transition */}
             <div className="absolute top-0 left-0 w-full h-1/3 bg-[#10182B] z-0" />
 
@@ -487,7 +449,7 @@ export function ProjectPosterWithText({ image, chip, title, subtitle, bgColor = 
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     {chip && (
-                        <div className="w-fit px-4 py-1.5 bg-[#457FF3] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-[2px] mb-2">
+                        <div className="w-fit px-4 py-1.5 bg-[#457FF3] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-[2px]">
                             {chip}
                         </div>
                     )}

@@ -1,35 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight, ProjectCenteredIntro } from '../components/ProjectLayout';
-import imgHero from '../images/project4-m01.png';
-import imgM02 from '../images/project4-m02.png';
-import imgM03 from '../images/project4-m03.png';
-import imgM04 from '../images/project4-m04.png';
-import imgEf01 from '../images/project4-ef01.png';
-import imgEf02 from '../images/project4-ef02.png';
-import imgEf03 from '../images/project4-ef03.png';
-import imgEf04 from '../images/project4-ef04.png';
-import imgEf05 from '../images/project4-ef05.png';
-import imgEf06 from '../images/project4-ef06.png';
-import imgM05 from '../images/project4-m05.png';
-import imgM06 from '../images/project4-m06.png';
-import imgM07 from '../images/project4-m07.png';
-import imgM08 from '../images/project4-m08.png';
+import imgHero from '../images/project4-m01.webp';
+import imgM02 from '../images/project4-m02.webp';
+import imgM03 from '../images/project4-m03.webp';
+import imgM04 from '../images/project4-m04.webp';
+import imgEf01 from '../images/project4-ef01.webp';
+import imgEf02 from '../images/project4-ef02.webp';
+import imgEf03 from '../images/project4-ef03.webp';
+import imgEf04 from '../images/project4-ef04.webp';
+import imgEf05 from '../images/project4-ef05.webp';
+import imgEf06 from '../images/project4-ef06.webp';
+import imgM05 from '../images/project4-m05.webp';
+import imgM06 from '../images/project4-m06.webp';
+import imgM07 from '../images/project4-m07.webp';
+import imgM08 from '../images/project4-m08.webp';
 
 const effectImages = [imgEf01, imgEf02, imgEf03, imgEf04, imgEf05, imgEf06];
 
 const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-100px" },
-    transition: { duration: 1.2, ease: "easeOut" }
+    viewport: { once: true, margin: "-50px" },
+    transition: { duration: 0.8, ease: "easeOut" }
 };
 
 const fadeInSubtle = {
     initial: { opacity: 0, y: 60 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-100px" },
-    transition: { duration: 1.8, ease: [0.22, 1, 0.36, 1] }
+    viewport: { once: true, margin: "-50px" },
+    transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
 };
 
 const staggerContainer = {
@@ -178,13 +178,13 @@ function Project04() {
                         {/* Repeat 1 */}
                         <div className="flex gap-4 md:gap-8 px-2 md:px-4">
                             {effectImages.map((img, idx) => (
-                                <img key={`ef1-${idx}`} src={img} alt={`Effect ${idx}`} className="w-[180px] md:w-[320px] h-auto object-contain drop-shadow-sm shrink-0" />
+                                <img key={`ef1-${idx}`} src={img} alt={`Effect ${idx}`} className="w-[240px] md:w-[320px] h-auto object-contain drop-shadow-sm shrink-0" />
                             ))}
                         </div>
                         {/* Repeat 2 */}
                         <div className="flex gap-4 md:gap-8 px-2 md:px-4">
                             {effectImages.map((img, idx) => (
-                                <img key={`ef2-${idx}`} src={img} alt={`Effect loop ${idx}`} className="w-[180px] md:w-[320px] h-auto object-contain drop-shadow-sm shrink-0" />
+                                <img key={`ef2-${idx}`} src={img} alt={`Effect loop ${idx}`} className="w-[240px] md:w-[320px] h-auto object-contain drop-shadow-sm shrink-0" />
                             ))}
                         </div>
                     </div>
@@ -244,7 +244,7 @@ function Project04() {
                 >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-start">
                         {/* Column 1 */}
-                        <motion.div className="flex flex-col items-center" variants={fadeInSubtle}>
+                        <motion.div className="flex flex-col items-center max-w-[320px] md:max-w-none mx-auto" variants={fadeInSubtle}>
                             <div className="text-center mb-12 h-32 flex flex-col justify-center">
                                 <p className="text-[#888] text-[15px] md:text-lg leading-[1.6] mb-4 break-keep">
                                     선물 동선의<br />자연스러운 진입 유도
@@ -261,7 +261,7 @@ function Project04() {
                         </motion.div>
 
                         {/* Column 2 */}
-                        <motion.div className="flex flex-col items-center" variants={fadeInSubtle}>
+                        <motion.div className="flex flex-col items-center max-w-[320px] md:max-w-none mx-auto" variants={fadeInSubtle}>
                             <div className="text-center mb-12 h-32 flex flex-col justify-center">
                                 <p className="text-[#888] text-[15px] md:text-lg leading-[1.6] mb-4 break-keep">
                                     탐색 없이<br />바로 선택 가능
@@ -278,7 +278,7 @@ function Project04() {
                         </motion.div>
 
                         {/* Column 3 */}
-                        <motion.div className="flex flex-col items-center" variants={fadeInSubtle}>
+                        <motion.div className="flex flex-col items-center max-w-[320px] md:max-w-none mx-auto" variants={fadeInSubtle}>
                             <div className="text-center mb-12 h-32 flex flex-col justify-center">
                                 <p className="text-[#888] text-[15px] md:text-lg leading-[1.6] mb-4 break-keep">
                                     구매 완료까지<br />이탈률 감소

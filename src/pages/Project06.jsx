@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight } from '../components/ProjectLayout';
+import { ProjectLayout, ProjectHeroExact, ProjectFullMedia, ProjectHighlight } from '../components/ProjectLayout';
 
 function Project06() {
     return (

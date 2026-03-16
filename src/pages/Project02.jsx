@@ -1,10 +1,10 @@
-import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight, ProjectTreeChart, ProjectFullMediaWithTitle, ProjectSectionText } from '../components/ProjectLayout';
+import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSectionText } from '../components/ProjectLayout';
 
-import imgM01 from '../images/project2-m01.png';
-import imgM02 from '../images/project2-m02.png';
-import imgM03 from '../images/project2-m03.png';
-import imgFC from '../images/project2-fc.png';
-import imgFC2 from '../images/project2-fc2.png';
+import imgM01 from '../images/project2-m01.webp';
+import imgM02 from '../images/project2-m02.webp';
+import imgM03 from '../images/project2-m03.webp';
+import imgFC from '../images/project2-fc.webp';
+import imgFC2 from '../images/project2-fc2.webp';
 
 function Project02() {
     return (
@@ -63,24 +63,28 @@ function Project02() {
                 itemBg="bg-transparent"
             />
 
-            {/* 03 - 플로우차트 / 계층구조 다이어그램 (기존 이미지 대신 코드 기반 차트로 개선) */}
-            <ProjectTreeChart
-                chip="Flowchart"
-                title="참가 신청 프로세스 최적화 및 사용자 여정 설계"
-                subtitle={
-                    <>
-                        사용자가 대회를 검색하고 조회하는 시점부터 최종 선수 등록이 완료되는 시점까지의 전체 여정을 설계했습니다.
-                        <br />복잡한 신청 단계를 최소화하고, 골퍼들에게 익숙한 예약 플로우를 적용하여 직관적이고 끊김 없는 사용자 경험을 구축했습니다.
-                    </>
-                }
-                rootNode="선수등록 프로세스"
-                branches={[
-                    { title: "대회 탐색", children: ["검색 (GOLF SEARCH)", "캘린더 (CALENDAR)", "지도 (MAP)"] },
-                    { title: "골프장 및 티타임", children: ["골프장 선택", "티타임 선택", "카테고리 필터"] },
-                    { title: "정보 확인 및 약관", children: ["지역 선택", "내장 약관 동의", "필수 정보 체크"] },
-                    { title: "등록 완료", children: ["선수 참가 등록 완료"] }
-                ]}
-            />
+            {/* 03 - 플로우차트 이미지 */}
+            <section className="w-full py-16 md:py-24 px-5 md:px-8 lg:px-16 flex flex-col items-center bg-[#111622] overflow-hidden">
+                <div className="w-full max-w-[1400px] mb-10 md:mb-16 flex flex-col gap-6 items-center md:items-start select-none">
+                    <div className="px-5 py-1.5 border border-white text-[#111622] text-[11px] md:text-sm font-bold uppercase tracking-widest bg-white rounded-[4px]">
+                        Flowchart
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <h2 className="text-[clamp(1.3rem,3vw,2.5rem)] font-medium text-white tracking-[-0.04em] text-center md:text-left break-keep">
+                            참가 신청 프로세스 최적화 및 사용자 여정 설계
+                        </h2>
+                        <p className="text-[13px] md:text-base text-[#9A9BA5] font-normal leading-[1.7] text-center md:text-left opacity-90 break-keep">
+                            사용자가 대회를 검색하고 조회하는 시점부터 최종 선수 등록이 완료되는 시점까지의 전체 여정을 설계했습니다.<br />
+                            복잡한 신청 단계를 최소화하고, 골퍼들에게 익숙한 예약 플로우를 적용하여 직관적이고 끊김 없는 사용자 경험을 구축했습니다.
+                        </p>
+                    </div>
+                </div>
+                <img
+                    src={imgFC2}
+                    alt="참가 신청 프로세스 플로우차트"
+                    className="w-full max-w-[1400px] object-contain mx-auto"
+                />
+            </section>
 
             {/* 04 - 텍스트 단락으로 구성된 섹션 (기획/개선 주안점 등 설명) */}
             <ProjectSectionText
