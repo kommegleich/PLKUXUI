@@ -10,7 +10,7 @@ export function ProjectLayout({ children, nextProjectLink, nextProjectTitle, nex
 
             {/* Next Project Footer */}
             {nextProjectLink && nextProjectTitle && (
-                <section className={`w-full h-screen ${nextProjectBg} text-white flex flex-col items-center justify-center relative group cursor-pointer overflow-hidden`}>
+                <section className={`snap-start w-full h-screen ${nextProjectBg} text-white flex flex-col items-center justify-center relative group cursor-pointer overflow-hidden`}>
                     <Link to={nextProjectLink} onClick={() => window.scrollTo(0, 0)} className="absolute inset-0 z-10 w-full h-full flex flex-col items-center justify-center px-6">
                         <motion.p
                             className="text-xs md:text-sm font-bold tracking-[0.3em] uppercase opacity-60 mb-8"
