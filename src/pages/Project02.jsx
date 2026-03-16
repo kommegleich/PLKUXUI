@@ -1,4 +1,4 @@
-import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight, ProjectFullMediaWithTitle, ProjectSectionText } from '../components/ProjectLayout';
+import { ProjectLayout, ProjectHeroExact, ProjectGrid, ProjectSplit, ProjectFullMedia, ProjectHighlight, ProjectTreeChart, ProjectFullMediaWithTitle, ProjectSectionText } from '../components/ProjectLayout';
 
 import imgM01 from '../images/project2-m01.png';
 import imgM02 from '../images/project2-m02.png';
