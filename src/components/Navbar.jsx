@@ -22,19 +22,19 @@ const Navbar = () => {
         <div className="pointer-events-auto w-full max-w-[1800px] flex justify-start">
           <Link
             to="/"
-            className="group flex items-center gap-4 px-3 py-4 bg-transparent text-white text-3xl md:text-5xl font-[600] rounded-full"
+            className="group flex items-center gap-2 md:gap-4 px-2 md:px-3 py-3 md:py-4 bg-transparent text-white text-2xl md:text-5xl font-[600] rounded-full"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
             <svg
-              width="48"
-              height="48"
+              width="36"
+              height="36"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="2.5"
               strokeLinecap="square"
               strokeLinejoin="miter"
-              className="mt-1 transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-2"
+              className="mt-1 transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-2 md:w-12 md:h-12"
             >
               <path d="M10 5 L3 12 L10 19 M3 12 L21 12" />
             </svg>

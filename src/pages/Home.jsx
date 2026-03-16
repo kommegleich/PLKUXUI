@@ -2,9 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+
+// 뷰포트 768px 미만 시 모바일 레이아웃 활성화
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return isMobile;
+}
 function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -25,8 +39,8 @@ function Home() {
         {/* Main Interaction Area */}
         <div
           className="relative z-10 flex flex-col items-center py-8 px-4"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
+          onMouseEnter={() => !isMobile && setIsHovering(true)}
+          onMouseLeave={() => !isMobile && setIsHovering(false)}
         >
           {/* Centered Text */}
           <motion.div
@@ -35,9 +49,9 @@ function Home() {
             animate={{
               opacity: 1,
               y: 0,
-              scale: isHovering ? 1.25 : 1,
-              rotateX: isHovering && typeof window !== 'undefined' ? (mousePosition.y / window.innerHeight - 0.5) * -90 : 0,
-              rotateY: isHovering && typeof window !== 'undefined' ? (mousePosition.x / window.innerWidth - 0.5) * 90 : 0
+              scale: (!isMobile && isHovering) ? 1.25 : 1,
+              rotateX: (!isMobile && isHovering && typeof window !== 'undefined') ? (mousePosition.y / window.innerHeight - 0.5) * -90 : 0,
+              rotateY: (!isMobile && isHovering && typeof window !== 'undefined') ? (mousePosition.x / window.innerWidth - 0.5) * 90 : 0
             }}
             style={{
               fontFamily: 'Inter, sans-serif',
@@ -48,40 +62,39 @@ function Home() {
             transition={{
               opacity: { duration: 0.8, ease: "easeOut" },
               y: { duration: 0.8, ease: "easeOut" },
-              scale: { duration: 3, ease: [0.16, 1, 0.3, 1] }, // Very smooth, slow scale up
+              scale: { duration: 3, ease: [0.16, 1, 0.3, 1] },
               rotateX: { type: "spring", stiffness: 80, damping: 20 },
               rotateY: { type: "spring", stiffness: 80, damping: 20 }
             }}
           >
             PLK
-
           </motion.div>
 
-          {/* Subtitle */}
+          {/* Subtitle - 모바일에서는 항상 표시, 데스크톱에선 hover 시 표시 */}
           <motion.div
-            className="text-gray-600 text-base md:text-lg font-normal text-center leading-relaxed max-w-2xl mt-12"
+            className="text-gray-600 text-sm md:text-lg font-normal text-center leading-relaxed max-w-2xl mt-6 md:mt-12 px-4"
             initial={{ opacity: 0, y: 15 }}
             animate={{
-              opacity: isHovering ? 1 : 0,
-              y: isHovering ? 0 : 15
+              opacity: isMobile ? 1 : (isHovering ? 1 : 0),
+              y: isMobile ? 0 : (isHovering ? 0 : 15)
             }}
             transition={{
               duration: 0.8,
-              delay: isHovering ? 0.2 : 0,
+              delay: (!isMobile && isHovering) ? 0.2 : 0,
               ease: "easeOut"
             }}
           >
             <p className="tracking-tight">기획, 설계, 마케팅, 운영까지 전체 흐름을 이해하고 움직이는 UXUI디자이너입니다.</p>
-            <p className="tracking-tight">사용자 경험은 물론, 기획부터 운영까지의 흐름을 이해하며, <span className="font-extrabold">제품의 <span className="text-[#121212]">맥락</span></span>을 중심에 두고 설계합니다.</p>
+            <p className="tracking-tight">사용자 경험은 물론, 기획부터 운영까지의 흐름을 이해하며, <br /><span className="font-extrabold">제품의 <span className="text-[#121212]">맥락</span></span>을 중심에 두고 설계합니다.</p>
           </motion.div>
         </div>
       </section>
 
 
       {/* 02 - Projects List Section (포트폴리오 리스트) */}
-      <section id="projects" className="w-full bg-[#0d0d0d] pt-64 pb-96 text-white">
-        <div className="w-full px-4 md:px-8 mb-24 flex justify-center">
-          <h2 className="text-[clamp(4.5rem,12vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center">PROJECTS.</h2>
+      <section id="projects" className="w-full bg-[#0d0d0d] pt-24 md:pt-64 pb-32 md:pb-96 text-white">
+        <div className="w-full px-4 md:px-8 mb-12 md:mb-24 flex justify-center">
+          <h2 className="text-[clamp(3rem,12vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center">PROJECTS.</h2>
         </div>
         <div className="flex flex-col w-full border-t border-gray-800">
           {[
@@ -125,10 +138,10 @@ function Home() {
             <Link
               key={index}
               to={`/project/${index + 1}`}
-              className={`group flex flex-col md:flex-row items-center justify-between py-12 md:py-16 px-4 md:px-8 border-b border-gray-800 transition-all duration-500 overflow-hidden ${project.bgClass}`}
+              className={`group flex flex-col md:flex-row items-start md:items-center justify-between py-8 md:py-16 px-4 md:px-8 border-b border-gray-800 transition-all duration-500 overflow-hidden ${project.bgClass}`}
             >
               {/* Default Title */}
-              <h3 className="text-[clamp(2.5rem,6vw,5rem)] leading-[1] font-pretendard font-black tracking-tighter text-white break-words w-full md:w-5/12 mb-4 md:mb-0 group-hover:hidden transition-colors">
+              <h3 className="text-[clamp(1.8rem,6vw,5rem)] leading-[1.1] font-pretendard font-black tracking-tighter text-white break-words w-full md:w-5/12 mb-4 md:mb-0 group-hover:hidden transition-colors">
                 {project.title}
               </h3>
 
@@ -137,14 +150,14 @@ function Home() {
                 <div className="flex w-max animate-custom-marquee">
                   <div className="flex shrink-0">
                     {[...Array(2)].map((_, i) => (
-                      <h3 key={i} className="text-[clamp(2.5rem,6vw,5rem)] leading-[1] font-pretendard font-black tracking-tighter text-white/90 pr-12 shrink-0">
+                      <h3 key={i} className="text-[clamp(1.8rem,6vw,5rem)] leading-[1.1] font-pretendard font-black tracking-tighter text-white/90 pr-12 shrink-0">
                         {project.title}
                       </h3>
                     ))}
                   </div>
                   <div className="flex shrink-0">
                     {[...Array(2)].map((_, i) => (
-                      <h3 key={i + 2} className="text-[clamp(2.5rem,6vw,5rem)] leading-[1] font-pretendard font-black tracking-tighter text-white/90 pr-12 shrink-0">
+                      <h3 key={i + 2} className="text-[clamp(1.8rem,6vw,5rem)] leading-[1.1] font-pretendard font-black tracking-tighter text-white/90 pr-12 shrink-0">
                         {project.title}
                       </h3>
                     ))}
@@ -153,17 +166,17 @@ function Home() {
               </div>
 
               {/* Subtitle & Chips */}
-              <div className="w-full md:w-1/2 flex flex-row items-center justify-between">
+              <div className="w-full md:w-1/2 flex flex-row items-center justify-between mt-2 md:mt-0">
                 <div className="flex flex-col w-full">
-                  <p className="text-gray-500 font-pretendard font-normal tracking-tight text-base md:text-lg lg:text-xl break-keep whitespace-pre-line group-hover:text-white transition-colors">
+                  <p className="text-gray-500 font-pretendard font-normal tracking-tight text-sm md:text-lg lg:text-xl break-keep whitespace-pre-line group-hover:text-white transition-colors line-clamp-3 md:line-clamp-none">
                     {project.desc}
                   </p>
 
-                  {/* Hover Chips */}
+                  {/* Chips (always visible on mobile) */}
                   {project.tags && project.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-0 max-h-0 opacity-0 overflow-hidden group-hover:mt-6 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-out">
+                    <div className="flex flex-wrap gap-1.5 mt-3 md:mt-0 md:max-h-0 md:opacity-0 md:overflow-hidden group-hover:mt-6 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-out">
                       {project.tags.map((tag, i) => (
-                        <span key={i} className="text-xs md:text-sm font-pretendard text-white border border-white/20 bg-black/10 backdrop-blur-md px-3 py-1.5 whitespace-nowrap">
+                        <span key={i} className="text-[10px] md:text-sm font-pretendard text-white border border-white/20 bg-black/10 backdrop-blur-md px-2 py-1 md:px-3 md:py-1.5 whitespace-nowrap">
                           {tag}
                         </span>
                       ))}
@@ -176,9 +189,9 @@ function Home() {
         </div>
       </section>
 
-      {/* Hover Chip */}
+      {/* Hover Chip - 데스크톱에서만 표시 */}
       <AnimatePresence>
-        {isHovering && (
+        {!isMobile && isHovering && (
           <motion.div
             className="fixed pointer-events-none z-50 text-sm md:text-base px-4 py-1.5 rounded-lg font-extrabold tracking-wide shadow-2xl backdrop-blur-md"
             style={{
@@ -201,11 +214,11 @@ function Home() {
       {/* 03 - Expertise Section (사용 툴 및 스펙 정리) */}
       <section id="expertise" className="relative w-full h-[200vh] bg-[#fff] text-[#121212]">
         <div className="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden">
-          <div className="w-full px-4 md:px-8 mb-16 xl:mb-24 flex justify-center">
-            <h2 className="text-[clamp(4.5rem,12vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center">EXPERTISE.</h2>
+          <div className="w-full px-4 md:px-8 mb-8 md:mb-16 xl:mb-24 flex justify-center">
+            <h2 className="text-[clamp(3rem,12vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center">EXPERTISE.</h2>
           </div>
 
-          <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col xl:flex-row items-center justify-center xl:items-start gap-20 md:gap-24 xl:gap-8 mt-4 md:mt-10 xl:mt-20">
+          <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 flex flex-col xl:flex-row items-center justify-center xl:items-start gap-10 md:gap-16 xl:gap-8 mt-2 md:mt-10 xl:mt-20">
             {/* Figma Column */}
             <div className="flex flex-col w-full max-w-xs md:max-w-sm items-center xl:items-start shrink-0">
               <div className="mb-4 md:mb-6 flex justify-center xl:justify-start w-full">
@@ -279,22 +292,22 @@ function Home() {
       </section>
 
       {/* 04 - My Approach Section (작업 방식 및 철학 소개) */}
-      <section id="approach" className="w-full bg-[#0d0d0d] pt-32 pb-48 text-white relative">
-        <div className="w-full px-4 md:px-8 mb-24 flex flex-col items-center">
-          <div className="mb-12">
-            <span className="text-[20px] md:text-[30px] font-normal text-gray-400 border border-gray-700 px-6 py-3 md:px-10 md:py-5 rounded-[4rem] backdrop-blur-sm tracking-[-0.05em]">about</span>
+      <section id="approach" className="w-full bg-[#0d0d0d] pt-16 md:pt-32 pb-24 md:pb-48 text-white relative">
+        <div className="w-full px-4 md:px-8 mb-12 md:mb-24 flex flex-col items-center">
+          <div className="mb-8 md:mb-12">
+            <span className="text-[16px] md:text-[30px] font-normal text-gray-400 border border-gray-700 px-5 py-2.5 md:px-10 md:py-5 rounded-[4rem] backdrop-blur-sm tracking-[-0.05em]">about</span>
           </div>
-          <h2 className="text-[clamp(4rem,10vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center uppercase">
+          <h2 className="text-[clamp(2.5rem,10vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center uppercase">
             MY APPROACH.
           </h2>
         </div>
 
         <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-12 xl:gap-16 transform scale-95 md:scale-90 xl:scale-[0.8] origin-center max-w-lg md:max-w-2xl xl:max-w-none mx-auto">
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 md:gap-12 xl:gap-16 origin-center max-w-sm sm:max-w-lg md:max-w-2xl xl:max-w-none mx-auto">
             {/* Card 1 */}
-            <div className="group relative w-full aspect-[3.5/5] bg-[#ffffff] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.15] hover:z-50 transition-transform duration-300 ease-out shadow-2xl">
-              {/* Hover Image */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-0">
+            <div className="group relative w-full aspect-[4/5] sm:aspect-[3.5/5] bg-[#ffffff] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.05] md:hover:scale-[1.15] hover:z-50 transition-transform duration-300 ease-out shadow-2xl">
+              {/* Image - 모바일에서 반투명 항상 표시, 데스크톱에서 hover 시 표시 */}
+              <div className={`absolute inset-0 transition-all duration-300 ease-in-out z-0 ${isMobile ? 'opacity-40' : 'opacity-0 group-hover:opacity-100'}`}>
                 <img
                   src={`${import.meta.env.BASE_URL}assets/profile.jpg`}
                   alt="pulip kim"
@@ -303,40 +316,39 @@ function Home() {
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
 
-              <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
+              <div className="absolute inset-0 p-6 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
                 <div className="flex-none">
-                  <span className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-[#121212] group-hover:text-white transition-colors duration-300">
+                  <span className={`text-2xl md:text-3xl lg:text-4xl font-light tracking-tight transition-colors duration-300 ${isMobile ? 'text-[#121212]' : 'text-[#121212] group-hover:text-white'}`}>
                     (01)
                   </span>
                 </div>
 
-                {/* Middle: Title Area (Crossfade logic) */}
+                {/* Middle: Title */}
                 <div className="flex-1 flex items-center relative">
-                  {/* Default State */}
-                  <div className="absolute inset-0 flex items-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                  <div className={`absolute inset-0 flex items-center transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
                     <h3 className="text-[clamp(2.5rem,6vw,4rem)] font-black tracking-tighter text-[#121212] uppercase leading-none" style={{ fontWeight: 900 }}>
                       INTUITION
                     </h3>
                   </div>
                 </div>
 
-                {/* Bottom: Description Area (Crossfade logic) */}
-                <div className="flex-none relative h-32 md:h-40">
-                  {/* Default State */}
-                  <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-300 flex flex-col justify-end pb-2">
+                {/* Bottom: Description */}
+                <div className="flex-none relative">
+                  {/* Default: 설명 텍스트 */}
+                  <div className={`transition-opacity duration-300 flex flex-col pb-2 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
                     <div className="flex flex-col gap-1 w-full">
-                      <span className="text-xl md:text-2xl lg:text-3xl text-[#121212] font-normal tracking-tighter">직관</span>
-                      <p className="text-xl md:text-2xl lg:text-3xl text-[#121212] font-normal tracking-tighter break-keep leading-snug">
+                      <span className="text-lg md:text-2xl lg:text-3xl text-[#121212] font-normal tracking-tighter">직관</span>
+                      <p className="text-lg md:text-2xl lg:text-3xl text-[#121212] font-normal tracking-tighter break-keep leading-snug">
                         첫 진입부터 다음 행동이 보이는 구조
                       </p>
                     </div>
                   </div>
-                  {/* Hover State */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 flex flex-col justify-end pb-2">
-                    <h3 className="text-[clamp(2rem,6vw,4rem)] font-normal tracking-tighter text-white uppercase leading-none mb-2">
-                      PULIP KIM
-                    </h3>
-                    <p className="text-xs md:text-sm lg:text-base text-gray-200 font-normal uppercase">
+                  {/* 모바일: 연락처 항상 표시 / 데스크톱: hover 시 표시 */}
+                  <div className={`transition-opacity duration-300 flex flex-col gap-1 pb-0 ${isMobile ? 'opacity-100 mt-4 pt-3 border-t border-black/10' : 'absolute inset-0 opacity-0 group-hover:opacity-100 delay-75 justify-end pb-2'}`}>
+                    <span className={`font-medium tracking-tighter uppercase leading-none ${isMobile ? 'text-sm text-[#121212]/60' : 'text-[clamp(2rem,6vw,4rem)] text-white mb-2 font-normal'}`}>
+                      {isMobile ? 'PULIP KIM' : 'PULIP KIM'}
+                    </span>
+                    <p className={`font-normal uppercase ${isMobile ? 'text-xs text-[#121212]/40' : 'text-xs md:text-sm lg:text-base text-gray-200'}`}>
                       ARBEITERINPILITA@GMAIL.COM
                     </p>
                   </div>
@@ -345,9 +357,9 @@ function Home() {
             </div>
 
             {/* Card 2 */}
-            <div className="group relative w-full aspect-[3.5/5] bg-[#d9331d] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.15] hover:z-50 transition-transform duration-300 ease-out shadow-2xl">
-              {/* Hover Image */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-0">
+            <div className="group relative w-full aspect-[4/5] sm:aspect-[3.5/5] bg-[#d9331d] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.05] md:hover:scale-[1.15] hover:z-50 transition-transform duration-300 ease-out shadow-2xl">
+              {/* Image - 모바일에서 반투명 항상 표시 */}
+              <div className={`absolute inset-0 transition-all duration-300 ease-in-out z-0 ${isMobile ? 'opacity-30' : 'opacity-0 group-hover:opacity-100'}`}>
                 <img
                   src={`${import.meta.env.BASE_URL}assets/card2_hover_new.jpg`}
                   alt="flow"
@@ -356,40 +368,39 @@ function Home() {
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
 
-              <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
+              <div className="absolute inset-0 p-6 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
                 <div className="flex-none">
                   <span className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-white/90 group-hover:text-white transition-colors duration-300">
                     (02)
                   </span>
                 </div>
 
-                {/* Middle: Title Area (Crossfade logic) */}
+                {/* Middle: Title */}
                 <div className="flex-1 flex items-center relative">
-                  {/* Default State */}
-                  <div className="absolute inset-0 flex items-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                  <div className={`absolute inset-0 flex items-center transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
                     <h3 className="text-[clamp(2.5rem,6vw,4rem)] font-black tracking-tighter text-white uppercase leading-none" style={{ fontWeight: 900 }}>
                       FLOW
                     </h3>
                   </div>
                 </div>
 
-                {/* Bottom: Description Area (Crossfade logic) */}
-                <div className="flex-none relative h-32 md:h-40">
-                  {/* Default State */}
-                  <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-300 flex flex-col justify-end pb-2">
+                {/* Bottom: Description */}
+                <div className="flex-none relative">
+                  {/* Default: 설명 텍스트 */}
+                  <div className={`transition-opacity duration-300 flex flex-col pb-2 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
                     <div className="flex flex-col gap-1 w-full">
-                      <span className="text-xl md:text-2xl lg:text-3xl text-white font-normal tracking-tighter">흐름</span>
-                      <p className="text-xl md:text-2xl lg:text-3xl text-white font-normal tracking-tighter break-keep leading-snug">
+                      <span className="text-lg md:text-2xl lg:text-3xl text-white font-normal tracking-tighter">흐름</span>
+                      <p className="text-lg md:text-2xl lg:text-3xl text-white font-normal tracking-tighter break-keep leading-snug">
                         사용자의 목적과 제품의 구조가 일치하는 지점
                       </p>
                     </div>
                   </div>
-                  {/* Hover State */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 flex flex-col justify-end pb-2">
-                    <a href="#projects" className="flex items-center gap-2 group/link cursor-pointer w-fit">
-                      <h3 className="text-[clamp(2rem,6vw,4rem)] font-normal tracking-tighter text-white uppercase leading-none group-hover/link:underline underline-offset-[8px] decoration-4">
+                  {/* 모바일: 링크 항상 표시 / 데스크톱: hover 시 표시 */}
+                  <div className={`transition-opacity duration-300 flex flex-col pb-0 ${isMobile ? 'opacity-100 mt-4 pt-3 border-t border-white/20' : 'absolute inset-0 opacity-0 group-hover:opacity-100 delay-75 justify-end pb-2'}`}>
+                    <a href="#projects" className="flex items-center gap-2 cursor-pointer w-fit group/link">
+                      <span className={`font-medium tracking-tighter text-white uppercase leading-none ${isMobile ? 'text-sm underline underline-offset-4' : 'text-[clamp(2rem,6vw,4rem)] font-normal group-hover/link:underline underline-offset-[8px] decoration-4'}`}>
                         MORE WORKS
-                      </h3>
+                      </span>
                     </a>
                   </div>
                 </div>
@@ -397,9 +408,9 @@ function Home() {
             </div>
 
             {/* Card 3 */}
-            <div className="group relative w-full aspect-[3.5/5] bg-[#1b1b1b] rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.15] hover:z-50 transition-transform duration-300 ease-out shadow-2xl">
-              {/* Hover Image */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out z-0">
+            <div className="group relative w-full aspect-[4/5] sm:aspect-[3.5/5] bg-[#1b1b1b] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.05] md:hover:scale-[1.15] hover:z-50 transition-transform duration-300 ease-out shadow-2xl">
+              {/* Image - 모바일에서 반투명 항상 표시 */}
+              <div className={`absolute inset-0 transition-all duration-300 ease-in-out z-0 ${isMobile ? 'opacity-30' : 'opacity-0 group-hover:opacity-100'}`}>
                 <img
                   src={`${import.meta.env.BASE_URL}assets/card3_hover_new.jpg`}
                   alt="context"
@@ -408,45 +419,44 @@ function Home() {
                 <div className="absolute inset-0 bg-black/20"></div>
               </div>
 
-              <div className="absolute inset-0 p-8 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
+              <div className="absolute inset-0 p-6 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
                 <div className="flex-none">
                   <span className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-white/80 group-hover:text-white transition-colors duration-300">
                     (03)
                   </span>
                 </div>
 
-                {/* Middle: Title Area (Crossfade logic) */}
+                {/* Middle: Title */}
                 <div className="flex-1 flex items-center relative">
-                  {/* Default State */}
-                  <div className="absolute inset-0 flex items-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                  <div className={`absolute inset-0 flex items-center transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
                     <h3 className="text-[clamp(2.5rem,6vw,4rem)] font-black tracking-tighter text-white uppercase leading-none" style={{ fontWeight: 900 }}>
                       CONTEXT
                     </h3>
                   </div>
                 </div>
 
-                {/* Bottom: Description Area (Crossfade logic) */}
-                <div className="flex-none relative h-32 md:h-40">
-                  {/* Default State */}
-                  <div className="absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-300 flex flex-col justify-end pb-2">
+                {/* Bottom: Description */}
+                <div className="flex-none relative">
+                  {/* Default: 설명 텍스트 */}
+                  <div className={`transition-opacity duration-300 flex flex-col pb-2 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
                     <div className="flex flex-col gap-1 w-full">
-                      <span className="text-xl md:text-2xl lg:text-3xl text-white font-normal tracking-tighter">맥락</span>
-                      <p className="text-xl md:text-2xl lg:text-3xl text-white font-normal tracking-tighter break-keep leading-snug">
+                      <span className="text-lg md:text-2xl lg:text-3xl text-white font-normal tracking-tighter">맥락</span>
+                      <p className="text-lg md:text-2xl lg:text-3xl text-white font-normal tracking-tighter break-keep leading-snug">
                         화면이 아닌 제품 전체의 구조를 먼저 읽는 것
                       </p>
                     </div>
                   </div>
-                  {/* Hover State */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 flex flex-col justify-end gap-2 pb-2">
-                    <a href="mailto:arbeiterinpilita@gmail.com" className="flex items-center gap-2 group/link cursor-pointer w-fit">
-                      <h3 className="text-[clamp(2rem,6vw,4rem)] font-normal tracking-tighter text-white uppercase leading-none group-hover/link:underline underline-offset-[8px] decoration-4">
+                  {/* 모바일: 연락처 항상 표시 / 데스크톱: hover 시 표시 */}
+                  <div className={`transition-opacity duration-300 flex flex-col gap-2 pb-0 ${isMobile ? 'opacity-100 mt-4 pt-3 border-t border-white/20' : 'absolute inset-0 opacity-0 group-hover:opacity-100 delay-75 justify-end pb-2'}`}>
+                    <a href="mailto:arbeiterinpilita@gmail.com" className="flex items-center gap-2 cursor-pointer w-fit group/link">
+                      <span className={`font-medium tracking-tighter text-white uppercase leading-none ${isMobile ? 'text-sm underline underline-offset-4' : 'text-[clamp(2rem,6vw,4rem)] font-normal group-hover/link:underline underline-offset-[8px] decoration-4'}`}>
                         GET IN TOUCH
-                      </h3>
+                      </span>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group/link2 cursor-pointer w-fit">
-                      <h3 className="text-[clamp(2rem,6vw,4rem)] font-normal tracking-tighter text-white uppercase leading-none group-hover/link2:underline underline-offset-[8px] decoration-4">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer w-fit group/link2">
+                      <span className={`font-medium tracking-tighter text-white uppercase leading-none ${isMobile ? 'text-sm underline underline-offset-4' : 'text-[clamp(2rem,6vw,4rem)] font-normal group-hover/link2:underline underline-offset-[8px] decoration-4'}`}>
                         LINKEDIN
-                      </h3>
+                      </span>
                     </a>
                   </div>
                 </div>

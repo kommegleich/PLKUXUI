@@ -38,7 +38,7 @@ export function ProjectLayout({ children, nextProjectLink, nextProjectTitle, nex
 // 2. Exact Match Hero + Meta Section
 export function ProjectHeroExact({ title, subtitle, metaItems, bgColor = "bg-transparent", textColor = "text-[#121212]", subtitleColor = "text-gray-400", labelColor = "text-gray-500", bgImage, isFullHeight = false }) {
     return (
-        <section className={`w-full ${bgColor} pt-40 md:pt-56 pb-24 md:pb-40 px-6 md:px-12 lg:px-16 flex justify-center ${isFullHeight ? 'min-h-[100svh] items-center' : ''} transition-colors duration-500 relative overflow-hidden`}>
+        <section className={`w-full ${bgColor} pt-28 md:pt-56 pb-16 md:pb-40 px-5 md:px-12 lg:px-16 flex justify-center ${isFullHeight ? 'min-h-[100svh] items-center' : ''} transition-colors duration-500 relative overflow-hidden`}>
             {bgImage && (
                 <div className="absolute inset-0 w-full h-full z-0">
                     <img src={bgImage} alt="Hero Background" className="w-full h-full object-cover" />
@@ -136,8 +136,8 @@ export function ProjectHighlight({ text, bgColor = "bg-[#4338ca]", textColor = "
 // 6. Double Image Grid - NO BORDER RADIUS, FULL WIDTH
 export function ProjectGrid({ images, bgColor = "bg-transparent", rounded = "rounded-none", gap = "gap-6", itemBg = "bg-gray-200", fits = [], aspect = "" }) {
     return (
-        <section className={`w-full ${bgColor} pb-6 flex justify-center transition-colors duration-500`}>
-            <div className={`w-full grid grid-cols-1 md:grid-cols-2 ${gap} px-0 md:px-6`}>
+        <section className={`w-full ${bgColor} pb-4 md:pb-6 flex justify-center transition-colors duration-500`}>
+            <div className={`w-full grid grid-cols-1 md:grid-cols-2 ${gap} px-3 md:px-6`}>
                 {images.map((img, idx) => (
                     <motion.div
                         key={idx}
@@ -184,9 +184,9 @@ export function ProjectFullMedia({ src, image, isVideo = false }) {
 // 8. Custom Responsive ERP Tree Chart (Reference Design Match)
 export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) {
     return (
-        <section className="w-full py-24 px-4 md:px-8 lg:px-16 flex flex-col items-center bg-[#111622] overflow-hidden">
+        <section className="w-full py-16 md:py-24 px-4 md:px-8 lg:px-16 flex flex-col items-center bg-[#111622] overflow-hidden">
             {/* Header: Chip and Title */}
-            <div className="w-full max-w-[1400px] mb-16 flex flex-col gap-6 items-center md:items-start select-none">
+            <div className="w-full max-w-[1400px] mb-12 md:mb-16 flex flex-col gap-6 items-center md:items-start select-none">
                 {chip && (
                     <div className="px-5 py-1.5 border border-white text-[#111622] text-[11px] md:text-sm font-bold uppercase tracking-widest bg-white rounded-[4px]">
                         {chip}
@@ -194,21 +194,21 @@ export function ProjectTreeChart({ chip, title, subtitle, rootNode, branches }) 
                 )}
                 <div className="flex flex-col gap-4">
                     {title && (
-                        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-medium text-white tracking-[-0.04em] text-center md:text-left">
+                        <h2 className="text-[clamp(1.3rem,3vw,2.5rem)] font-medium text-white tracking-[-0.04em] text-center md:text-left">
                             {title}
                         </h2>
                     )}
                     {subtitle && (
-                        <p className="text-[15px] md:text-base text-[#9A9BA5] font-normal leading-[1.7] text-center md:text-left opacity-90">
+                        <p className="text-[14px] md:text-base text-[#9A9BA5] font-normal leading-[1.7] text-center md:text-left opacity-90">
                             {subtitle}
                         </p>
                     )}
                 </div>
             </div>
 
-            {/* Chart Container */}
-            <div className="w-full max-w-[1400px] pb-8">
-                <div className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start relative select-none">
+            {/* Chart Container - horizontally scrollable on mobile */}
+            <div className="w-full max-w-[1400px] pb-8 overflow-x-auto">
+                <div className="min-w-[600px] flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start relative select-none">
 
                     {/* Root Node (ERP) */}
                     <div className="flex-shrink-0 flex items-center justify-center relative w-[140px] mb-12 lg:mb-0 lg:mr-[100px] z-10 lg:mt-[24px]">
@@ -299,7 +299,7 @@ export function ProjectFullMediaWithTitle({ chip, title, subtitle, label, src, i
     );
 
     const renderMedia = () => (
-        <div ref={ref} className={`w-full relative flex justify-center md:mt-8 ${layout === 'split' ? 'h-[40vh] md:h-[60vh]' : 'h-[50vh] md:h-[65vh]'}`}>
+        <div ref={ref} className={`w-full relative flex justify-center md:mt-8 ${layout === 'split' ? 'h-[50vh] md:h-[60vh]' : 'h-[45vh] md:h-[65vh]'}`}>
             {images && images.length > 0 ? (
                 <div className={`w-full relative flex justify-center items-center h-full ${layout === 'split' ? 'w-full' : 'max-w-[1400px] px-4 md:px-8'}`}>
                     <AnimatePresence mode="popLayout">
@@ -353,7 +353,7 @@ export function ProjectImageMarquee({ images, speed = 40, bgColor = "bg-[#10182B
     if (!images || images.length === 0) return null;
 
     return (
-        <section className={`w-full pt-48 pb-12 overflow-hidden ${bgColor}`}>
+        <section className={`w-full pt-24 md:pt-48 pb-12 overflow-hidden ${bgColor}`}>
             <div className="relative flex overflow-hidden">
                 <motion.div
                     className="flex whitespace-nowrap"
@@ -364,29 +364,29 @@ export function ProjectImageMarquee({ images, speed = 40, bgColor = "bg-[#10182B
                         x: {
                             repeat: Infinity,
                             repeatType: "loop",
-                            duration: speed, // use speed prop
+                            duration: speed,
                             ease: "linear",
                         },
                     }}
                 >
                     {/* Render images twice for seamless looping */}
-                    <div className="flex gap-6 px-3 flex-shrink-0">
+                    <div className="flex gap-3 md:gap-6 px-1.5 md:px-3 flex-shrink-0">
                         {images.map((img, idx) => (
                             <img
                                 key={`marquee-1-${idx}`}
                                 src={img}
                                 alt={`Marquee ${idx}`}
-                                className="h-[250px] md:h-[450px] w-[350px] md:w-[700px] object-contain rounded-md block bg-[#10182B]"
+                                className="h-[160px] md:h-[450px] w-[220px] md:w-[700px] object-contain rounded-md block bg-[#10182B]"
                             />
                         ))}
                     </div>
-                    <div className="flex gap-6 px-3 flex-shrink-0">
+                    <div className="flex gap-3 md:gap-6 px-1.5 md:px-3 flex-shrink-0">
                         {images.map((img, idx) => (
                             <img
                                 key={`marquee-2-${idx}`}
                                 src={img}
                                 alt={`Marquee-loop ${idx}`}
-                                className="h-[250px] md:h-[450px] w-[350px] md:w-[700px] object-contain rounded-md block bg-[#10182B]"
+                                className="h-[160px] md:h-[450px] w-[220px] md:w-[700px] object-contain rounded-md block bg-[#10182B]"
                             />
                         ))}
                     </div>
@@ -399,15 +399,15 @@ export function ProjectImageMarquee({ images, speed = 40, bgColor = "bg-[#10182B
 // 11. 3-Column Feature Grid (UX Case Study style)
 export function ProjectGrid3Col({ chip, items, bgColor = "bg-[#111622]" }) {
     return (
-        <section className={`w-full pt-20 pb-48 px-4 md:px-8 lg:px-16 flex flex-col items-center ${bgColor}`}>
+        <section className={`w-full pt-16 md:pt-20 pb-24 md:pb-48 px-4 md:px-8 lg:px-16 flex flex-col items-center ${bgColor}`}>
             <div className="w-full max-w-[1400px] flex flex-col items-center md:items-start">
                 {chip && (
-                    <div className="px-4 py-1.5 bg-[#3B82F6] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-[4px] mb-16 w-fit">
+                    <div className="px-4 py-1.5 bg-[#3B82F6] text-white text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-[4px] mb-10 md:mb-16 w-fit">
                         {chip}
                     </div>
                 )}
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-24">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 lg:gap-24">
                     {items.map((item, idx) => (
                         <div key={idx} className="flex flex-col gap-8 text-center md:text-left">
                             <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
@@ -427,11 +427,11 @@ export function ProjectGrid3Col({ chip, items, bgColor = "bg-[#111622]" }) {
 // 12. Poster with Text Overlay (Side-by-side style)
 export function ProjectPosterWithText({ image, chip, title, subtitle, bgColor = "bg-[#F4F7FA]" }) {
     return (
-        <section className={`w-full py-24 md:py-40 px-6 md:px-12 lg:px-16 flex justify-center relative ${bgColor}`}>
+        <section className={`w-full py-16 md:py-40 px-5 md:px-12 lg:px-16 flex justify-center relative ${bgColor}`}>
             {/* Background Split for visual transition */}
             <div className="absolute top-0 left-0 w-full h-1/3 bg-[#10182B] z-0" />
 
-            <div className="w-full max-w-[1700px] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
+            <div className="w-full max-w-[1700px] grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center relative z-10">
 
                 {/* Left: Image Area */}
                 <motion.div
@@ -457,10 +457,10 @@ export function ProjectPosterWithText({ image, chip, title, subtitle, bgColor = 
                             {chip}
                         </div>
                     )}
-                    <h2 className="text-[clamp(2rem,4vw,3rem)] font-medium text-[#121212] tracking-[-0.04em] leading-[1.2] whitespace-pre-line">
+                    <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-medium text-[#121212] tracking-[-0.04em] leading-[1.2] whitespace-pre-line">
                         {title}
                     </h2>
-                    <p className="text-[15px] md:text-[17px] text-[#9A9BA5] font-normal leading-[1.8] opacity-90 whitespace-pre-line max-w-xl">
+                    <p className="text-[14px] md:text-[17px] text-[#9A9BA5] font-normal leading-[1.8] opacity-90 whitespace-pre-line max-w-xl">
                         {subtitle}
                     </p>
                 </motion.div>
