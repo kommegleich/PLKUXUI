@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 
 // 뷰포트 768px 미만 시 모바일 레이아웃 활성화
 function useIsMobile() {
@@ -15,21 +14,26 @@ function useIsMobile() {
   }, []);
   return isMobile;
 }
+
 function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const isMobile = useIsMobile();
 
+  // ── Task 3: My Approach 클릭 토글 상태 ──
+  // null = 열린 카드 없음, 0/1/2 = 해당 인덱스 카드가 열림
+  const [activeCard, setActiveCard] = useState(null);
+
+  const handleCardClick = (idx) => {
+    setActiveCard(prev => (prev === idx ? null : idx));
+  };
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
@@ -42,9 +46,9 @@ function Home() {
           onMouseEnter={() => !isMobile && setIsHovering(true)}
           onMouseLeave={() => !isMobile && setIsHovering(false)}
         >
-          {/* Centered Text */}
+          {/* ── Task 1: PLK 폰트 크기 키움 clamp(8rem,20vw,22rem) ── */}
           <motion.div
-            className="text-[clamp(5rem,15vw,14rem)] font-black tracking-tighter cursor-default text-[#121212] mb-8 leading-none"
+            className="text-[clamp(8rem,20vw,22rem)] font-black tracking-tighter cursor-default text-[#121212] mb-8 leading-none"
             initial={{ opacity: 0, y: 15 }}
             animate={{
               opacity: 1,
@@ -91,8 +95,9 @@ function Home() {
       </section>
 
 
-      {/* 02 - Projects List Section (포트폴리오 리스트) */}
+      {/* 02 - Projects List Section */}
       <section id="projects" className="w-full bg-[#0d0d0d] pt-24 md:pt-64 pb-32 md:pb-96 text-white">
+        {/* ── Task 2: PROJECTS. 타이틀은 그대로 유지 ── */}
         <div className="w-full px-4 md:px-8 mb-12 md:mb-24 flex justify-center">
           <h2 className="text-[clamp(3rem,12vw,14rem)] font-black tracking-tighter leading-tight px-2 text-center">PROJECTS.</h2>
         </div>
@@ -141,7 +146,8 @@ function Home() {
               className={`group flex flex-col md:flex-row items-start md:items-center justify-between py-8 md:py-16 px-4 md:px-8 border-b border-gray-800 transition-all duration-500 overflow-hidden ${project.bgClass}`}
             >
               {/* Default Title */}
-              <h3 className="text-[clamp(1.8rem,6vw,5rem)] leading-[1.1] font-pretendard font-black tracking-tighter text-white break-words w-full md:w-5/12 mb-4 md:mb-0 group-hover:hidden transition-colors">
+              {/* ── Task 2: 제목 clamp(2.2rem,7vw,7rem) ── */}
+              <h3 className="text-[clamp(2.2rem,7vw,7rem)] leading-[1.05] font-pretendard font-black tracking-tighter text-white break-words w-full md:w-5/12 mb-4 md:mb-0 group-hover:hidden transition-colors">
                 {project.title}
               </h3>
 
@@ -150,14 +156,14 @@ function Home() {
                 <div className="flex w-max animate-custom-marquee">
                   <div className="flex shrink-0">
                     {[...Array(2)].map((_, i) => (
-                      <h3 key={i} className="text-[clamp(1.8rem,6vw,5rem)] leading-[1.1] font-pretendard font-black tracking-tighter text-white/90 pr-12 shrink-0">
+                      <h3 key={i} className="text-[clamp(2.2rem,7vw,7rem)] leading-[1.05] font-pretendard font-black tracking-tighter text-white/90 pr-12 shrink-0">
                         {project.title}
                       </h3>
                     ))}
                   </div>
                   <div className="flex shrink-0">
                     {[...Array(2)].map((_, i) => (
-                      <h3 key={i + 2} className="text-[clamp(1.8rem,6vw,5rem)] leading-[1.1] font-pretendard font-black tracking-tighter text-white/90 pr-12 shrink-0">
+                      <h3 key={i + 2} className="text-[clamp(2.2rem,7vw,7rem)] leading-[1.05] font-pretendard font-black tracking-tighter text-white/90 pr-12 shrink-0">
                         {project.title}
                       </h3>
                     ))}
@@ -168,15 +174,17 @@ function Home() {
               {/* Subtitle & Chips */}
               <div className="w-full md:w-1/2 flex flex-row items-center justify-between mt-2 md:mt-0">
                 <div className="flex flex-col w-full">
-                  <p className="text-gray-500 font-pretendard font-normal tracking-tight text-sm md:text-lg lg:text-xl break-keep whitespace-pre-line group-hover:text-white transition-colors line-clamp-3 md:line-clamp-none">
+                  {/* ── Task 2: desc 폰트 text-base md:text-xl lg:text-2xl ── */}
+                  <p className="text-gray-500 font-pretendard font-normal tracking-tight text-base md:text-xl lg:text-2xl break-keep whitespace-pre-line group-hover:text-white transition-colors line-clamp-3 md:line-clamp-none">
                     {project.desc}
                   </p>
 
-                  {/* Chips (always visible on mobile) */}
+                  {/* Chips */}
                   {project.tags && project.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 mt-3 md:mt-0 md:max-h-0 md:opacity-0 md:overflow-hidden group-hover:mt-6 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-out">
                       {project.tags.map((tag, i) => (
-                        <span key={i} className="text-[10px] md:text-sm font-pretendard text-white border border-white/20 bg-black/10 backdrop-blur-md px-2 py-1 md:px-3 md:py-1.5 whitespace-nowrap">
+                        /* ── Task 2: tag 폰트 text-xs md:text-base ── */
+                        <span key={i} className="text-xs md:text-base font-pretendard text-white border border-white/20 bg-black/10 backdrop-blur-md px-2 py-1 md:px-4 md:py-2 whitespace-nowrap">
                           {tag}
                         </span>
                       ))}
@@ -211,7 +219,7 @@ function Home() {
         )}
       </AnimatePresence>
 
-      {/* 03 - Expertise Section (사용 툴 및 스펙 정리) */}
+      {/* 03 - Expertise Section */}
       <section id="expertise" className="relative w-full h-[200vh] bg-[#fff] text-[#121212]">
         <div className="sticky top-0 w-full h-screen flex flex-col justify-center overflow-hidden">
           <div className="w-full px-4 md:px-8 mb-8 md:mb-16 xl:mb-24 flex justify-center">
@@ -291,7 +299,7 @@ function Home() {
         </div>
       </section>
 
-      {/* 04 - My Approach Section (작업 방식 및 철학 소개) */}
+      {/* 04 - My Approach Section */}
       <section id="approach" className="w-full bg-[#0d0d0d] pt-16 md:pt-32 pb-24 md:pb-48 text-white relative">
         <div className="w-full px-4 md:px-8 mb-12 md:mb-24 flex flex-col items-center">
           <div className="mb-8 md:mb-12">
@@ -304,170 +312,200 @@ function Home() {
 
         <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 md:gap-12 xl:gap-16 origin-center max-w-sm sm:max-w-lg md:max-w-2xl xl:max-w-none mx-auto">
-            {/* Card 1 */}
-            <div className="group relative w-full aspect-[4/5] sm:aspect-[3.5/5] bg-[#ffffff] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.05] md:hover:scale-[1.15] hover:z-50 transition-transform duration-300 ease-out shadow-2xl">
-              {/* Image - 모바일에서 반투명 항상 표시, 데스크톱에서 hover 시 표시 */}
-              <div className={`absolute inset-0 transition-all duration-300 ease-in-out z-0 ${isMobile ? 'opacity-40' : 'opacity-0 group-hover:opacity-100'}`}>
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/profile.jpg`}
-                  alt="pulip kim"
-                  className="w-full h-full object-cover scale-[1.02] border-none outline-none"
-                />
-                <div className="absolute inset-0 bg-black/20"></div>
-              </div>
 
-              <div className="absolute inset-0 p-6 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
-                <div className="flex-none">
-                  <span className={`text-2xl md:text-3xl lg:text-4xl font-light tracking-tight transition-colors duration-300 ${isMobile ? 'text-[#121212]' : 'text-[#121212] group-hover:text-white'}`}>
-                    (01)
-                  </span>
-                </div>
+            {/* ── Task 3: Card 1 — INTUITION ── */}
+            <ApproachCard
+              index={0}
+              number="(01)"
+              title="INTUITION"
+              korTitle="직관"
+              desc="첫 진입부터 다음 행동이 보이는 구조"
+              bgColor="bg-[#ffffff]"
+              imageSrc={`${import.meta.env.BASE_URL}assets/profile.jpg`}
+              imageAlt="pulip kim"
+              titleColor="text-[#121212]"
+              descColor="text-[#121212]"
+              numberColor="text-[#121212]"
+              hoverNumberColor="group-hover:text-white"
+              activeCard={activeCard}
+              onCardClick={handleCardClick}
+              isMobile={isMobile}
+            >
+              {/* 열렸을 때 하단 콘텐츠 */}
+              <span className="font-medium tracking-tighter uppercase leading-none text-[clamp(1.5rem,4vw,3.5rem)] text-white mb-2 font-normal">
+                PULIP KIM
+              </span>
+              <p className="font-normal uppercase text-xs md:text-sm lg:text-base text-gray-200">
+                ARBEITERINPILITA@GMAIL.COM
+              </p>
+            </ApproachCard>
 
-                {/* Middle: Title */}
-                <div className="flex-1 flex items-center relative">
-                  <div className={`absolute inset-0 flex items-center transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
-                    <h3 className="text-[clamp(2.5rem,6vw,4rem)] font-black tracking-tighter text-[#121212] uppercase leading-none" style={{ fontWeight: 900 }}>
-                      INTUITION
-                    </h3>
-                  </div>
-                </div>
+            {/* ── Task 3: Card 2 — FLOW ── */}
+            <ApproachCard
+              index={1}
+              number="(02)"
+              title="FLOW"
+              korTitle="흐름"
+              desc="사용자의 목적과 제품의 구조가 일치하는 지점"
+              bgColor="bg-[#d9331d]"
+              imageSrc={`${import.meta.env.BASE_URL}assets/card2_hover_new.jpg`}
+              imageAlt="flow"
+              titleColor="text-white"
+              descColor="text-white"
+              numberColor="text-white/90"
+              hoverNumberColor="group-hover:text-white"
+              activeCard={activeCard}
+              onCardClick={handleCardClick}
+              isMobile={isMobile}
+            >
+              <a href="#projects" className="flex items-center gap-2 cursor-pointer w-fit group/link">
+                <span className="font-medium tracking-tighter text-white uppercase leading-none text-[clamp(1.5rem,4vw,3.5rem)] font-normal group-hover/link:underline underline-offset-[8px] decoration-4">
+                  MORE WORKS
+                </span>
+              </a>
+            </ApproachCard>
 
-                {/* Bottom: Description */}
-                <div className="flex-none relative">
-                  {/* Default: 설명 텍스트 */}
-                  <div className={`transition-opacity duration-300 flex flex-col pb-2 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
-                    <div className="flex flex-col gap-1 w-full">
-                      <span className="text-lg md:text-2xl lg:text-3xl text-[#121212] font-normal tracking-tighter">직관</span>
-                      <p className="text-lg md:text-2xl lg:text-3xl text-[#121212] font-normal tracking-tighter break-keep leading-snug">
-                        첫 진입부터 다음 행동이 보이는 구조
-                      </p>
-                    </div>
-                  </div>
-                  {/* 모바일: 연락처 항상 표시 / 데스크톱: hover 시 표시 */}
-                  <div className={`transition-opacity duration-300 flex flex-col gap-1 pb-0 ${isMobile ? 'opacity-100 mt-4 pt-3 border-t border-black/10' : 'absolute inset-0 opacity-0 group-hover:opacity-100 delay-75 justify-end pb-2'}`}>
-                    <span className={`font-medium tracking-tighter uppercase leading-none ${isMobile ? 'text-sm text-[#121212]/60' : 'text-[clamp(2rem,6vw,4rem)] text-white mb-2 font-normal'}`}>
-                      {isMobile ? 'PULIP KIM' : 'PULIP KIM'}
-                    </span>
-                    <p className={`font-normal uppercase ${isMobile ? 'text-xs text-[#121212]/40' : 'text-xs md:text-sm lg:text-base text-gray-200'}`}>
-                      ARBEITERINPILITA@GMAIL.COM
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="group relative w-full aspect-[4/5] sm:aspect-[3.5/5] bg-[#d9331d] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.05] md:hover:scale-[1.15] hover:z-50 transition-transform duration-300 ease-out shadow-2xl">
-              {/* Image - 모바일에서 반투명 항상 표시 */}
-              <div className={`absolute inset-0 transition-all duration-300 ease-in-out z-0 ${isMobile ? 'opacity-30' : 'opacity-0 group-hover:opacity-100'}`}>
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/card2_hover_new.jpg`}
-                  alt="flow"
-                  className="w-full h-full object-cover scale-[1.02] border-none outline-none"
-                />
-                <div className="absolute inset-0 bg-black/20"></div>
-              </div>
-
-              <div className="absolute inset-0 p-6 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
-                <div className="flex-none">
-                  <span className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-white/90 group-hover:text-white transition-colors duration-300">
-                    (02)
-                  </span>
-                </div>
-
-                {/* Middle: Title */}
-                <div className="flex-1 flex items-center relative">
-                  <div className={`absolute inset-0 flex items-center transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
-                    <h3 className="text-[clamp(2.5rem,6vw,4rem)] font-black tracking-tighter text-white uppercase leading-none" style={{ fontWeight: 900 }}>
-                      FLOW
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Bottom: Description */}
-                <div className="flex-none relative">
-                  {/* Default: 설명 텍스트 */}
-                  <div className={`transition-opacity duration-300 flex flex-col pb-2 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
-                    <div className="flex flex-col gap-1 w-full">
-                      <span className="text-lg md:text-2xl lg:text-3xl text-white font-normal tracking-tighter">흐름</span>
-                      <p className="text-lg md:text-2xl lg:text-3xl text-white font-normal tracking-tighter break-keep leading-snug">
-                        사용자의 목적과 제품의 구조가 일치하는 지점
-                      </p>
-                    </div>
-                  </div>
-                  {/* 모바일: 링크 항상 표시 / 데스크톱: hover 시 표시 */}
-                  <div className={`transition-opacity duration-300 flex flex-col pb-0 ${isMobile ? 'opacity-100 mt-4 pt-3 border-t border-white/20' : 'absolute inset-0 opacity-0 group-hover:opacity-100 delay-75 justify-end pb-2'}`}>
-                    <a href="#projects" className="flex items-center gap-2 cursor-pointer w-fit group/link">
-                      <span className={`font-medium tracking-tighter text-white uppercase leading-none ${isMobile ? 'text-sm underline underline-offset-4' : 'text-[clamp(2rem,6vw,4rem)] font-normal group-hover/link:underline underline-offset-[8px] decoration-4'}`}>
-                        MORE WORKS
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="group relative w-full aspect-[4/5] sm:aspect-[3.5/5] bg-[#1b1b1b] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden cursor-pointer hover:scale-[1.05] md:hover:scale-[1.15] hover:z-50 transition-transform duration-300 ease-out shadow-2xl">
-              {/* Image - 모바일에서 반투명 항상 표시 */}
-              <div className={`absolute inset-0 transition-all duration-300 ease-in-out z-0 ${isMobile ? 'opacity-30' : 'opacity-0 group-hover:opacity-100'}`}>
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/card3_hover_new.jpg`}
-                  alt="context"
-                  className="w-full h-full object-cover scale-[1.02] border-none outline-none"
-                />
-                <div className="absolute inset-0 bg-black/20"></div>
-              </div>
-
-              <div className="absolute inset-0 p-6 md:p-10 lg:p-12 flex flex-col z-10 transition-transform duration-300 ease-out group-hover:-translate-y-2">
-                <div className="flex-none">
-                  <span className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-white/80 group-hover:text-white transition-colors duration-300">
-                    (03)
-                  </span>
-                </div>
-
-                {/* Middle: Title */}
-                <div className="flex-1 flex items-center relative">
-                  <div className={`absolute inset-0 flex items-center transition-opacity duration-300 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
-                    <h3 className="text-[clamp(2.5rem,6vw,4rem)] font-black tracking-tighter text-white uppercase leading-none" style={{ fontWeight: 900 }}>
-                      CONTEXT
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Bottom: Description */}
-                <div className="flex-none relative">
-                  {/* Default: 설명 텍스트 */}
-                  <div className={`transition-opacity duration-300 flex flex-col pb-2 ${isMobile ? 'opacity-100' : 'opacity-100 group-hover:opacity-0'}`}>
-                    <div className="flex flex-col gap-1 w-full">
-                      <span className="text-lg md:text-2xl lg:text-3xl text-white font-normal tracking-tighter">맥락</span>
-                      <p className="text-lg md:text-2xl lg:text-3xl text-white font-normal tracking-tighter break-keep leading-snug">
-                        화면이 아닌 제품 전체의 구조를 먼저 읽는 것
-                      </p>
-                    </div>
-                  </div>
-                  {/* 모바일: 연락처 항상 표시 / 데스크톱: hover 시 표시 */}
-                  <div className={`transition-opacity duration-300 flex flex-col gap-2 pb-0 ${isMobile ? 'opacity-100 mt-4 pt-3 border-t border-white/20' : 'absolute inset-0 opacity-0 group-hover:opacity-100 delay-75 justify-end pb-2'}`}>
-                    <a href="mailto:arbeiterinpilita@gmail.com" className="flex items-center gap-2 cursor-pointer w-fit group/link">
-                      <span className={`font-medium tracking-tighter text-white uppercase leading-none ${isMobile ? 'text-sm underline underline-offset-4' : 'text-[clamp(2rem,6vw,4rem)] font-normal group-hover/link:underline underline-offset-[8px] decoration-4'}`}>
-                        GET IN TOUCH
-                      </span>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer w-fit group/link2">
-                      <span className={`font-medium tracking-tighter text-white uppercase leading-none ${isMobile ? 'text-sm underline underline-offset-4' : 'text-[clamp(2rem,6vw,4rem)] font-normal group-hover/link2:underline underline-offset-[8px] decoration-4'}`}>
-                        LINKEDIN
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* ── Task 3: Card 3 — CONTEXT ── */}
+            <ApproachCard
+              index={2}
+              number="(03)"
+              title="CONTEXT"
+              korTitle="맥락"
+              desc="화면이 아닌 제품 전체의 구조를 먼저 읽는 것"
+              bgColor="bg-[#1b1b1b]"
+              imageSrc={`${import.meta.env.BASE_URL}assets/card3_hover_new.jpg`}
+              imageAlt="context"
+              titleColor="text-white"
+              descColor="text-white"
+              numberColor="text-white/80"
+              hoverNumberColor="group-hover:text-white"
+              activeCard={activeCard}
+              onCardClick={handleCardClick}
+              isMobile={isMobile}
+            >
+              <a href="mailto:arbeiterinpilita@gmail.com" className="flex items-center gap-2 cursor-pointer w-fit group/link">
+                <span className="font-medium tracking-tighter text-white uppercase leading-none text-[clamp(1.5rem,4vw,3.5rem)] font-normal group-hover/link:underline underline-offset-[8px] decoration-4">
+                  GET IN TOUCH
+                </span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer w-fit group/link2">
+                <span className="font-medium tracking-tighter text-white uppercase leading-none text-[clamp(1.5rem,4vw,3.5rem)] font-normal group-hover/link2:underline underline-offset-[8px] decoration-4">
+                  LINKEDIN
+                </span>
+              </a>
+            </ApproachCard>
 
           </div>
         </div>
       </section>
     </>
-  )
+  );
+}
+
+// ── ApproachCard: 클릭 토글 + 이미지 fade + 카드 flip 컴포넌트 ──
+function ApproachCard({
+  index, number, title, korTitle, desc,
+  bgColor, imageSrc, imageAlt,
+  titleColor, descColor, numberColor,
+  activeCard, onCardClick, isMobile,
+  children
+}) {
+  const isOpen = activeCard === index;
+
+  return (
+    <motion.div
+      className={`relative w-full aspect-[4/5] sm:aspect-[3.5/5] ${bgColor} rounded-[2rem] md:rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl`}
+      onClick={() => onCardClick(index)}
+      animate={{
+        scale: isOpen ? 1.05 : 1,
+        zIndex: isOpen ? 50 : 1,
+      }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
+    >
+      {/* 이미지 레이어: 클릭 시 서서히 노출 (모바일은 반투명 항상 표시) */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        animate={{ opacity: isMobile ? 0.35 : (isOpen ? 1 : 0) }}
+        transition={{ duration: 0.6, ease: 'easeInOut' }}
+      >
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          className="w-full h-full object-cover scale-[1.02] border-none outline-none"
+        />
+        <div className="absolute inset-0 bg-black/20" />
+      </motion.div>
+
+      {/* 콘텐츠 레이어 */}
+      <div className="absolute inset-0 p-6 md:p-10 lg:p-12 flex flex-col z-10">
+
+        {/* Number */}
+        <div className="flex-none">
+          <motion.span
+            className={`text-2xl md:text-3xl lg:text-4xl font-light tracking-tight transition-colors duration-300 ${numberColor}`}
+            animate={{ color: isOpen ? '#ffffff' : undefined }}
+          >
+            {number}
+          </motion.span>
+        </div>
+
+        {/* ── 앞면: 제목 + 설명 (isOpen이면 사라짐) ── */}
+        <motion.div
+          className="flex-1 flex flex-col justify-between"
+          animate={{
+            opacity: isOpen ? 0 : 1,
+            rotateY: isOpen ? -90 : 0,
+          }}
+          transition={{ duration: 0.35, ease: 'easeIn' }}
+          style={{ transformOrigin: 'center', backfaceVisibility: 'hidden' }}
+        >
+          {/* Title */}
+          <div className="flex items-center flex-1">
+            <h3 className={`text-[clamp(2.5rem,6vw,4rem)] font-black tracking-tighter ${titleColor} uppercase leading-none`} style={{ fontWeight: 900 }}>
+              {title}
+            </h3>
+          </div>
+
+          {/* Description */}
+          <div className="flex-none flex flex-col gap-1 pb-2">
+            <span className={`text-lg md:text-2xl lg:text-3xl ${descColor} font-normal tracking-tighter`}>{korTitle}</span>
+            <p className={`text-lg md:text-2xl lg:text-3xl ${descColor} font-normal tracking-tighter break-keep leading-snug`}>
+              {desc}
+            </p>
+          </div>
+        </motion.div>
+
+        {/* ── 뒷면: 열렸을 때 나타나는 콘텐츠 ── */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 p-6 md:p-10 lg:p-12 flex flex-col gap-2 pb-8 md:pb-10 lg:pb-12"
+          animate={{
+            opacity: isOpen ? 1 : 0,
+            rotateY: isOpen ? 0 : 90,
+          }}
+          transition={{ duration: 0.35, ease: 'easeOut', delay: isOpen ? 0.2 : 0 }}
+          style={{ transformOrigin: 'center', backfaceVisibility: 'hidden' }}
+        >
+          {children}
+        </motion.div>
+      </div>
+
+      {/* 클릭 힌트 (닫혀 있을 때만 표시) */}
+      <AnimatePresence>
+        {!isOpen && !isMobile && (
+          <motion.div
+            className="absolute bottom-4 right-5 z-20 text-[10px] uppercase tracking-widest font-bold opacity-30"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.3 }}
+            exit={{ opacity: 0 }}
+            style={{ color: index === 0 ? '#121212' : '#fff' }}
+          >
+            Click
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
 }
 
 function RollingSkills({ skills, color }) {
