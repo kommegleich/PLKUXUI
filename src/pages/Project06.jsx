@@ -121,6 +121,13 @@ function Project06() {
                 </div>
             </section>
 
+            {/* C - SO SIMPLE 섹션 */}
+            <section className="relative w-full min-h-[50vh] flex items-center justify-center py-20 overflow-hidden">
+                <img src={imgBg1} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/50" />
+                <img src={imgT} alt="SO SIMPLE" className="relative z-10 w-[90%] md:w-[75%] max-w-[1000px] object-contain" />
+            </section>
+
             {/* F - SO SIMPLE 목업 섹션 */}
             <section className="w-full bg-[#0d0e10]">
 
@@ -208,13 +215,6 @@ function Project06() {
                         <img src={imgFc} alt="TALKAK 플로우차트" className="w-full max-w-[900px] mx-auto object-contain" />
                     </div>
                 </div>
-            </section>
-
-            {/* C - SO SIMPLE 섹션 */}
-            <section className="relative w-full min-h-[50vh] flex items-center justify-center py-20 overflow-hidden">
-                <img src={imgBg1} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/50" />
-                <img src={imgT} alt="SO SIMPLE" className="relative z-10 w-[90%] md:w-[75%] max-w-[1000px] object-contain" />
             </section>
         </ProjectLayout>
     );
