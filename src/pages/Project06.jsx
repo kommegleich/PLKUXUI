@@ -7,6 +7,11 @@ import imgFc  from '../images/project6-fc.webp';
 import imgLg1 from '../images/project6-lg1.webp';
 import imgM1  from '../images/project6-m1.webp';
 import imgT   from '../images/project6-t.webp';
+import imgMk1 from '../images/project6-mk1.webp';
+import imgMk2 from '../images/project6-mk2.webp';
+import imgMk3 from '../images/project6-mk3.webp';
+import imgMk4 from '../images/project6-mk4.webp';
+import imgMk5 from '../images/project6-mk5.webp';
 
 function Project06() {
     return (
@@ -112,6 +117,84 @@ function Project06() {
                         </p>
                         {/* 앱 아이콘 (다크 배경 내장) */}
                         <img src={imgLg1} alt="TALKAK 앱 아이콘" className="w-[72px] md:w-[88px] object-contain rounded-2xl" />
+                    </div>
+                </div>
+            </section>
+
+            {/* F - SO SIMPLE 목업 섹션 */}
+            <section className="w-full bg-[#0d0e10]">
+
+                {/* Part 1: SO SIMPLE 타이틀 + 센터 폰 */}
+                <div className="flex flex-col items-center px-6 pt-20 md:pt-32 pb-0">
+                    <h2
+                        className="text-[clamp(4rem,14vw,12rem)] font-black leading-[0.9] text-white text-center tracking-tight uppercase"
+                    >
+                        SO<br />SIMPLE
+                    </h2>
+                    <p className="text-white/50 text-[13px] md:text-sm mt-5 text-center">
+                        찍고 보내고 받는 심플한 사진 세계여행
+                    </p>
+                    <img
+                        src={imgMk1}
+                        alt="TALKAK 카메라 화면"
+                        className="mt-10 w-[200px] md:w-[260px] object-contain drop-shadow-2xl"
+                    />
+                </div>
+
+                {/* Part 2: 찍다 / 보내다 / 받다 */}
+                <div className="grid grid-cols-3 border-t border-white/10 mt-0">
+                    {[
+                        { title: '찍다',   lines: ['오?', '하늘이 예쁘다', '한장 찍자!'] },
+                        { title: '보내다', lines: ['보내자!', '어디로 갈지 모를', '나의 사진'] },
+                        { title: '받다',   lines: ['어디서 날아들지', '모를 가게되는', '사진 한장'] },
+                    ].map(({ title, lines }, i) => (
+                        <div
+                            key={i}
+                            className="px-6 md:px-12 py-10 md:py-14 border-r border-white/10 last:border-r-0 flex flex-col gap-3"
+                        >
+                            <p className="text-white text-base md:text-lg font-bold">{title}</p>
+                            <div className="w-8 h-px bg-white/20" />
+                            <p className="text-white/45 text-[12px] md:text-sm leading-relaxed">
+                                {lines.map((l, j) => <span key={j}>{l}<br /></span>)}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Part 3: 세계지도 도트 + 폰 콜라주 */}
+                <div className="relative w-full overflow-hidden bg-[#090a0b] border-t border-white/10">
+                    {/* 도트 장식 (오렌지 위치 핀) */}
+                    {[
+                        { top: '12%', left: '18%' }, { top: '28%', left: '35%' },
+                        { top: '18%', left: '62%' }, { top: '40%', left: '78%' },
+                        { top: '55%', left: '22%' }, { top: '65%', left: '50%' },
+                        { top: '75%', left: '70%' },
+                    ].map((pos, i) => (
+                        <div
+                            key={i}
+                            className="absolute w-2 h-2 rounded-full bg-[#F26027] opacity-60"
+                            style={{ top: pos.top, left: pos.left }}
+                        />
+                    ))}
+
+                    {/* 폰 목업 배치 */}
+                    <div className="relative flex justify-center items-start gap-3 md:gap-6 px-4 py-16 md:py-24">
+
+                        {/* 좌측 컬럼: mk3 + mk5 */}
+                        <div className="flex flex-col gap-4 md:gap-6 mt-10 md:mt-20 flex-shrink-0 w-[22%] max-w-[200px]">
+                            <img src={imgMk3} alt="" className="w-full object-contain drop-shadow-xl rounded-2xl" />
+                            <img src={imgMk5} alt="" className="w-full object-contain drop-shadow-xl rounded-2xl" />
+                        </div>
+
+                        {/* 센터: mk2 (tall) */}
+                        <div className="flex-shrink-0 w-[28%] max-w-[280px]">
+                            <img src={imgMk2} alt="" className="w-full object-contain drop-shadow-2xl rounded-2xl" />
+                        </div>
+
+                        {/* 우측 컬럼: mk4 */}
+                        <div className="flex flex-col gap-4 md:gap-6 mt-6 md:mt-12 flex-shrink-0 w-[22%] max-w-[200px]">
+                            <img src={imgMk4} alt="" className="w-full object-contain drop-shadow-xl rounded-2xl" />
+                        </div>
                     </div>
                 </div>
             </section>
