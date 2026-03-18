@@ -25,6 +25,7 @@ function Project06() {
                 title="TALKAK 랜덤 사진전송 서비스"
                 subtitle="심플한 랜덤 사진 공유 소셜 서비스"
                 bgImage={imgM1}
+                isFullHeight={true}
                 textColor="text-white"
                 subtitleColor="text-white/80"
                 labelColor="text-white/60"
