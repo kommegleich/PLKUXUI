@@ -24,6 +24,10 @@ function Project06() {
             <ProjectHeroExact
                 title="TALKAK 랜덤 사진전송 서비스"
                 subtitle="심플한 랜덤 사진 공유 소셜 서비스"
+                bgColor="bg-[#F26027]"
+                textColor="text-white"
+                subtitleColor="text-white/80"
+                labelColor="text-white/60"
                 metaItems={[
                     { label: "OVERVIEW", value: "'찍고, 보내고, 받는다'는 3단계의 핵심 행동에만 집중하여, 복잡한 기능 없이 전 세계 사람들과 가볍고 유쾌하게 일상을 공유할 수 있습니다." },
                     { label: "SCOPE", value: ["UX 설계", "UI 화면설계", "약 6개월"] }
@@ -38,7 +42,7 @@ function Project06() {
                         <p className="text-[clamp(1.8rem,4.5vw,3.8rem)] font-semibold italic text-white leading-tight mb-4 md:mb-6">
                             "세상 사람들은<br />뭘하며 살까?"
                         </p>
-                        <p className="text-[13px] md:text-base text-white/70 max-w-xs md:max-w-sm leading-relaxed">
+                        <p className="text-[13px] md:text-base text-white max-w-xs md:max-w-sm leading-relaxed">
                             탈칵! 찍고 보내면 날아오는 심플한 사진 랜덤공유 서비스
                         </p>
                         <img
@@ -50,7 +54,7 @@ function Project06() {
                         />
                     </div>
                     <div className="flex-1 flex items-center justify-center px-6 py-8 md:py-16">
-                        <img src={imgM1} alt="TALKAK 앱 목업" className="w-full max-w-[380px] md:max-w-full object-contain" />
+                        <img src={imgM1} alt="TALKAK 앱 목업" className="w-full max-w-[380px] md:max-w-full object-contain mix-blend-screen" />
                     </div>
                 </div>
             </section>
@@ -62,7 +66,7 @@ function Project06() {
                     {/* OVERVIEW */}
                     <div className="flex flex-col gap-3">
                         <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#121212]">Overview</p>
-                        <p className="text-[13px] md:text-sm text-[#444] leading-relaxed">
+                        <p className="text-[13px] md:text-sm text-[#222] leading-relaxed">
                             "세상 사람들은 뭘 하며 살까?" 라는 질문에서 시작하게 된 심플한 랜덤 사진공유 서비스.<br />
                             찍고싶은 순간을 포착 전송하면 전세계 어딘가 날아가는 내 사진.<br />
                             그리고 받게되는 세계 어디선가 날아오는 한 장의 사진.<br />
@@ -96,7 +100,7 @@ function Project06() {
                                         className="w-10 h-10 rounded-sm flex-shrink-0"
                                         style={{ backgroundColor: bg, border: border ? '1px solid #121212' : 'none' }}
                                     />
-                                    <span className="text-[11px] font-mono text-[#444]">{label}</span>
+                                    <span className="text-[11px] font-mono text-[#222]">{label}</span>
                                 </div>
                             ))}
                         </div>
@@ -117,7 +121,7 @@ function Project06() {
                         </p>
                     </div>
 
-                    <p className="text-[12px] md:text-sm text-white/70 leading-relaxed">
+                    <p className="text-[12px] md:text-sm text-white/90 leading-relaxed">
                         "탈칵" 사진 찍을때 소리에서 따온 의성어를 직선 타이포로 표현
                     </p>
 
