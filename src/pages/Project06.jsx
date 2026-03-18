@@ -3,6 +3,7 @@ import { ProjectLayout, ProjectHeroExact } from '../components/ProjectLayout';
 
 import imgBg1 from '../images/project6-bg1.webp';
 import imgBg2 from '../images/project6-bg2.webp';
+import imgBg3 from '../images/project6-bg3.webp';
 import imgFc  from '../images/project6-fc.webp';
 import imgLg1 from '../images/project6-lg1.webp';
 import imgM1  from '../images/project6-m1.webp';
@@ -23,7 +24,7 @@ function Project06() {
             bgColor="bg-[#F26027]"
             textColor="text-white"
         >
-            {/* A - HeroExact */}
+            {/* 1 - Hero */}
             <ProjectHeroExact
                 title="세상 사람들은 뭘하며 살까?"
                 subtitle="심플한 랜덤 사진 공유 소셜 서비스"
@@ -40,10 +41,10 @@ function Project06() {
                 ]}
             />
 
-            {/* D - 개요 + 로고 시스템 split 섹션 */}
-            <section className="w-full flex flex-col md:flex-row">
+            {/* 2 - Overview + Logo System */}
+            <section className="w-full min-h-[100svh] flex flex-col md:flex-row">
                 {/* 좌측: 흰 배경 */}
-                <div className="flex-1 min-h-[400px] bg-white px-8 md:px-16 py-16 md:py-24 flex flex-col gap-10">
+                <div className="flex-1 bg-white px-8 md:px-16 py-16 md:py-24 flex flex-col gap-10 justify-center">
                     {/* OVERVIEW */}
                     <div className="flex flex-col gap-3">
                         <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#121212]">Overview</p>
@@ -89,10 +90,9 @@ function Project06() {
                 </div>
 
                 {/* 우측: 오렌지 배경 - Logo System */}
-                <div className="flex-1 min-h-[400px] bg-[#F26027] px-8 md:px-16 py-16 md:py-24 flex flex-col gap-8">
+                <div className="flex-1 bg-[#F26027] px-8 md:px-16 py-16 md:py-24 flex flex-col gap-8 justify-center">
                     <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white">Logo System</p>
 
-                    {/* 메인 로고: 아웃라인 타이포 (코드) */}
                     <div className="py-8 flex items-center">
                         <p
                             className="text-[clamp(3rem,8vw,7rem)] font-black tracking-tight text-transparent leading-none select-none"
@@ -106,50 +106,43 @@ function Project06() {
                         "탈칵" 사진 찍을때 소리에서 따온 의성어를 직선 타이포로 표현
                     </p>
 
-                    {/* 로고 변형 2종 */}
                     <div className="flex items-center gap-6 mt-auto">
-                        {/* 아웃라인 텍스트 로고 */}
                         <p
                             className="text-[1.4rem] md:text-[1.6rem] font-black tracking-tight text-transparent leading-none select-none"
                             style={{ WebkitTextStroke: '1.5px white' }}
                         >
                             TALKAK
                         </p>
-                        {/* 앱 아이콘 (다크 배경 내장) */}
                         <img src={imgLg1} alt="TALKAK 앱 아이콘" className="w-[72px] md:w-[88px] object-contain rounded-2xl" />
                     </div>
                 </div>
             </section>
 
-            {/* C - SO SIMPLE 섹션 */}
-            <section className="relative w-full min-h-[50vh] flex items-center justify-center py-20 overflow-hidden">
+            {/* 3 - Flow Chart */}
+            <section className="relative w-full min-h-[100svh] flex items-center overflow-hidden bg-[#0d0e10]">
+                <img src={imgBg2} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-50" />
+                <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 py-16 md:py-28">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white mb-10 md:mb-14">Flow Chart</p>
+                    <div className="bg-white/8 backdrop-blur-md rounded-2xl p-6 md:p-10 border border-white/10">
+                        <img src={imgFc} alt="TALKAK 플로우차트" className="w-full max-w-[900px] mx-auto object-contain" />
+                    </div>
+                </div>
+            </section>
+
+            {/* 4 - SO SIMPLE */}
+            <section className="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden">
                 <img src={imgBg1} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/50" />
                 <img src={imgT} alt="SO SIMPLE" className="relative z-10 w-[90%] md:w-[75%] max-w-[1000px] object-contain" />
             </section>
 
-            {/* F - SO SIMPLE 목업 섹션 */}
-            <section className="w-full bg-[#0d0e10]">
+            {/* 5 - 찍다/보내다/받다 + 목업 3단 */}
+            <section className="relative w-full min-h-[100svh] bg-[#1F1F1F] overflow-hidden flex flex-col">
+                {/* 배경: 세계지도 */}
+                <img src={imgBg3} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-20" />
 
-                {/* Part 1: SO SIMPLE 타이틀 + 센터 폰 */}
-                <div className="flex flex-col items-center px-6 pt-20 md:pt-32 pb-0">
-                    <h2
-                        className="text-[clamp(4rem,14vw,12rem)] font-black leading-[0.9] text-white text-center tracking-tight uppercase"
-                    >
-                        SO<br />SIMPLE
-                    </h2>
-                    <p className="text-white/50 text-[13px] md:text-sm mt-5 text-center">
-                        찍고 보내고 받는 심플한 사진 세계여행
-                    </p>
-                    <img
-                        src={imgMk1}
-                        alt="TALKAK 카메라 화면"
-                        className="mt-10 w-[200px] md:w-[260px] object-contain drop-shadow-2xl"
-                    />
-                </div>
-
-                {/* Part 2: 찍다 / 보내다 / 받다 */}
-                <div className="grid grid-cols-3 border-t border-white/10 mt-0">
+                {/* 찍다 / 보내다 / 받다 */}
+                <div className="relative z-10 grid grid-cols-3 border-b border-white/10">
                     {[
                         { title: '찍다',   lines: ['오?', '하늘이 예쁘다', '한장 찍자!'] },
                         { title: '보내다', lines: ['보내자!', '어디로 갈지 모를', '나의 사진'] },
@@ -161,58 +154,31 @@ function Project06() {
                         >
                             <p className="text-white text-base md:text-lg font-bold">{title}</p>
                             <div className="w-8 h-px bg-white/20" />
-                            <p className="text-white/45 text-[12px] md:text-sm leading-relaxed">
+                            <p className="text-white/50 text-[12px] md:text-sm leading-relaxed">
                                 {lines.map((l, j) => <span key={j}>{l}<br /></span>)}
                             </p>
                         </div>
                     ))}
                 </div>
 
-                {/* Part 3: 세계지도 도트 + 폰 콜라주 */}
-                <div className="relative w-full overflow-hidden bg-[#090a0b] border-t border-white/10">
-                    {/* 도트 장식 (오렌지 위치 핀) */}
-                    {[
-                        { top: '12%', left: '18%' }, { top: '28%', left: '35%' },
-                        { top: '18%', left: '62%' }, { top: '40%', left: '78%' },
-                        { top: '55%', left: '22%' }, { top: '65%', left: '50%' },
-                        { top: '75%', left: '70%' },
-                    ].map((pos, i) => (
-                        <div
-                            key={i}
-                            className="absolute w-2 h-2 rounded-full bg-[#F26027] opacity-60"
-                            style={{ top: pos.top, left: pos.left }}
-                        />
-                    ))}
+                {/* 목업 3열 */}
+                <div className="relative z-10 flex-1 flex items-start justify-center gap-4 md:gap-8 px-4 md:px-10 py-10 md:py-16">
 
-                    {/* 폰 목업 배치 */}
-                    <div className="relative flex justify-center items-start gap-3 md:gap-6 px-4 py-16 md:py-24">
-
-                        {/* 좌측 컬럼: mk3 + mk5 */}
-                        <div className="flex flex-col gap-4 md:gap-6 mt-10 md:mt-20 flex-shrink-0 w-[22%] max-w-[200px]">
-                            <img src={imgMk3} alt="" className="w-full object-contain drop-shadow-xl rounded-2xl" />
-                            <img src={imgMk5} alt="" className="w-full object-contain drop-shadow-xl rounded-2xl" />
-                        </div>
-
-                        {/* 센터: mk2 (tall) */}
-                        <div className="flex-shrink-0 w-[28%] max-w-[280px]">
-                            <img src={imgMk2} alt="" className="w-full object-contain drop-shadow-2xl rounded-2xl" />
-                        </div>
-
-                        {/* 우측 컬럼: mk4 */}
-                        <div className="flex flex-col gap-4 md:gap-6 mt-6 md:mt-12 flex-shrink-0 w-[22%] max-w-[200px]">
-                            <img src={imgMk4} alt="" className="w-full object-contain drop-shadow-xl rounded-2xl" />
-                        </div>
+                    {/* 좌열: mk5 (상) + mk3 (하) */}
+                    <div className="flex flex-col gap-4 md:gap-6 flex-1 max-w-[260px] mt-12 md:mt-20">
+                        <img src={imgMk5} alt="" className="w-full object-contain drop-shadow-xl rounded-2xl" />
+                        <img src={imgMk3} alt="" className="w-full object-contain drop-shadow-xl rounded-2xl" />
                     </div>
-                </div>
-            </section>
 
-            {/* E - 플로우차트 섹션 */}
-            <section className="relative w-full py-16 md:py-28 overflow-hidden bg-[#0d0e10]">
-                <img src={imgBg2} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-50" />
-                <div className="relative z-10 w-full px-6 md:px-12 lg:px-20">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white mb-10 md:mb-14">Flow Chart</p>
-                    <div className="bg-white/8 backdrop-blur-md rounded-2xl p-6 md:p-10 border border-white/10">
-                        <img src={imgFc} alt="TALKAK 플로우차트" className="w-full max-w-[900px] mx-auto object-contain" />
+                    {/* 중열: mk4 (단일) */}
+                    <div className="flex flex-col flex-1 max-w-[300px]">
+                        <img src={imgMk4} alt="" className="w-full object-contain drop-shadow-2xl rounded-2xl" />
+                    </div>
+
+                    {/* 우열: mk1 (상) + mk2 (하) */}
+                    <div className="flex flex-col gap-4 md:gap-6 flex-1 max-w-[260px] mt-6 md:mt-10">
+                        <img src={imgMk1} alt="" className="w-full object-contain drop-shadow-xl rounded-2xl" />
+                        <img src={imgMk2} alt="" className="w-full object-contain drop-shadow-xl rounded-2xl" />
                     </div>
                 </div>
             </section>
